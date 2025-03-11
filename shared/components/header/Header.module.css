@@ -1,0 +1,62 @@
+.headerWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 0;
+  z-index: 10;
+  color: white;
+  font-family: "MariupolRegular", sans-serif;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.shrink {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.navList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  list-style: none;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.navList li {
+  position: relative;
+  opacity: 0;
+}
+
+.navList li::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 50%;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navList li:hover::after {
+  width: 100%;
+}
+
+.telephone {
+  font-family: "MariupolMedium", sans-serif;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+}
+
+@media (max-width: 767px) {
+}
