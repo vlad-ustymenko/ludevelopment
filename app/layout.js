@@ -17,12 +17,11 @@ const MariupolMedium = localFont({
 });
 
 const MariupolRegular = localFont({
-  src: "../public/fonts/Mariupol-Medium.ttf",
+  src: "../public/fonts/Mariupol-Regular.ttf",
   weight: "400",
   style: "normal",
   display: "swap",
 });
-
 
 export const metadata = {
   title: "LineUp Development",
@@ -32,7 +31,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="uk">
-      <body className={`${MariupolBold.className} ${MariupolMedium.className} ${MariupolRegular.className}`}>
+      <body
+        className={`${MariupolBold.className} ${MariupolMedium.className} ${MariupolRegular.className}`}
+      >
         {children}
       </body>
     </html>
