@@ -1,0 +1,13 @@
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--accent);
+}
+
+.title,
+.number {
+  font-family: "MariupolBold", sans-serif;
+  font-size: 4vw;
+  line-height: 1.2;
+}
