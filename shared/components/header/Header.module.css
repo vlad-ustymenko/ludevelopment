@@ -18,7 +18,6 @@
 .shrink {
   background-color: rgba(0, 0, 0, 0.7);
 }
-
 .navList {
   display: flex;
   justify-content: space-between;

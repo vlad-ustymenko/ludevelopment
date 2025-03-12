@@ -47,7 +47,9 @@ const Header = () => {
     <div
       className={`${styles.headerWrapper} ${isScrolled ? styles.shrink : ""}`}
     >
-      <div className={styles.logo}>Logo</div>
+      <a href="#main" className={styles.logo}>
+        Logo
+      </a>
       {viewportWidth >= 1024 && (
         <nav className={styles.nav}>
           {/* Прикріплюємо реф до <ul> */}
