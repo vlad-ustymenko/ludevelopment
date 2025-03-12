@@ -1,5 +1,37 @@
-.container {
-  width: 100vw;
-  height: 100svh;
-  background-color: #fff9f0;
+.guarantees {
+  width: 100%;
+  background-color: #fdfbf8;
+  padding: 2rem 3rem;
+}
+
+.guaranteesContainer {
+  padding: 2rem 3rem;
+}
+
+.topBlocks {
+  border-bottom: 3px solid var(--accent);
+}
+
+.topBlocks,
+.bottomBlocks {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.divader {
+  width: 3px;
+  height: auto;
+  background-color: var(--accent);
+}
+.title {
+  font-family: "MariupolBold", sans-serif;
+  font-size: 13vw;
+  line-height: 1;
+}
+
+.subtitle {
+  font-family: "MariupolMedium", sans-serif;
+  font-size: 3vw;
 }
