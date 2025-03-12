@@ -1,7 +1,7 @@
-import Guarantees from "@/shared/components/guarantees/Guarantees";
-import styles from "./page.module.css";
-import Header from "@/shared/components/header/Header";
-import MainScreen from "@/shared/components/mainScreen/MainScreen";
+import Header from "@/shared/components/Header/Header";
+import MainScreen from "@/shared/components/MainScreen/MainScreen";
+import About from "@/shared/components/About/About";
+import Guarantees from "@/shared/components/Guarantees/Guarantees";
 
 export default function Home() {
   return (
@@ -10,6 +10,7 @@ export default function Home() {
       <main>
         <MainScreen />
         <Guarantees />
+        <About />
       </main>
     </>
   );

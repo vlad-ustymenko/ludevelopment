@@ -51,7 +51,7 @@ const MainScreen = () => {
 
   return (
     <>
-      <div className={styles.gradient}>
+      <div className={styles.gradient} id="main">
         <Image
           fill
           src="/images/mainScreen.webp"
