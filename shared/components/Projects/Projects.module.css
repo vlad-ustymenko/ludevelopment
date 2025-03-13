@@ -1,0 +1,88 @@
+.projects {
+  width: 100%;
+  padding: 2rem 3rem;
+}
+
+.sliderContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: auto; /* Дозволяє горизонтальну прокрутку */
+}
+
+.projectsGallery {
+  min-width: 100%;
+  height: 50vh;
+  display: flex;
+  gap: 1rem;
+}
+
+.projectsCard {
+  border-radius: 0.75rem;
+  cursor: pointer;
+  flex: 1;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  filter: grayscale(100%) contrast(1.2);
+  position: relative;
+}
+
+.projectsCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projectsCard:hover {
+  flex: 3;
+  filter: grayscale(0%) contrast(1);
+  z-index: 3;
+}
+
+.descriptionShadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  min-height: 200px;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.descriptionWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  opacity: 0;
+  transition: all 0.5s ease;
+  color: white;
+}
+
+.title {
+  font-family: "MariupolBold", sans-serif;
+  font-size: 1.1rem;
+}
+
+.description {
+  font-family: "MariupolRegular", sans-serif;
+}
+
+.projectsCard:hover .descriptionShadow {
+  opacity: 1;
+}
+
+.projectsCard:hover .descriptionWrapper {
+  bottom: 10px;
+  left: 10px;
+  opacity: 1;
+}
+
+.navButton {
+  width: 100px;
+  height: 100px;
+}
