@@ -81,11 +81,13 @@
 
 .title {
   font-family: "MariupolBold", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.7vw;
+  line-height: 1.2;
 }
 
 .description {
   font-family: "MariupolRegular", sans-serif;
+  font-size: 1.2vw;
 }
 
 .projectsCardGallary:hover .descriptionShadow {

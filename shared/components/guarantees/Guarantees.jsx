@@ -19,7 +19,7 @@ const Guarantees = () => {
   }, []);
   return (
     <div id="guarantees" className={styles.guarantees}>
-      <SectionTitle title="Гарантії" number="01" />
+      <SectionTitle title="Гарантії" number="01" color={"var(--background)"} />
       {windowWidth < 768 ? (
         <div className={styles.guaranteesContainerMobile}>
           <div className={styles.flexBlock}>

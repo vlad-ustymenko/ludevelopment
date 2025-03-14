@@ -107,6 +107,10 @@
   opacity: 0;
 }
 
+.button:hover {
+  background-color: #495ba3;
+}
+
 @media (min-width: 768px) and (max-width: 1279px) {
   .mainContentWrapper {
     width: fit-content;

@@ -82,7 +82,7 @@ const MainScreen = () => {
             </div>
           </div>
         </div>
-        <a href="#form" className={styles.button}>
+        <a href="#feedback" className={styles.button}>
           Консультація
         </a>
       </div>

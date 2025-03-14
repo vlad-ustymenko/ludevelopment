@@ -27,12 +27,14 @@
 }
 .title {
   font-family: "MariupolBold", sans-serif;
+  color: #242424;
   font-size: 11vw;
   line-height: 1;
 }
 
 .subtitle {
   font-family: "MariupolMedium", sans-serif;
+  font-size: var(--background);
   font-size: 2.5vw;
 }
 
