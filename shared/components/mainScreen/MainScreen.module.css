@@ -111,13 +111,9 @@
   .mainContentWrapper {
     width: fit-content;
   }
-}
-
-@media (max-width: 767px) {
   .container {
     align-items: flex-start;
-
-    padding: 220px 20px 20px 20px;
+    padding: 22rem 2rem;
   }
   .mainContentWrapper {
     width: 100%;
@@ -127,17 +123,47 @@
   }
 
   .subtitle {
-    font-size: 4.8vw;
+    font-size: 4.5vw;
   }
   .subcontentWrapper {
     font-size: 4vw;
+    margin-top: 3rem;
+  }
+
+  .price {
+    font-size: 5vw;
+  }
+  .line {
+    height: 11vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    align-items: flex-start;
+
+    padding: 12rem 1rem;
+  }
+  .mainContentWrapper {
+    width: 100%;
+  }
+  .title {
+    font-size: 13vw;
+  }
+
+  .subtitle {
+    font-size: 4.5vw;
+  }
+  .subcontentWrapper {
+    font-size: 4vw;
+    margin-top: 2rem;
   }
 
   .price {
     font-size: 5vw;
   }
   .button {
-    bottom: 120px;
+    bottom: 6rem;
     right: 50%;
     transform: translateX(50%);
     font-size: 1.5rem;
