@@ -1,4 +1,5 @@
 .headerWrapper {
+  -webkit-tap-highlight-color: transparent;
   position: fixed;
   top: 0;
   left: 0;
@@ -17,13 +18,19 @@
 .shrink {
   background-color: rgba(0, 0, 0, 0.7);
 }
+
+.logo {
+  position: relative;
+  width: 10vw;
+  height: 3vw;
+}
 .navList {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 3rem;
   list-style: none;
-  font-size: 1.2rem;
+  font-size: 1.5vw;
   position: relative;
 }
 
@@ -50,17 +57,25 @@
 
 .telephone {
   font-family: "MariupolMedium", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.8vw;
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
   .headerWrapper {
     padding: 1.5rem 2rem;
   }
+  .logo {
+    width: 22vw;
+    height: 8vw;
+  }
 }
 
 @media (max-width: 767px) {
   .headerWrapper {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
+  .logo {
+    width: 22vw;
+    height: 8vw;
   }
 }

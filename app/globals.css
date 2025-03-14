@@ -14,8 +14,11 @@ body {
 
 #guarantees,
 #about,
-#projects {
-  scroll-margin-top: 56px;
+#projects,
+#feedback,
+#services,
+#contacts {
+  scroll-margin-top: var(--header-height);
 }
 
 body {

@@ -2,13 +2,31 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+// import Logo from "../../../src/assets/logo.svg";
+// import SmallLogo from "../../../src/assets/smallLogo.svg";
 import styles from "./Header.module.css";
+import Image from "next/image";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(0);
+  const [headerHeight, setHeaderHeight] = useState(0);
 
   const navListRef = useRef(null);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    if (headerRef.current) {
+      const height = headerRef.current.offsetHeight;
+      setHeaderHeight(height);
+
+      // Оновлення змінної CSS в кореневому елементі
+      document.documentElement.style.setProperty(
+        "--header-height",
+        `${height}px`
+      );
+    }
+  }, [headerHeight]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,15 +58,22 @@ const Header = () => {
       } else {
         console.log("No elements found");
       }
-    }, 100);
+    }, 1);
   }, []);
 
   return (
     <div
       className={`${styles.headerWrapper} ${isScrolled ? styles.shrink : ""}`}
+      ref={headerRef}
     >
       <a href="#main" className={styles.logo}>
-        Logo
+        <Image
+          src="/smallLogo.svg"
+          fill
+          alt="Logo"
+          priority
+          className={styles.logoImage}
+        />
       </a>
       {viewportWidth >= 1024 && (
         <nav className={styles.nav}>

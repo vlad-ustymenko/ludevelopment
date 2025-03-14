@@ -3,6 +3,7 @@ import MainScreen from "@/shared/components/MainScreen/MainScreen";
 import About from "@/shared/components/About/About";
 import Guarantees from "@/shared/components/Guarantees/Guarantees";
 import Projects from "@/shared/components/Projects/Projects";
+import Feedback from "@/shared/components/Feedback/Feedback";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <MainScreen />
         <Guarantees />
         <About />
+        <Feedback />
         <Projects />
       </main>
     </>
