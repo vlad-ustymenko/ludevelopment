@@ -8,7 +8,7 @@
   flex-wrap: nowrap;
   gap: 1rem;
   overflow-x: hidden;
-  margin-top: 1rem;
+  margin: 2rem 0;
 }
 
 .projectsGallery {
@@ -98,7 +98,47 @@
   opacity: 1;
 }
 
+.buttonsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 .navButton {
-  width: 100px;
-  height: 100px;
+  cursor: pointer;
+  padding: 10px;
+  background-color: white;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dotList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .projects {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .projects {
+    padding: 1.5rem;
+  }
 }

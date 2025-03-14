@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 import styles from "./Projects.module.css";
 
 const projectsData = [
@@ -68,9 +69,11 @@ const projectsData = [
 
 const Projects = () => {
   const [index, setIndex] = useState(0);
+  const [dotIndex, setDotIndex] = useState(0);
   const sliderRefFirst = useRef(null);
   const cardRef = useRef(null);
   const [cardWidth, setCardWidth] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     if (cardRef.current) {
@@ -93,40 +96,52 @@ const Projects = () => {
   }, [cardWidth]);
 
   const nextSlide = () => {
-    if (index >= projectsData.length - 6) {
+    if (index >= projectsData.length - 6 || isAnimating) {
       return; // Зупиняємо прокрутку, якщо досягли останньої можливої позиції
     }
-
+    setIsAnimating(true);
     sliderRefFirst.current.scrollBy({
       left: cardWidth + 16,
       behavior: "smooth",
     });
 
+    setDotIndex((prevIndex) => prevIndex + 1);
+
     setTimeout(() => {
       setIndex((prevIndex) => prevIndex + 1);
       sliderRefFirst.current.scrollLeft = cardWidth + 16;
+      setIsAnimating(false);
     }, 500);
   };
 
   const prevSlide = () => {
-    if (index > 0) {
-      sliderRefFirst.current.scrollBy({
-        left: -cardWidth - 16,
-        behavior: "smooth",
-      });
-
-      setTimeout(() => {
-        setIndex((prevIndex) => prevIndex - 1);
-        sliderRefFirst.current.scrollLeft = cardWidth + 16;
-      }, 500);
+    if (index <= 0 || isAnimating) {
+      return;
     }
-  };
 
-  console.log(index);
+    setIsAnimating(true);
+    sliderRefFirst.current.scrollBy({
+      left: -cardWidth - 16,
+      behavior: "smooth",
+    });
+
+    setDotIndex((prevIndex) => prevIndex - 1);
+
+    setTimeout(() => {
+      setIndex((prevIndex) => prevIndex - 1);
+      sliderRefFirst.current.scrollLeft = cardWidth + 16;
+      setIsAnimating(false);
+    }, 500);
+  };
 
   return (
     <div id="projects" className={styles.projects}>
-      <SectionTitle title="Проекти" number="04" color="white" />
+      <SectionTitle
+        title="Проекти"
+        number="04"
+        color="white"
+        lineColor="var(--secondAccent)"
+      />
 
       <div className={styles.sliderContainer} ref={sliderRefFirst}>
         <div className={styles.projectsCard} style={{ minWidth: cardWidth }}>
@@ -175,12 +190,42 @@ const Projects = () => {
         </div>
       </div>
 
-      <button className={styles.navButton} onClick={prevSlide}>
-        &lt;
-      </button>
-      <button className={styles.navButton} onClick={nextSlide}>
-        &gt;
-      </button>
+      <div className={styles.buttonsWrapper}>
+        <button
+          className={styles.navButton}
+          onClick={prevSlide}
+          disabled={index === 0}
+        >
+          <ChevronLeft width={30} height={30} />
+        </button>
+        <ul className={styles.dotList}>
+          {Array.from({ length: projectsData.length - 5 }).map(
+            (project, idx) => (
+              <li
+                key={idx}
+                className={styles.dot}
+                style={{
+                  backgroundColor:
+                    dotIndex === idx ? "var(--secondAccent)" : "white",
+                }}
+              >
+                {project}
+              </li>
+            )
+          )}
+        </ul>
+        <button
+          className={styles.navButton}
+          onClick={nextSlide}
+          disabled={index === projectsData.length - 6}
+        >
+          <ChevronRight
+            width={30}
+            height={30}
+            style={{ transform: "translateX(3px)" }}
+          />
+        </button>
+      </div>
     </div>
   );
 };

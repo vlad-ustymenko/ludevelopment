@@ -55,12 +55,12 @@
 
 @media (min-width: 768px) and (max-width: 1279px) {
   .headerWrapper {
-    padding: 2rem 3rem;
+    padding: 1.5rem 2rem;
   }
 }
 
 @media (max-width: 767px) {
   .headerWrapper {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 }

@@ -11,3 +11,10 @@
   font-size: 4vw;
   line-height: 1.2;
 }
+
+@media (max-width: 767px) {
+  .title,
+  .number {
+    font-size: 8vw;
+  }
+}

@@ -67,8 +67,15 @@
   font-size: 4vw;
   line-height: 1;
 }
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .guarantees {
+    padding: 2rem;
+  }
+}
+
 @media (max-width: 767px) {
   .guarantees {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
   }
 }
