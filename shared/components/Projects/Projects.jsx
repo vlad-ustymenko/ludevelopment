@@ -10,11 +10,6 @@ const projectsData = [
     description: "Загальна площа – 300 м2",
   },
   {
-    img: "/images/projects/1.jpg",
-    title: "2022 – 2023 Ходосівка",
-    description: "Загальна площа – 300 м2",
-  },
-  {
     img: "/images/projects/2.jpg",
     title: "2020 – 2023 Гатне",
     description: "Загальна площа – 320 м2",
@@ -69,11 +64,6 @@ const projectsData = [
     title: "2015 – 2017 Обухів",
     description: "Загальна площа – 630 м2",
   },
-  {
-    img: "/images/projects/1.jpg",
-    title: "2015 – 2017 Обухів",
-    description: "Загальна площа – 630 м2",
-  },
 ];
 
 const Projects = () => {
@@ -93,15 +83,17 @@ const Projects = () => {
 
   useEffect(() => {
     if (sliderRefFirst.current && cardWidth > 0) {
-      sliderRefFirst.current.scrollBy({
-        left: cardWidth + 16,
-        behavior: "smooth",
-      });
+      setTimeout(() => {
+        sliderRefFirst.current.scrollBy({
+          left: cardWidth + 16,
+          behavior: "smooth",
+        });
+      }, 500);
     }
   }, [cardWidth]);
 
   const nextSlide = () => {
-    if (index >= projectsData.length - 7) {
+    if (index >= projectsData.length - 6) {
       return; // Зупиняємо прокрутку, якщо досягли останньої можливої позиції
     }
 
@@ -135,11 +127,25 @@ const Projects = () => {
   return (
     <div id="projects" className={styles.projects}>
       <SectionTitle title="Проекти" number="04" color="white" />
+
       <div className={styles.sliderContainer} ref={sliderRefFirst}>
-        {/* Перша галерея */}
+        <div className={styles.projectsCard} style={{ minWidth: cardWidth }}>
+          <img
+            src={projectsData[index > 0 ? index - 1 : 0].img}
+            alt={projectsData[index].title}
+          />
+          <div className={styles.descriptionShadow}>
+            <div className={styles.descriptionWrapper}>
+              <p className={styles.title}>{projectsData[index].title}</p>
+              <p className={styles.description}>
+                {projectsData[index].description}
+              </p>
+            </div>
+          </div>
+        </div>
         <div className={styles.projectsGallery}>
           {projectsData.slice(index, index + 6).map((project, idx) => (
-            <div key={idx} ref={cardRef} className={styles.projectsCard}>
+            <div key={idx} ref={cardRef} className={styles.projectsCardGallary}>
               <img src={project.img} alt={project.title} />
               <div className={styles.descriptionShadow}>
                 <div className={styles.descriptionWrapper}>
@@ -151,25 +157,21 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Друга галерея (ідентична першій) */}
-        <div className={styles.projectsGallery}>
-          {Array.from({ length: 6 }).map((_, i) => {
-            // Починаємо з останнього елемента першої галереї
-
-            const project = projectsData[index + 7];
-
-            return (
-              <div key={project + i} className={styles.projectsCard}>
-                <img src={project.img} alt={project.title} />
-                <div className={styles.descriptionShadow}>
-                  <div className={styles.descriptionWrapper}>
-                    <p className={styles.title}>{project.title}</p>
-                    <p className={styles.description}>{project.description}</p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        <div className={styles.projectsCard} style={{ minWidth: cardWidth }}>
+          <img
+            src={
+              projectsData[index > 5 ? projectsData.length - 1 : index + 6].img
+            }
+            alt={projectsData[index].title}
+          />
+          <div className={styles.descriptionShadow}>
+            <div className={styles.descriptionWrapper}>
+              <p className={styles.title}>{projectsData[index].title}</p>
+              <p className={styles.description}>
+                {projectsData[index].description}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
