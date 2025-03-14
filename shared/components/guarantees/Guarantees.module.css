@@ -27,11 +27,48 @@
 }
 .title {
   font-family: "MariupolBold", sans-serif;
-  font-size: 13vw;
+  font-size: 11vw;
   line-height: 1;
 }
 
 .subtitle {
   font-family: "MariupolMedium", sans-serif;
-  font-size: 3vw;
+  font-size: 2.5vw;
+}
+
+.guaranteesContainerMobile {
+  padding-top: 1.5rem;
+}
+
+.guaranteesContainerMobile .flexBlock:last-child {
+  border-bottom: none;
+}
+
+.flexBlock {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  border-bottom: 3px solid var(--accent);
+}
+
+.blockMobile {
+  padding: 1rem;
+  white-space: nowrap;
+}
+.titleMobile {
+  font-family: "MariupolBold", sans-serif;
+  font-size: 20vw;
+  line-height: 0.7;
+}
+
+.subtitleMobile {
+  font-family: "MariupolMedium", sans-serif;
+
+  font-size: 4vw;
+  line-height: 1;
+}
+@media (max-width: 767px) {
+  .guarantees {
+    padding: 2rem 1.5rem;
+  }
 }
