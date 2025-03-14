@@ -6,7 +6,12 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 const About = () => {
   return (
     <div id="about" className={styles.container}>
-      <SectionTitle title="Про нас" number="02" color="white"></SectionTitle>
+      <SectionTitle
+        title="Про нас"
+        number="02"
+        color="white"
+        lineColor="var(--secondAccent)"
+      ></SectionTitle>
       <div className={styles.aboutWrapper}>
         <div className={styles.content}>
           <h2 className={styles.title}>
