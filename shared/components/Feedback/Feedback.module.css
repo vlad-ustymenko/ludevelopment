@@ -1,0 +1,146 @@
+.container {
+  width: 100%;
+  background-color: #fdfbf8;
+  padding: 3rem;
+}
+
+.formWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  padding: 3rem 2rem;
+}
+
+.input {
+  font-family: "MariupolRegular", sans-serif;
+  width: 100%;
+  font-size: 1.5rem;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid var(--accent);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  outline: none;
+  position: relative;
+}
+.input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px #fcfbf7 inset !important; /* Білий фон */
+  -webkit-text-fill-color: black !important; /* Колір тексту */
+}
+
+.label {
+  position: relative;
+  flex: 1;
+}
+
+.required::after {
+  content: "*Обов'язкове поле";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  color: red;
+}
+
+.input::placeholder {
+  font-family: "MariupolRegular", sans-serif;
+  font-size: 1.5rem;
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  gap: 86px;
+  padding: 0 2rem;
+}
+
+.personalDataWrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.personalDataCheckbox {
+  cursor: pointer;
+  min-width: 24px;
+  min-height: 24px;
+  border: 2px solid #c5c5c5;
+  margin-right: 24px;
+}
+
+.active {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border: none;
+  margin-right: 24px;
+}
+
+.personalDataText {
+  font-size: 14px;
+}
+
+.personalDataLink {
+  text-decoration: underline;
+  color: var(--accent);
+  margin-left: 5px;
+}
+
+.button {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  padding: 1.5rem 2rem;
+  color: white;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 5px;
+  font-family: "MariupolMedium", sans-serif;
+  font-size: 2rem;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #495ba3;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .container {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 1.5rem;
+  }
+  .formWrapper {
+    flex-direction: column;
+    padding: 2rem 0;
+    gap: 1rem;
+  }
+
+  .input {
+    font-size: 1.2rem;
+  }
+  .input::placeholder {
+    font-size: 1.2rem;
+  }
+
+  .label {
+    width: 100%;
+  }
+  .buttonWrapper {
+    flex-direction: column;
+    padding: 0;
+    gap: 2rem;
+  }
+  .button {
+    font-size: 1.2rem;
+  }
+
+  .button:hover {
+    opacity: 0.9;
+  }
+}
