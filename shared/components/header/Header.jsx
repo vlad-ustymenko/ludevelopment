@@ -4,13 +4,17 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 // import Logo from "../../../src/assets/logo.svg";
 // import SmallLogo from "../../../src/assets/smallLogo.svg";
+import { useMenuContext } from "../../../context/MenuContext";
+
 import styles from "./Header.module.css";
 import Image from "next/image";
+import MenuBtn from "../MenuBtn/MenuBtn";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
+  const { activeMenu, setActiveMenu } = useMenuContext();
 
   const navListRef = useRef(null);
   const headerRef = useRef(null);
@@ -63,10 +67,18 @@ const Header = () => {
 
   return (
     <div
-      className={`${styles.headerWrapper} ${isScrolled ? styles.shrink : ""}`}
+      className={
+        activeMenu
+          ? `${styles.headerWrapper} `
+          : `${styles.headerWrapper} ${isScrolled ? styles.shrink : ""}`
+      }
       ref={headerRef}
     >
-      <a href="#main" className={styles.logo}>
+      <a
+        href="#main"
+        className={styles.logo}
+        onClick={() => setActiveMenu(false)}
+      >
         <Image
           src="/smallLogo.svg"
           fill
@@ -75,9 +87,8 @@ const Header = () => {
           className={styles.logoImage}
         />
       </a>
-      {viewportWidth >= 1024 && (
+      {viewportWidth >= 1280 && (
         <nav className={styles.nav}>
-          {/* Прикріплюємо реф до <ul> */}
           <ul className={styles.navList} ref={navListRef}>
             <li>
               <a href="#guarantees" className={styles.navLink}>
@@ -112,7 +123,7 @@ const Header = () => {
           0800 333 333
         </a>
       )}
-      {viewportWidth < 1024 && <div>button</div>}
+      {viewportWidth < 1280 && <MenuBtn />}
     </div>
   );
 };

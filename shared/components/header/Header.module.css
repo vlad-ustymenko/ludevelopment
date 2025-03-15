@@ -56,7 +56,8 @@
 }
 
 .telephone {
-  font-family: "MariupolMedium", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+
   font-size: 1.8vw;
 }
 
@@ -67,6 +68,9 @@
   .logo {
     width: 22vw;
     height: 8vw;
+  }
+  .telephone {
+    font-size: 4vw;
   }
 }
 
