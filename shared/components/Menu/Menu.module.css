@@ -1,0 +1,73 @@
+.nav {
+  position: fixed;
+  background: var(--background);
+  top: 100%;
+  left: 0;
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.75s cubic-bezier(0.71, 0.01, 0.24, 0.99);
+  font-family: "MariupolMedium", sans-serif;
+  z-index: 3;
+  color: white;
+}
+
+.navList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15vw;
+}
+
+.navList li {
+  text-align: center;
+  overflow: hidden;
+}
+
+.active {
+  top: 0;
+  transition-delay: 0s;
+}
+
+.active .navLink {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+.navLink {
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  width: max-content;
+  font-size: 8vw;
+  padding: 10px;
+  letter-spacing: 3px;
+  transform: translateY(50px);
+  animation: unset;
+}
+
+.telephone {
+  -webkit-tap-highlight-color: transparent;
+  font-size: 8vw;
+  margin-bottom: 20vw;
+}
+
+@media (min-width: 1280px) {
+  .nav {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .telephone {
+    margin-bottom: 15vw;
+  }
+  .navList {
+    gap: 6vw;
+  }
+}
