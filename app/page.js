@@ -4,6 +4,7 @@ import About from "@/shared/components/About/About";
 import Guarantees from "@/shared/components/Guarantees/Guarantees";
 import Projects from "@/shared/components/Projects/Projects";
 import Feedback from "@/shared/components/Feedback/Feedback";
+import Menu from "@/shared/components/Menu/Menu";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Feedback />
         <Projects />
       </main>
+      <Menu />
     </>
   );
 }
