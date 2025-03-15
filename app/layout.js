@@ -1,4 +1,6 @@
 import localFont from "next/font/local";
+import { MenuProvider } from "@/context/MenuContext";
+
 import "./globals.css";
 
 const MariupolBold = localFont({
@@ -50,7 +52,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${MariupolBold.className} ${MariupolMedium.className} ${MariupolRegular.className}`}
       >
-        {children}
+        <MenuProvider>{children}</MenuProvider>
       </body>
     </html>
   );
