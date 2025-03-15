@@ -1,0 +1,59 @@
+.menuBtn {
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+  background-color: transparent;
+  border: none;
+}
+
+.active {
+  transform: rotate(45deg);
+}
+
+.active span:first-child {
+  transform: rotate(90deg) translateX(-3px);
+}
+
+.active span:last-child {
+  transform: rotate(90deg) translateX(3px);
+}
+
+.menuBtn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 7px 0;
+  background: white;
+  transition: 0.25s ease-in-out;
+}
+
+.menuBtn span:first-child {
+  width: 12px;
+  margin-left: auto;
+  transform-origin: left;
+}
+
+.menuBtn span:last-child {
+  width: 12px;
+  transform-origin: right;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .menuBtn span {
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin: 15px 0;
+    background: white;
+    transition: 0.25s ease-in-out;
+  }
+  .menuBtn span:first-child {
+    width: 20px;
+    margin-left: auto;
+    transform-origin: left;
+  }
+
+  .menuBtn span:last-child {
+    width: 20px;
+    transform-origin: right;
+  }
+}
