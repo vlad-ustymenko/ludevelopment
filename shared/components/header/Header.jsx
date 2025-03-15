@@ -5,6 +5,7 @@ import gsap from "gsap";
 // import Logo from "../../../src/assets/logo.svg";
 // import SmallLogo from "../../../src/assets/smallLogo.svg";
 import { useMenuContext } from "../../../context/MenuContext";
+import { useViewportWidthContext } from "../../../context/ViewportWidthContext";
 
 import styles from "./Header.module.css";
 import Image from "next/image";
@@ -12,9 +13,10 @@ import MenuBtn from "../MenuBtn/MenuBtn";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [viewportWidth, setViewportWidth] = useState(0);
+  // const [viewportWidth, setViewportWidth] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
   const { activeMenu, setActiveMenu } = useMenuContext();
+  const { viewportWidth, setViewportWidth } = useViewportWidthContext();
 
   const navListRef = useRef(null);
   const headerRef = useRef(null);
