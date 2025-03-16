@@ -1,7 +1,7 @@
 .guarantees {
   width: 100%;
   background-color: #fdfbf8;
-  padding: 3rem;
+  padding: 3.5vw;
 }
 
 .guaranteesContainer {
@@ -9,7 +9,7 @@
 }
 
 .topBlocks {
-  border-bottom: 3px solid var(--accent);
+  border-bottom: 0.3vw solid var(--accent);
 }
 
 .topBlocks,
@@ -21,7 +21,7 @@
 }
 
 .divader {
-  width: 3px;
+  width: 0.3vw;
   height: auto;
   background-color: var(--accent);
 }
@@ -50,7 +50,7 @@
   display: flex;
   justify-content: center;
   align-items: stretch;
-  border-bottom: 3px solid var(--accent);
+  border-bottom: 0.3vw solid var(--accent);
 }
 
 .blockMobile {
@@ -71,13 +71,19 @@
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-  .guarantees {
-    padding: 2rem;
-  }
 }
 
 @media (max-width: 767px) {
   .guarantees {
-    padding: 1.5rem;
+    padding: 5vw;
+  }
+  .topBlocks {
+    border-bottom: 0.8vw solid var(--accent);
+  }
+  .divader {
+    width: 0.8vw;
+  }
+  .flexBlock {
+    border-bottom: 0.8vw solid var(--accent);
   }
 }

@@ -223,6 +223,7 @@ const Projects = () => {
         number="04"
         color="white"
         lineColor="var(--secondAccent)"
+				
       />
 
       <div className={styles.sliderContainer} ref={sliderRefFirst}>

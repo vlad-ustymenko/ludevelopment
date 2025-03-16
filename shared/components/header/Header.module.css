@@ -10,7 +10,7 @@
   z-index: 10;
   color: white;
   font-family: "MariupolRegular", sans-serif;
-  padding: 1rem 3rem;
+  padding: 1.2vw 3.5vw;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
@@ -62,9 +62,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-  .headerWrapper {
-    padding: 1.5rem 2rem;
-  }
   .logo {
     width: 22vw;
     height: 8vw;
@@ -76,7 +73,7 @@
 
 @media (max-width: 767px) {
   .headerWrapper {
-    padding: 1rem 1.5rem;
+    padding: 2.5vw 6vw;
   }
   .logo {
     width: 22vw;

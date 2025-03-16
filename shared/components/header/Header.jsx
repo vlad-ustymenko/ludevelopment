@@ -6,7 +6,6 @@ import gsap from "gsap";
 // import SmallLogo from "../../../src/assets/smallLogo.svg";
 import { useMenuContext } from "../../../context/MenuContext";
 import { useViewportWidthContext } from "../../../context/ViewportWidthContext";
-
 import styles from "./Header.module.css";
 import Image from "next/image";
 import MenuBtn from "../MenuBtn/MenuBtn";

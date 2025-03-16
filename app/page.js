@@ -5,6 +5,8 @@ import Guarantees from "@/shared/components/Guarantees/Guarantees";
 import Projects from "@/shared/components/Projects/Projects";
 import Feedback from "@/shared/components/Feedback/Feedback";
 import Menu from "@/shared/components/Menu/Menu";
+import Services from "@/shared/components/Services/Services";
+import Contacts from "@/shared/components/Contacts/Contacts";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
         <About />
         <Feedback />
         <Projects />
+        <Services />
+        <Contacts />
       </main>
       <Menu />
     </>

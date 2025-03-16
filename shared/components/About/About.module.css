@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  padding: 3rem;
+  padding: 3.5vw;
   color: white;
 }
 
@@ -55,7 +55,7 @@
 
 @media (max-width: 767px) {
   .container {
-    padding: 1.5rem;
+    padding: 5vw;
   }
   .aboutWrapper {
     flex-direction: column;
