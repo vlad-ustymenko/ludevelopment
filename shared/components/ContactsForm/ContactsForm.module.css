@@ -1,0 +1,109 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #303030;
+  padding: 2vw;
+  border-radius: 1vw;
+  color: white;
+  box-shadow: 10px 10px 40px hsla(0, 0%, 0%, 0.4);
+}
+
+.formWrapper {
+  margin: 0 0 2vw 0;
+  width: 100%;
+}
+
+.formLabel {
+  display: block;
+  font-size: 1.5vw;
+  font-weight: 800;
+  margin: 0 0 1vw 0;
+}
+
+.formInputWrapper {
+  position: relative;
+}
+
+.formIcon {
+  position: absolute;
+  width: 1.7vw;
+  height: 1.7vw;
+  top: 0.7vw;
+  left: 0.7vw;
+  color: hsl(0, 0%, 62%);
+}
+
+.formInputField {
+  width: 100%;
+  padding: 0.7vw 0.7vw 0.7vw 3vw;
+  border-radius: 1rem;
+  color: var(--secondAccent);
+  font-size: 1.7vw;
+  background: var(--background);
+}
+
+textarea.formInputField {
+  height: clamp(5vw, 8vw, 10vw);
+  overflow: auto;
+  resize: none;
+}
+
+.formInputField:focus {
+  border: 1px solid var(--secondAccent);
+}
+
+.formInputField:focus + .formIcon {
+  color: var(--secondAccent);
+}
+
+.formButton {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  padding: 2vw 3vw;
+  color: white;
+  background-color: var(--secondAccent);
+  border: none;
+  border-radius: 0.8vw;
+  font-family: "MariupolMedium", sans-serif;
+  font-size: 2.3vw;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.formButton:hover {
+  background-color: #ffa32b;
+}
+
+@media (max-width: 767px) {
+  .form {
+    padding: 6vw;
+    border-radius: 3vw;
+  }
+  .formWrapper {
+    margin: 0 0 6vw 0;
+  }
+  .formLabel {
+    font-size: 4vw;
+    margin: 0 0 3vw 0;
+  }
+  .formIcon {
+    width: 5vw;
+    height: 5vw;
+    top: 2vw;
+    left: 2vw;
+  }
+  .formInputField {
+    padding: 2vw 2vw 2vw 9vw;
+    border-radius: 3vw;
+    font-size: 6vw;
+  }
+  textarea.formInputField {
+    height: clamp(50vw, 70vw, 90vw);
+  }
+  .formButton {
+    padding: 5vw 10vw;
+    border-radius: 1.5vw;
+    font-size: 5vw;
+  }
+}
