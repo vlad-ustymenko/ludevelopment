@@ -34,8 +34,22 @@
   flex: 1;
 }
 
+.inputError {
+  border-bottom: 0.2vw solid red;
+}
+
 .required::after {
   content: "*Обов'язкове поле";
+  position: absolute;
+  bottom: -0.5vw;
+  left: 0;
+  width: 100%;
+  font-size: 1.3vw;
+  color: red;
+}
+
+.required:nth-child(3):after {
+  content: "*Обов'язкове поле. 10 цифр";
   position: absolute;
   bottom: -0.5vw;
   left: 0;
@@ -63,6 +77,9 @@
 }
 
 .personalDataCheckbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   min-width: 2vw;
   min-height: 2vw;
@@ -71,11 +88,14 @@
 }
 
 .active {
-  cursor: pointer;
+  border: none;
+}
+
+.checked {
   width: 2vw;
   height: 2vw;
-  border: none;
-  margin-right: 2vw;
+  color: white;
+  background-color: var(--accent);
 }
 
 .personalDataText {
@@ -117,13 +137,48 @@
     gap: 1rem;
   }
 
+  .personalDataCheckbox {
+    position: relative;
+    cursor: pointer;
+    min-width: 5vw;
+    min-height: 5vw;
+    border: 0.5vw solid #c5c5c5;
+    margin-right: 5vw;
+  }
+  .checked {
+    width: 5vw;
+    height: 5vw;
+    color: white;
+    background-color: var(--accent);
+  }
+
+  .active {
+    border: none;
+  }
+  .personalDataText {
+    font-size: 4vw;
+  }
+
   .input {
     font-size: 1.2rem;
+    border-bottom: 0.6vw solid var(--accent);
   }
   .input::placeholder {
     font-size: 1.2rem;
   }
-
+  .required::after {
+    bottom: -2.5vw;
+    left: 0;
+    font-size: 4vw;
+  }
+  .required:nth-child(3):after {
+    bottom: -2.5vw;
+    left: 0;
+    font-size: 4vw;
+  }
+  .inputError {
+    border-bottom: 0.6vw solid red;
+  }
   .label {
     width: 100%;
   }

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import Checkbox from "../../../src/assets/checkbox.svg";
+import { Check } from "lucide-react";
 import styles from "./Feedback.module.css";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
@@ -12,15 +12,45 @@ const Feedback = () => {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Форма відправлена:", data);
+  const onSubmit = async (data) => {
+    if (!activeCheckbox) {
+      alert("Ви повинні погодитися на обробку персональних даних!");
+      return;
+    }
+
+    try {
+      setSending(true);
+      const formData = { ...data };
+      const response = await fetch("/api/sendMail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        reset();
+        setActiveCheckbox(false);
+        // setActiveFormModal(false);
+      } else {
+        alert("Помилка при відправці форми.");
+      }
+    } catch (error) {
+      console.error("Помилка:", error);
+      alert("Щось пішло не так. Спробуйте пізніше.");
+      // setActiveFormModal(false);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
-    <div id="feedback" className={styles.container}>
+    <section id="feedback" className={styles.container}>
       <SectionTitle
         title="Зворотній зв'язок"
         number="03"
@@ -38,7 +68,9 @@ const Feedback = () => {
             render={({ field }) => (
               <input
                 {...field}
-                className={styles.input}
+                className={`${styles.input} ${
+                  errors.name && styles.inputError
+                }`}
                 id="name"
                 autoComplete="name"
                 placeholder="Ім’я*"
@@ -49,7 +81,33 @@ const Feedback = () => {
                   );
                   field.onChange(value);
                 }}
-                style={{ borderBottom: errors.name ? "2px solid red" : "" }}
+              />
+            )}
+          />
+        </label>
+        <label
+          className={`${styles.label} ${errors.email ? styles.required : ""}`}
+        >
+          <Controller
+            name="email"
+            control={control}
+            defaultValue=""
+            rules={{
+              required: "Це поле обов’язкове",
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: "Невірний формат email",
+              },
+            }}
+            render={({ field }) => (
+              <input
+                className={`${styles.input} ${
+                  errors.email && styles.inputError
+                }`}
+                {...field}
+                id="email"
+                autoComplete="email"
+                placeholder="Email"
               />
             )}
           />
@@ -64,24 +122,81 @@ const Feedback = () => {
             defaultValue=""
             rules={{
               required: "Це поле обов’язкове",
-              pattern: { value: /^\d{10}$/, message: "Некоректний номер" },
+              pattern: {
+                value: /^\+38 \(0\d{2}\) \d{3}-\d{2}-\d{2}$/,
+                message: "Некоректний номер",
+              },
             }}
-            render={({ field }) => (
-              <input
-                {...field}
-                className={styles.input}
-                id="phone"
-                autoComplete="tel"
-                type="tel"
-                placeholder="Телефон*: 0XX1112233"
-                maxLength={10}
-                style={{ borderBottom: errors.phone ? "2px solid red" : "" }}
-                onChange={(e) => {
-                  const value = e.target.value.replace(/\D/g, "").slice(0, 10);
-                  field.onChange(value);
-                }}
-              />
-            )}
+            render={({ field }) => {
+              const [isFocused, setIsFocused] = useState(false);
+
+              const formatPhoneNumber = (input) => {
+                // Видаляємо всі нецифрові символи
+                let numbers = input.replace(/\D/g, "");
+
+                if (numbers.length === 0) return "";
+
+                // Додаємо початковий код країни
+                let formatted = "+38 (0";
+
+                // Додаємо код оператора (XXX)
+                if (numbers.length > 3) {
+                  formatted += numbers.slice(3, 5);
+                }
+
+                // Додаємо першу групу (XXX)
+                if (numbers.length > 5) {
+                  formatted += ") " + numbers.slice(5, 8);
+                }
+
+                // Додаємо другу групу (XX)
+                if (numbers.length > 8) {
+                  formatted += "-" + numbers.slice(8, 10);
+                }
+
+                // Додаємо третю групу (XX)
+                if (numbers.length > 10) {
+                  formatted += "-" + numbers.slice(10, 12);
+                }
+
+                return formatted;
+              };
+
+              const handleChange = (e) => {
+                const rawValue = e.target.value;
+                field.onChange(formatPhoneNumber(rawValue));
+              };
+
+              const handleFocus = () => {
+                setIsFocused(true);
+                if (!field.value) {
+                  field.onChange("+38 (0");
+                }
+              };
+
+              const handleBlur = () => {
+                setIsFocused(false);
+                if (field.value === "+38 (0") {
+                  field.onChange("");
+                }
+              };
+
+              return (
+                <input
+                  {...field}
+                  className={`${styles.input} ${
+                    errors.email && styles.inputError
+                  }`}
+                  type="tel"
+                  autoComplete="tel"
+                  placeholder="+38 (0__) ___-__-__"
+                  maxLength={19}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                />
+              );
+            }}
           />
         </label>
 
@@ -101,7 +216,6 @@ const Feedback = () => {
         </label>
       </form>
 
-      {/* Кнопка під формою */}
       <div className={styles.buttonWrapper}>
         <div className={styles.personalDataWrapper}>
           <div
@@ -110,13 +224,7 @@ const Feedback = () => {
             }`}
             onClick={() => setActiveCheckbox(!activeCheckbox)}
           >
-            {activeCheckbox && (
-              <Checkbox
-                width={24}
-                height={24}
-                style={{ fill: "var(--accent)" }}
-              />
-            )}
+            {activeCheckbox && <Check className={styles.checked} />}
           </div>
           <p className={styles.personalDataText}>
             Даю згоду на обробку
@@ -138,7 +246,7 @@ const Feedback = () => {
           {sending ? "Відправка..." : "Замовити проект"}
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 
