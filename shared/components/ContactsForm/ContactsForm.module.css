@@ -57,6 +57,52 @@ textarea.formInputField {
   color: var(--secondAccent);
 }
 
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  gap: 86px;
+  padding: 0 2.5vw;
+}
+
+.personalDataWrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-bottom: 2vw;
+}
+
+.personalDataCheckbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-width: 2vw;
+  min-height: 2vw;
+  border: 0.2vw solid #c5c5c5;
+  margin-right: 2vw;
+}
+
+.active {
+  border: none;
+}
+
+.checked {
+  width: 2vw;
+  height: 2vw;
+  color: white;
+  background-color: var(--secondAccent);
+}
+
+.personalDataText {
+  font-size: 1.2vw;
+}
+
+.personalDataLink {
+  text-decoration: underline;
+  color: var(--secondAccent);
+  margin-left: 0.7vw;
+}
+
 .formButton {
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
@@ -105,5 +151,29 @@ textarea.formInputField {
     padding: 5vw 10vw;
     border-radius: 1.5vw;
     font-size: 5vw;
+  }
+  .personalDataWrapper {
+    margin-bottom: 8vw;
+  }
+  .personalDataCheckbox {
+    position: relative;
+    cursor: pointer;
+    min-width: 5vw;
+    min-height: 5vw;
+    border: 0.5vw solid #c5c5c5;
+    margin-right: 5vw;
+  }
+  .checked {
+    width: 5vw;
+    height: 5vw;
+    color: white;
+    background-color: var(--secondAccent);
+  }
+
+  .active {
+    border: none;
+  }
+  .personalDataText {
+    font-size: 4vw;
   }
 }
