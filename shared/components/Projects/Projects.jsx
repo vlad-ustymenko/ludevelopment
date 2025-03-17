@@ -217,13 +217,12 @@ const Projects = () => {
   };
 
   return (
-    <div id="projects" className={styles.projects}>
+    <section id="projects" className={styles.projects}>
       <SectionTitle
         title="Проекти"
         number="04"
         color="white"
         lineColor="var(--secondAccent)"
-				
       />
 
       <div className={styles.sliderContainer} ref={sliderRefFirst}>
@@ -352,7 +351,7 @@ const Projects = () => {
           />
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

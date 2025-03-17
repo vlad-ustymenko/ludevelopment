@@ -51,7 +51,7 @@ const MainScreen = () => {
 
   return (
     <>
-      <div className={styles.gradient} id="main">
+      <section className={styles.gradient} id="main">
         <Image
           fill
           src="/images/mainScreen.webp"
@@ -85,7 +85,7 @@ const MainScreen = () => {
         <a href="#feedback" className={styles.button}>
           Консультація
         </a>
-      </div>
+      </section>
     </>
   );
 };

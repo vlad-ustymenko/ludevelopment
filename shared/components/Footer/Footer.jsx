@@ -4,7 +4,7 @@ import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <a href="#main" className={styles.logo}>
         <Image
           src="/smallLogo.svg"
@@ -17,7 +17,7 @@ const Footer = () => {
       <div className={styles.copyright}>
         &copy; 2013-2025 <span>LineUp Development</span> All rights reserved
       </div>
-    </div>
+    </section>
   );
 };
 

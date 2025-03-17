@@ -5,7 +5,7 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 const About = () => {
   return (
-    <div id="about" className={styles.container}>
+    <section id="about" className={styles.container}>
       <SectionTitle
         title="Про нас"
         number="02"
@@ -31,7 +31,7 @@ const About = () => {
           height={400}
         ></Image>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -5,7 +5,7 @@ import styles from "./Services.module.css";
 
 const Services = () => {
   return (
-    <div id="services" className={styles.container}>
+    <section id="services" className={styles.container}>
       <SectionTitle
         title="Послуги"
         number="05"
@@ -79,7 +79,7 @@ const Services = () => {
           height={400}
         ></Image>
       </div>
-    </div>
+    </section>
   );
 };
 

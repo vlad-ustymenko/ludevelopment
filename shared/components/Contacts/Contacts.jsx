@@ -6,7 +6,7 @@ import styles from "./Contacts.module.css";
 
 const Contacts = () => {
   return (
-    <div id="contacts" className={styles.container}>
+    <section id="contacts" className={styles.container}>
       <SectionTitle
         title="Контакти"
         number="06"
@@ -146,7 +146,7 @@ const Contacts = () => {
         </div>
         <ContactsForm />
       </section>
-    </div>
+    </section>
   );
 };
 

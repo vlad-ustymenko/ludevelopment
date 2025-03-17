@@ -67,7 +67,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div
+    <section
       className={
         activeMenu
           ? `${styles.headerWrapper} `
@@ -125,7 +125,7 @@ const Header = () => {
         </a>
       )}
       {viewportWidth < 1280 && <MenuBtn />}
-    </div>
+    </section>
   );
 };
 
