@@ -1,52 +1,107 @@
 "use client";
-import React, { useEffect } from "react";
-import styles from "./Guarantees.module.css";
+import React, { useEffect, useRef } from "react";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import { useViewportWidthContext } from "../../../context/ViewportWidthContext";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import styles from "./Guarantees.module.css";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Guarantees = () => {
-  const [windowWidth, setWindowWidth] = React.useState(0);
+  const { viewportWidth } = useViewportWidthContext();
+  const guaranteesRef = useRef(null);
+  const numberRefs = useRef([]);
 
   useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+    if (numberRefs.current.length === 0) return;
 
-    window.addEventListener("resize", handleResize);
+    numberRefs.current.forEach((el) => {
+      if (!el) return;
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+      const targetValue = parseInt(el.dataset.value, 10);
+      gsap.fromTo(
+        el,
+        { textContent: 0 },
+        {
+          textContent: targetValue,
+          duration: 1,
+          ease: "power5.inOut",
+          snap: { textContent: 1 },
+          scrollTrigger: {
+            trigger: guaranteesRef.current,
+            start: "top 30%",
+            end: "bottom 30%",
+            toggleActions: "play reverse play reverse",
+            once: false,
+          },
+        }
+      );
+    });
+  }, [viewportWidth]);
+
   return (
-    <div id="guarantees" className={styles.guarantees}>
+    <section id="guarantees" ref={guaranteesRef} className={styles.guarantees}>
       <SectionTitle title="Гарантії" number="01" color={"var(--background)"} />
-      {windowWidth < 768 ? (
+      {viewportWidth < 768 ? (
         <div className={styles.guaranteesContainerMobile}>
           <div className={styles.flexBlock}>
             <div className={styles.blockMobile}>
-              <p className={styles.titleMobile}>12+</p>
+              <span
+                className={styles.titleMobile}
+                ref={(el) => (numberRefs.current[0] = el)}
+                data-value="12"
+              >
+                12
+              </span>
+              <span className={styles.titleMobile}>+</span>
               <p className={styles.subtitleMobile}>років на ринку</p>
             </div>
             <div className={styles.divader}></div>
             <div className={styles.blockMobile}>
-              <p className={styles.titleMobile}>35</p>
+              <p
+                className={styles.titleMobile}
+                ref={(el) => (numberRefs.current[1] = el)}
+                data-value="35"
+              >
+                35
+              </p>
               <p className={styles.subtitleMobile}>виконаних проектів</p>
             </div>
           </div>
           <div className={styles.flexBlock}>
             <div className={styles.blockMobile}>
-              <p className={styles.titleMobile}>100%</p>
+              <span
+                className={styles.titleMobile}
+                ref={(el) => (numberRefs.current[2] = el)}
+                data-value="100	"
+              >
+                100
+              </span>
+              <span className={styles.titleMobile}>%</span>
               <p className={styles.subtitleMobile}>задоволених клієнтів</p>
             </div>
             <div className={styles.divader}></div>
             <div className={styles.blockMobile}>
-              <p className={styles.titleMobile}>25</p>
+              <p
+                className={styles.titleMobile}
+                ref={(el) => (numberRefs.current[3] = el)}
+                data-value="25"
+              >
+                25
+              </p>
               <p className={styles.subtitleMobile}>магазинів</p>
             </div>
           </div>
           <div className={styles.flexBlock}>
             <div className={styles.blockMobile}>
-              <p className={styles.titleMobile}>10</p>
+              <p
+                className={styles.titleMobile}
+                ref={(el) => (numberRefs.current[4] = el)}
+                data-value="10"
+              >
+                10
+              </p>
               <p className={styles.subtitleMobile}>будинків</p>
             </div>
             <div className={styles.divader}></div>
@@ -60,29 +115,61 @@ const Guarantees = () => {
         <div className={styles.guaranteesContainer}>
           <div className={styles.topBlocks}>
             <div className={styles.block1}>
-              <p className={styles.title}>12+</p>
+              <span
+                className={styles.title}
+                ref={(el) => (numberRefs.current[0] = el)}
+                data-value="12"
+              >
+                12
+              </span>
+              <span className={styles.title}>+</span>
               <p className={styles.subtitle}>років на ринку</p>
             </div>
             <div className={styles.divader}></div>
             <div className={styles.block2}>
-              <p className={styles.title}>35</p>
+              <p
+                className={styles.title}
+                ref={(el) => (numberRefs.current[1] = el)}
+                data-value="35"
+              >
+                35
+              </p>
               <p className={styles.subtitle}>виконаних проектів</p>
             </div>
 
             <div className={styles.divader}></div>
             <div className={styles.block3}>
-              <p className={styles.title}>25</p>
+              <p
+                className={styles.title}
+                ref={(el) => (numberRefs.current[2] = el)}
+                data-value="25"
+              >
+                25
+              </p>
               <p className={styles.subtitle}>магазинів</p>
             </div>
           </div>
           <div className={styles.bottomBlocks}>
             <div className={styles.block4}>
-              <p className={styles.title}>100%</p>
+              <span
+                className={styles.title}
+                ref={(el) => (numberRefs.current[3] = el)}
+                data-value="100"
+              >
+                100
+              </span>
+              <span className={styles.title}>%</span>
               <p className={styles.subtitle}>задоволених клієнтів</p>
             </div>
             <div className={styles.divader}></div>
             <div className={styles.block5}>
-              <p className={styles.title}>10</p>
+              <p
+                className={styles.title}
+                ref={(el) => (numberRefs.current[4] = el)}
+                data-value="10"
+              >
+                10
+              </p>
               <p className={styles.subtitle}>будинків</p>
             </div>
             <div className={styles.divader}></div>
@@ -94,7 +181,7 @@ const Guarantees = () => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 
