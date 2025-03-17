@@ -7,6 +7,7 @@ import Feedback from "@/shared/components/Feedback/Feedback";
 import Menu from "@/shared/components/Menu/Menu";
 import Services from "@/shared/components/Services/Services";
 import Contacts from "@/shared/components/Contacts/Contacts";
+import Footer from "@/shared/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Projects />
         <Services />
         <Contacts />
+        <Footer />
       </main>
       <Menu />
     </>

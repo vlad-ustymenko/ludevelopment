@@ -1,18 +1,18 @@
 import React from "react";
-import { MapPin, Mail, Phone, Section } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import ContactsForm from "../ContactsForm/ContactsForm";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import styles from "./Contacts.module.css";
 
 const Contacts = () => {
   return (
-    <div className={styles.container} id="contacts">
+    <div id="contacts" className={styles.container}>
       <SectionTitle
         title="Контакти"
         number="06"
         color="white"
         lineColor="var(--secondAccent)"
-      ></SectionTitle>
+      />
       <section className={styles.contacts}>
         <div className={styles.content}>
           <div className={styles.title}>

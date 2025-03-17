@@ -57,6 +57,9 @@
   .servicesWrapper {
     flex-direction: column;
   }
+  .servicesWrapper:nth-of-type(odd) {
+    flex-direction: column-reverse;
+  }
   .content {
     max-width: 100%;
   }
