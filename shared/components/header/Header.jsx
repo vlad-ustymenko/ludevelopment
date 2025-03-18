@@ -81,7 +81,7 @@ const Header = () => {
         onClick={() => setActiveMenu(false)}
       >
         <Image
-          src="/smallLogo.svg"
+          src="/logo.webp"
           fill
           alt="Logo"
           priority

@@ -21,7 +21,7 @@
 
 .logo {
   position: relative;
-  width: 10vw;
+  width: 6.5vw;
   height: 3vw;
 }
 .navList {
@@ -63,7 +63,7 @@
 
 @media (min-width: 768px) and (max-width: 1279px) {
   .logo {
-    width: 22vw;
+    width: 17vw;
     height: 8vw;
   }
   .telephone {
@@ -76,7 +76,7 @@
     padding: 2.5vw 6vw;
   }
   .logo {
-    width: 22vw;
+    width: 17vw;
     height: 8vw;
   }
 }
