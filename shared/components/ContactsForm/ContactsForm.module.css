@@ -42,6 +42,11 @@
   font-size: 1.7vw;
   background: var(--background);
 }
+.formInputField:-webkit-autofill {
+  caret-color: var(--secondAccent);
+  box-shadow: 0 0 0px 1000px var(--background) inset !important;
+  -webkit-text-fill-color: var(--secondAccent) !important;
+}
 
 textarea.formInputField {
   height: clamp(5vw, 8vw, 10vw);
@@ -86,11 +91,25 @@ textarea.formInputField {
   border: none;
 }
 
+.requiredSpan {
+  position: absolute;
+  bottom: -1.5vw;
+  right: 0;
+  font-size: 1.3vw;
+  color: red;
+}
+.textRequire {
+  color: red;
+}
+
 .checked {
   width: 2vw;
   height: 2vw;
   color: white;
   background-color: var(--secondAccent);
+}
+.checkboxRequire {
+  border: 0.2vw solid red;
 }
 
 .personalDataText {
@@ -168,6 +187,14 @@ textarea.formInputField {
     height: 5vw;
     color: white;
     background-color: var(--secondAccent);
+  }
+  .checkboxRequire {
+    border: 0.5vw solid red;
+  }
+  .requiredSpan {
+    bottom: -5vw;
+    right: 0;
+    font-size: 4vw;
   }
 
   .active {
