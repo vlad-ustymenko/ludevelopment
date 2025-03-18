@@ -6,7 +6,7 @@
   display: grid;
   gap: 3vw;
   grid-template-columns: repeat(2, 1fr);
-  padding-top: 4vw;
+  padding-top: var(--wrapperPadding);
 }
 
 .content {
@@ -77,6 +77,7 @@
   }
   .contacts {
     grid-template-columns: 1fr;
+    padding-top: var(--wrapperPaddingMobile);
   }
   .title {
     font-size: 5vw;

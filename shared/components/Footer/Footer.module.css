@@ -13,7 +13,7 @@
 }
 
 .copyright {
-  font-size: 1rem;
+  font-size: 1.5vw;
   color: hsl(0, 0%, 62%);
 }
 
@@ -32,5 +32,8 @@
   .logo {
     width: 17vw;
     height: 8vw;
+  }
+  .copyright {
+    font-size: 3vw;
   }
 }

@@ -7,8 +7,8 @@
 .aboutWrapper {
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
-  padding-top: 2rem;
+  gap: 3vw;
+  padding-top: var(--wrapperPadding);
   position: relative;
 }
 
@@ -20,7 +20,7 @@
 .title {
   font-family: "MariupolRegular", sans-serif;
   font-weight: 400;
-  font-size: 1.4vw;
+  font-size: 1.5vw;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
@@ -34,9 +34,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-  .container {
-    padding: 2rem;
-  }
   .aboutWrapper {
     flex-direction: column;
   }
@@ -49,7 +46,7 @@
     height: auto;
   }
   .title {
-    font-size: 4vw;
+    font-size: 5vw;
   }
 }
 
@@ -59,6 +56,7 @@
   }
   .aboutWrapper {
     flex-direction: column;
+    padding-top: var(--wrapperPaddingMobile);
   }
   .content {
     max-width: 100%;

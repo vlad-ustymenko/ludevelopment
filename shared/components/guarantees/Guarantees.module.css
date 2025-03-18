@@ -5,7 +5,7 @@
 }
 
 .guaranteesContainer {
-  padding: 2rem 3rem;
+  padding: var(--wrapperPadding);
 }
 
 .topBlocks {
@@ -39,7 +39,7 @@
 }
 
 .guaranteesContainerMobile {
-  padding-top: 1.5rem;
+  padding-top: var(--wrapperPaddingMobile);
 }
 
 .guaranteesContainerMobile .flexBlock:last-child {
@@ -77,6 +77,7 @@
   .guarantees {
     padding: 5vw;
   }
+
   .topBlocks {
     border-bottom: 0.8vw solid var(--accent);
   }

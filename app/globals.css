@@ -2,6 +2,8 @@
   --background: #242424;
   --accent: #3b4a8b;
   --secondAccent: #fd9100;
+  --wrapperPadding: 4vw;
+  --wrapperPaddingMobile: 7vw;
 }
 
 html,

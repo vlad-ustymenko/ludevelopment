@@ -321,7 +321,7 @@ const Projects = () => {
           onClick={viewportWidth >= 1280 ? prevSlide : prevSlideMobile}
           disabled={index === 0}
         >
-          <ChevronLeft width={30} height={30} />
+          <ChevronLeft className={styles.icon} />
         </button>
         <ul className={styles.dotList}>
           {dots.map((_, idx) => (
@@ -345,8 +345,7 @@ const Projects = () => {
           }
         >
           <ChevronRight
-            width={30}
-            height={30}
+            className={styles.icon}
             style={{ transform: "translateX(3px)" }}
           />
         </button>
