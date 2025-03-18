@@ -7,8 +7,8 @@
 .servicesWrapper {
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
-  padding-top: 2rem;
+  gap: 2vw;
+  padding-top: var(--wrapperPadding);
   position: relative;
 }
 
@@ -22,7 +22,31 @@
   font-weight: 400;
   font-size: 2.5vw;
   line-height: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 1vw;
+}
+.text {
+  font-size: 1.5vw;
+}
+
+.contentListItem {
+  margin-top: 0.5vw;
+  margin-left: 1vw;
+}
+.contentListItem p {
+  font-family: "MariupolMedium", sans-serif;
+  position: relative;
+}
+
+.contentListItem p:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -1vw;
+  transform: translateY(-50%);
+  width: 0.5vw;
+  height: 0.5vw;
+  background-color: var(--background);
+  border-radius: 0.1vw;
 }
 
 .image {
@@ -36,6 +60,11 @@
 @media (min-width: 768px) and (max-width: 1279px) {
   .servicesWrapper {
     flex-direction: column;
+    padding-top: 7vw;
+    gap: 7vw;
+  }
+  .servicesWrapper:nth-of-type(odd) {
+    flex-direction: column-reverse;
   }
   .content {
     max-width: 100%;
@@ -46,7 +75,30 @@
     height: auto;
   }
   .title {
+    font-size: 5vw;
+  }
+  .text {
+    font-size: 3vw;
+  }
+  .text {
     font-size: 4vw;
+  }
+
+  .contentListItem {
+    margin-top: 6vw;
+    margin-left: 3vw;
+  }
+  .contentListItem p {
+    font-family: "MariupolMedium", sans-serif;
+    position: relative;
+  }
+
+  .contentListItem p:before {
+    top: 50%;
+    left: -3vw;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 0.5vw;
   }
 }
 
@@ -56,6 +108,8 @@
   }
   .servicesWrapper {
     flex-direction: column;
+    padding-top: var(--wrapperPaddingMobile);
+    gap: var(--wrapperPaddingMobile);
   }
   .servicesWrapper:nth-of-type(odd) {
     flex-direction: column-reverse;
@@ -68,5 +122,25 @@
   }
   .title {
     font-size: 5vw;
+  }
+  .text {
+    font-size: 4vw;
+  }
+
+  .contentListItem {
+    margin-top: 6vw;
+    margin-left: 3vw;
+  }
+  .contentListItem p {
+    font-family: "MariupolMedium", sans-serif;
+    position: relative;
+  }
+
+  .contentListItem p:before {
+    top: 50%;
+    left: -3vw;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 0.5vw;
   }
 }
