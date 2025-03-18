@@ -5,9 +5,8 @@
 }
 
 .formWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 3vw;
   padding: 3.5vw 2.5vw;
 }
@@ -38,18 +37,7 @@
   border-bottom: 0.2vw solid red;
 }
 
-.required::after {
-  content: "*Обов'язкове поле";
-  position: absolute;
-  bottom: -0.5vw;
-  left: 0;
-  width: 100%;
-  font-size: 1.3vw;
-  color: red;
-}
-
-.required:nth-child(3):after {
-  content: "*Обов'язкове поле. 10 цифр";
+.requiredSpan {
   position: absolute;
   bottom: -0.5vw;
   left: 0;
@@ -98,6 +86,14 @@
   background-color: var(--accent);
 }
 
+.checkboxRequire {
+  border: 0.2vw solid red;
+}
+
+.textRequire {
+  color: red;
+}
+
 .personalDataText {
   font-size: 1.2vw;
 }
@@ -125,6 +121,44 @@
   background-color: #495ba3;
 }
 @media (min-width: 768px) and (max-width: 1279px) {
+  .formWrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5vw;
+  }
+  .input {
+    font-size: 3vw;
+  }
+  .input::placeholder {
+    font-size: 3vw;
+  }
+  .personalDataCheckbox {
+    min-width: 3vw;
+    min-height: 3vw;
+    border: 0.3vw solid #c5c5c5;
+  }
+  .checkboxRequire {
+    border: 0.3vw solid red;
+  }
+  .checked {
+    width: 3vw;
+    height: 3vw;
+    color: white;
+    background-color: var(--accent);
+  }
+  .active {
+    border: none;
+  }
+  .personalDataText {
+    font-size: 2.2vw;
+  }
+  .requiredSpan {
+    bottom: -1.5vw;
+    left: 0;
+    font-size: 2vw;
+  }
+  .button:hover {
+    background-color: var(--accent);
+  }
 }
 
 @media (max-width: 767px) {
@@ -132,18 +166,15 @@
     padding: 5vw;
   }
   .formWrapper {
-    flex-direction: column;
-    padding: 2rem 0;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    padding: 7vw 0;
+    gap: 10vw;
   }
 
   .personalDataCheckbox {
-    position: relative;
-    cursor: pointer;
     min-width: 5vw;
     min-height: 5vw;
     border: 0.5vw solid #c5c5c5;
-    margin-right: 5vw;
   }
   .checked {
     width: 5vw;
@@ -160,24 +191,23 @@
   }
 
   .input {
-    font-size: 1.2rem;
+    font-size: 4vw;
     border-bottom: 0.6vw solid var(--accent);
   }
   .input::placeholder {
     font-size: 1.2rem;
   }
-  .required::after {
-    bottom: -2.5vw;
-    left: 0;
-    font-size: 4vw;
-  }
-  .required:nth-child(3):after {
+
+  .requiredSpan {
     bottom: -2.5vw;
     left: 0;
     font-size: 4vw;
   }
   .inputError {
     border-bottom: 0.6vw solid red;
+  }
+  .checkboxRequire {
+    border: 0.5vw solid red;
   }
   .label {
     width: 100%;
@@ -194,6 +224,6 @@
   }
 
   .button:hover {
-    color: #feab3f;
+    background-color: var(--accent);
   }
 }

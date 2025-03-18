@@ -7,6 +7,7 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 const Feedback = () => {
   const [activeCheckbox, setActiveCheckbox] = useState(false);
+  const [checkboxRequire, setCheckboxRequire] = useState(false);
   const [sending, setSending] = useState(false);
 
   const {
@@ -18,7 +19,7 @@ const Feedback = () => {
 
   const onSubmit = async (data) => {
     if (!activeCheckbox) {
-      alert("Ви повинні погодитися на обробку персональних даних!");
+      setCheckboxRequire(true);
       return;
     }
 
@@ -57,65 +58,73 @@ const Feedback = () => {
         color="var(--background)"
       />
       <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
-        <label
-          className={`${styles.label} ${errors.name ? styles.required : ""}`}
-        >
+        <label className={styles.label}>
           <Controller
             name="name"
             control={control}
             defaultValue=""
-            rules={{ required: "Це поле обов’язкове" }}
+            rules={{ required: "*Це поле обов’язкове" }}
             render={({ field }) => (
-              <input
-                {...field}
-                className={`${styles.input} ${
-                  errors.name && styles.inputError
-                }`}
-                id="name"
-                autoComplete="name"
-                placeholder="Ім’я*"
-                onChange={(e) => {
-                  const value = e.target.value.replace(
-                    /[^a-zA-Zа-яА-ЯіІїЇєЄґҐ' ]/g,
-                    ""
-                  );
-                  field.onChange(value);
-                }}
-              />
+              <>
+                <input
+                  {...field}
+                  className={`${styles.input} ${
+                    errors.name && styles.inputError
+                  }`}
+                  id="name"
+                  autoComplete="name"
+                  placeholder="Ім’я*"
+                  onChange={(e) => {
+                    const value = e.target.value.replace(
+                      /[^a-zA-Zа-яА-ЯіІїЇєЄґҐ' ]/g,
+                      ""
+                    );
+                    field.onChange(value);
+                  }}
+                />
+                {errors.name && (
+                  <span className={styles.requiredSpan}>
+                    {errors.name.message}
+                  </span>
+                )}
+              </>
             )}
           />
         </label>
-        <label
-          className={`${styles.label} ${errors.email ? styles.required : ""}`}
-        >
+        <label className={styles.label}>
           <Controller
             name="email"
             control={control}
             defaultValue=""
             rules={{
-              required: "Це поле обов’язкове",
+              required: "*Це поле обов’язкове",
               pattern: {
                 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                 message: "Невірний формат email",
               },
             }}
             render={({ field }) => (
-              <input
-                className={`${styles.input} ${
-                  errors.email && styles.inputError
-                }`}
-                {...field}
-                id="email"
-                autoComplete="email"
-                placeholder="Email"
-              />
+              <>
+                <input
+                  className={`${styles.input} ${
+                    errors.email ? styles.inputError : ""
+                  }`}
+                  {...field}
+                  id="email"
+                  autoComplete="email"
+                  placeholder="Email*"
+                />
+                {errors.email && (
+                  <span className={styles.requiredSpan}>
+                    {errors.email.message}
+                  </span>
+                )}
+              </>
             )}
           />
         </label>
 
-        <label
-          className={`${styles.label} ${errors.phone ? styles.required : ""}`}
-        >
+        <label className={styles.label}>
           <Controller
             name="phone"
             control={control}
@@ -123,42 +132,16 @@ const Feedback = () => {
             rules={{
               required: "Це поле обов’язкове",
               pattern: {
-                value: /^\+38 \(0\d{2}\) \d{3}-\d{2}-\d{2}$/,
+                value: /^\+38\d{10}$/,
                 message: "Некоректний номер",
               },
             }}
             render={({ field }) => {
-              const [isFocused, setIsFocused] = useState(false);
+              const phoneLength = field.value?.length || 0;
 
               const formatPhoneNumber = (input) => {
-                // Видаляємо всі нецифрові символи
-                let numbers = input.replace(/\D/g, "");
-
-                if (numbers.length === 0) return "";
-
-                // Додаємо початковий код країни
-                let formatted = "+38 (0";
-
-                // Додаємо код оператора (XXX)
-                if (numbers.length > 3) {
-                  formatted += numbers.slice(3, 5);
-                }
-
-                // Додаємо першу групу (XXX)
-                if (numbers.length > 5) {
-                  formatted += ") " + numbers.slice(5, 8);
-                }
-
-                // Додаємо другу групу (XX)
-                if (numbers.length > 8) {
-                  formatted += "-" + numbers.slice(8, 10);
-                }
-
-                // Додаємо третю групу (XX)
-                if (numbers.length > 10) {
-                  formatted += "-" + numbers.slice(10, 12);
-                }
-
+                let formatted = "+38";
+                formatted += input.slice(3, 20).replace(/\D/g, "");
                 return formatted;
               };
 
@@ -168,33 +151,42 @@ const Feedback = () => {
               };
 
               const handleFocus = () => {
-                setIsFocused(true);
                 if (!field.value) {
-                  field.onChange("+38 (0");
+                  field.onChange("+38");
                 }
               };
 
               const handleBlur = () => {
-                setIsFocused(false);
-                if (field.value === "+38 (0") {
+                if (field.value === "+38") {
                   field.onChange("");
                 }
               };
 
               return (
-                <input
-                  {...field}
-                  className={`${styles.input} ${
-                    errors.email && styles.inputError
-                  }`}
-                  type="tel"
-                  autoComplete="tel"
-                  placeholder="+38 (0__) ___-__-__"
-                  maxLength={19}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                />
+                <>
+                  <input
+                    {...field}
+                    className={`${styles.input} ${
+                      errors.phone && styles.inputError
+                    }`}
+                    type="tel"
+                    autoComplete="tel"
+                    placeholder="Телефон* +38 "
+                    maxLength={13}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                  />
+                  {errors.phone ? (
+                    <span className={styles.requiredSpan}>
+                      {field.value.length < 13
+                        ? `*Не вистачає ${13 - phoneLength} ${
+                            13 - phoneLength > 4 ? "цифр" : "цифри"
+                          }`
+                        : errors.phone.message}
+                    </span>
+                  ) : null}
+                </>
               );
             }}
           />
@@ -205,13 +197,24 @@ const Feedback = () => {
             name="comment"
             control={control}
             defaultValue=""
-            render={({ field }) => (
-              <input
-                {...field}
-                className={styles.input}
-                placeholder="Коментар"
-              />
-            )}
+            render={({ field }) => {
+              const handleChange = (e) => {
+                const value = e.target.value.replace(
+                  /[^a-zA-Zа-яА-Я0-9 *]/g,
+                  ""
+                );
+                field.onChange(value);
+              };
+
+              return (
+                <input
+                  {...field}
+                  className={styles.input}
+                  placeholder="Коментар"
+                  onChange={handleChange}
+                />
+              );
+            }}
           />
         </label>
       </form>
@@ -221,12 +224,19 @@ const Feedback = () => {
           <div
             className={`${styles.personalDataCheckbox} ${
               activeCheckbox && styles.active
-            }`}
-            onClick={() => setActiveCheckbox(!activeCheckbox)}
+            } ${checkboxRequire && styles.checkboxRequire}`}
+            onClick={() => {
+              setActiveCheckbox(!activeCheckbox);
+              setCheckboxRequire(false);
+            }}
           >
             {activeCheckbox && <Check className={styles.checked} />}
           </div>
-          <p className={styles.personalDataText}>
+          <p
+            className={`${styles.personalDataText} ${
+              checkboxRequire && styles.textRequire
+            }`}
+          >
             Даю згоду на обробку
             <a href="#" className={styles.personalDataLink}>
               персональних даних
