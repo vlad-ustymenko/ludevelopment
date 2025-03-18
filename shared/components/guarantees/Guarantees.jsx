@@ -50,9 +50,9 @@ const Guarantees = () => {
               <span
                 className={styles.titleMobile}
                 ref={(el) => (numberRefs.current[0] = el)}
-                data-value="12"
+                data-value="9"
               >
-                12
+                9
               </span>
               <span className={styles.titleMobile}>+</span>
               <p className={styles.subtitleMobile}>років на ринку</p>
@@ -62,9 +62,9 @@ const Guarantees = () => {
               <p
                 className={styles.titleMobile}
                 ref={(el) => (numberRefs.current[1] = el)}
-                data-value="35"
+                data-value="550"
               >
-                35
+                550
               </p>
               <p className={styles.subtitleMobile}>виконаних проектів</p>
             </div>
@@ -74,9 +74,9 @@ const Guarantees = () => {
               <span
                 className={styles.titleMobile}
                 ref={(el) => (numberRefs.current[2] = el)}
-                data-value="100	"
+                data-value="99	"
               >
-                100
+                99
               </span>
               <span className={styles.titleMobile}>%</span>
               <p className={styles.subtitleMobile}>задоволених клієнтів</p>
@@ -86,9 +86,9 @@ const Guarantees = () => {
               <p
                 className={styles.titleMobile}
                 ref={(el) => (numberRefs.current[3] = el)}
-                data-value="25"
+                data-value="16"
               >
-                25
+                16
               </p>
               <p className={styles.subtitleMobile}>магазинів</p>
             </div>
@@ -98,9 +98,9 @@ const Guarantees = () => {
               <p
                 className={styles.titleMobile}
                 ref={(el) => (numberRefs.current[4] = el)}
-                data-value="10"
+                data-value="85"
               >
-                10
+                85
               </p>
               <p className={styles.subtitleMobile}>будинків</p>
             </div>
@@ -118,9 +118,9 @@ const Guarantees = () => {
               <span
                 className={styles.title}
                 ref={(el) => (numberRefs.current[0] = el)}
-                data-value="12"
+                data-value="9"
               >
-                12
+                9
               </span>
               <span className={styles.title}>+</span>
               <p className={styles.subtitle}>років на ринку</p>
@@ -130,9 +130,9 @@ const Guarantees = () => {
               <p
                 className={styles.title}
                 ref={(el) => (numberRefs.current[1] = el)}
-                data-value="35"
+                data-value="550"
               >
-                35
+                550
               </p>
               <p className={styles.subtitle}>виконаних проектів</p>
             </div>
@@ -142,9 +142,9 @@ const Guarantees = () => {
               <p
                 className={styles.title}
                 ref={(el) => (numberRefs.current[2] = el)}
-                data-value="25"
+                data-value="16"
               >
-                25
+                16
               </p>
               <p className={styles.subtitle}>магазинів</p>
             </div>
@@ -154,9 +154,9 @@ const Guarantees = () => {
               <span
                 className={styles.title}
                 ref={(el) => (numberRefs.current[3] = el)}
-                data-value="100"
+                data-value="99"
               >
-                100
+                99
               </span>
               <span className={styles.title}>%</span>
               <p className={styles.subtitle}>задоволених клієнтів</p>
@@ -166,9 +166,9 @@ const Guarantees = () => {
               <p
                 className={styles.title}
                 ref={(el) => (numberRefs.current[4] = el)}
-                data-value="10"
+                data-value="85"
               >
-                10
+                85
               </p>
               <p className={styles.subtitle}>будинків</p>
             </div>
