@@ -7,7 +7,7 @@ const Footer = () => {
     <section className={styles.container}>
       <a href="#main" className={styles.logo}>
         <Image
-          src="/smallLogo.svg"
+          src="/logo.webp"
           fill
           alt="Logo"
           priority

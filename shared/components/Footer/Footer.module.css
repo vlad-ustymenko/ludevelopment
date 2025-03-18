@@ -8,7 +8,7 @@
 
 .logo {
   position: relative;
-  width: 10vw;
+  width: 6.5vw;
   height: 3vw;
 }
 
@@ -30,7 +30,7 @@
     border-top: 0.8vw solid var(--accent);
   }
   .logo {
-    width: 22vw;
+    width: 17vw;
     height: 8vw;
   }
 }
