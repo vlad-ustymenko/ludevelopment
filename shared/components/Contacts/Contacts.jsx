@@ -28,12 +28,12 @@ const Contacts = () => {
               <address className={styles.contactsItemsWrapper}>
                 <h2 className={styles.contactsItemsTitle}>Адреса:</h2>
                 <a
-                  href="https://www.google.com/maps/place/%D0%A1%D1%83%D0%BC%D0%B8,+%D0%A1%D1%83%D0%BC%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+40000/"
+                  href="https://maps.app.goo.gl/MSd2sphvoWWAEeDd7"
                   className={styles.contactsItemsSubtitle}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  01001 Україні, Київ, проспект Незалежності, 1
+                  Київ , пр-т Лобановського, 4Ж, офіс 198
                 </a>
               </address>
             </li>
@@ -44,10 +44,10 @@ const Contacts = () => {
               <address className={styles.contactsItemsWrapper}>
                 <h2 className={styles.contactsItemsTitle}>Phone:</h2>
                 <a
-                  href="tel:+380660084031"
+                  href="tel:+380953195758"
                   className={styles.contactsItemsSubtitle}
                 >
-                  +380 (XX) XXX-XX-XX
+                  +38 (095) 319-57-58
                 </a>
               </address>
             </li>
@@ -58,10 +58,10 @@ const Contacts = () => {
               <address className={styles.contactsItemsWrapper}>
                 <h2 className={styles.contactsItemsTitle}>Email:</h2>
                 <a
-                  href="mailto:vlad.ustimenko@gmail.com"
+                  href="mailto:lineup.kyiv@gmail.com"
                   className={styles.contactsItemsSubtitle}
                 >
-                  line.up@gmail.com
+                  lineup.kyiv@gmail.com
                 </a>
               </address>
             </li>
@@ -69,7 +69,7 @@ const Contacts = () => {
               <ul className={styles.socialList}>
                 <li>
                   <a
-                    href="https://www.facebook.com/profile.php?id=100002126700664"
+                    href="https://facebook.com/lineupdesignstudio/"
                     className={styles.socialLink}
                     target="_blank"
                     aria-label="facebook page"
@@ -92,10 +92,10 @@ const Contacts = () => {
                 </li>
                 <li>
                   <a
-                    href="https://github.com/vlad-ustymenko"
+                    href="https://www.instagram.com/lineup_kyiv/?igshid=udhv2um4b8oc"
                     className={styles.socialLink}
                     target="_blank"
-                    aria-label="github page"
+                    aria-label="instagram page"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -117,26 +117,45 @@ const Contacts = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.linkedin.com/in/ustymenko-dev/"
+                    href="https://t.me/linup_kyiv"
                     className={styles.socialLink}
                     target="_blank"
-                    aria-label="linkedin page"
+                    aria-label="telegram"
                   >
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
+                      width="24px"
+                      height="24px"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      xmlns="http://www.w3.org/2000/svg"
                       className={styles.socialImage}
                     >
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                      <rect width="4" height="12" x="2" y="9" />
-                      <circle cx="4" cy="4" r="2" />
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M23.1117 4.49449C23.4296 2.94472 21.9074 1.65683 20.4317 2.227L2.3425 9.21601C0.694517 9.85273 0.621087 12.1572 2.22518 12.8975L6.1645 14.7157L8.03849 21.2746C8.13583 21.6153 8.40618 21.8791 8.74917 21.968C9.09216 22.0568 9.45658 21.9576 9.70712 21.707L12.5938 18.8203L16.6375 21.8531C17.8113 22.7334 19.5019 22.0922 19.7967 20.6549L23.1117 4.49449ZM3.0633 11.0816L21.1525 4.0926L17.8375 20.2531L13.1 16.6999C12.7019 16.4013 12.1448 16.4409 11.7929 16.7928L10.5565 18.0292L10.928 15.9861L18.2071 8.70703C18.5614 8.35278 18.5988 7.79106 18.2947 7.39293C17.9906 6.99479 17.4389 6.88312 17.0039 7.13168L6.95124 12.876L3.0633 11.0816ZM8.17695 14.4791L8.78333 16.6015L9.01614 15.321C9.05253 15.1209 9.14908 14.9366 9.29291 14.7928L11.5128 12.573L8.17695 14.4791Z"
+                        fill="#0F0F0F"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://vm.tiktok.com/ZMeVgjmnL/"
+                    className={styles.socialLink}
+                    target="_blank"
+                    aria-label="tiktiok page"
+                  >
+                    <svg
+                      fill="#000000"
+                      width="24px"
+                      height="24px"
+                      viewBox="0 0 512 512"
+                      id="icons"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={styles.socialImage}
+                    >
+                      <path d="M412.19,118.66a109.27,109.27,0,0,1-9.45-5.5,132.87,132.87,0,0,1-24.27-20.62c-18.1-20.71-24.86-41.72-27.35-56.43h.1C349.14,23.9,350,16,350.13,16H267.69V334.78c0,4.28,0,8.51-.18,12.69,0,.52-.05,1-.08,1.56,0,.23,0,.47-.05.71,0,.06,0,.12,0,.18a70,70,0,0,1-35.22,55.56,68.8,68.8,0,0,1-34.11,9c-38.41,0-69.54-31.32-69.54-70s31.13-70,69.54-70a68.9,68.9,0,0,1,21.41,3.39l.1-83.94a153.14,153.14,0,0,0-118,34.52,161.79,161.79,0,0,0-35.3,43.53c-3.48,6-16.61,30.11-18.2,69.24-1,22.21,5.67,45.22,8.85,54.73v.2c2,5.6,9.75,24.71,22.38,40.82A167.53,167.53,0,0,0,115,470.66v-.2l.2.2C155.11,497.78,199.36,496,199.36,496c7.66-.31,33.32,0,62.46-13.81,32.32-15.31,50.72-38.12,50.72-38.12a158.46,158.46,0,0,0,27.64-45.93c7.46-19.61,9.95-43.13,9.95-52.53V176.49c1,.6,14.32,9.41,14.32,9.41s19.19,12.3,49.13,20.31c21.48,5.7,50.42,6.9,50.42,6.9V131.27C453.86,132.37,433.27,129.17,412.19,118.66Z" />
                     </svg>
                   </a>
                 </li>
