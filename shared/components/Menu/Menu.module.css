@@ -5,7 +5,7 @@
   left: 0;
   height: 100dvh;
   width: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -13,6 +13,7 @@
   font-family: "MariupolMedium", sans-serif;
   z-index: 3;
   color: white;
+  overflow: hidden;
 }
 
 .navList {
@@ -21,7 +22,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15vw;
+
+  gap: 6vw;
 }
 
 .navList li {
@@ -54,20 +56,23 @@
 .telephone {
   -webkit-tap-highlight-color: transparent;
   font-size: 8vw;
-  margin-bottom: 20vw;
-}
-
-@media (min-width: 1280px) {
-  .nav {
-    display: none;
-  }
+  margin-bottom: 15vw;
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
+  .nav {
+    display: flex;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav {
+    display: flex;
+  }
   .telephone {
-    margin-bottom: 15vw;
+    margin-bottom: 20vw;
   }
   .navList {
-    gap: 6vw;
+    gap: 15vw;
   }
 }

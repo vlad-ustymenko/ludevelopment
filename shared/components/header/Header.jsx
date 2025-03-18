@@ -120,8 +120,8 @@ const Header = () => {
         </nav>
       )}
       {viewportWidth > 768 && (
-        <a href="tel:0800 333 333" className={styles.telephone}>
-          0800 333 333
+        <a href="tel:+38 (095) 319-57-58" className={styles.telephone}>
+          +38 (095) 319-57-58
         </a>
       )}
       {viewportWidth < 1280 && <MenuBtn />}
