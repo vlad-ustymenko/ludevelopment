@@ -8,6 +8,8 @@ import Menu from "@/shared/components/Menu/Menu";
 import Services from "@/shared/components/Services/Services";
 import Contacts from "@/shared/components/Contacts/Contacts";
 import Footer from "@/shared/components/Footer/Footer";
+import Advantages from "@/shared/components/Advantages/Advantages";
+import Calculator from "@/shared/components/Calculator/Calculator";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
       <main>
         <MainScreen />
         <Guarantees />
+        <Advantages />
+        <Calculator />
         <About />
         <Feedback />
         <Projects />

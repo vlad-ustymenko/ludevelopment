@@ -19,6 +19,8 @@ body {
 #projects,
 #feedback,
 #services,
+#advantages,
+#prices,
 #contacts {
   scroll-margin-top: var(--header-height);
 }
