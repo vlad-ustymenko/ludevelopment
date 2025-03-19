@@ -38,7 +38,7 @@ const projectsData = [
     description: "Загальна площа – 596 м2",
   },
   {
-    img: "/images/projects/6.jpg",
+    img: "/images/projects/9.jpg",
     title: "2021 – 2022 Білогородка",
     description: "Загальна площа – 833 м2",
   },
@@ -48,27 +48,27 @@ const projectsData = [
     description: "Загальна площа – 450 м2",
   },
   {
-    img: "/images/projects/5.jpg",
+    img: "/images/projects/10.jpg",
     title: "2018 – 2019 Ірпінь",
     description: "Загальна площа – 700 м2",
   },
   {
-    img: "/images/projects/4.jpg",
+    img: "/images/projects/12.jpg",
     title: "2019 – 2021 Буча",
     description: "Загальна площа – 580 м2",
   },
   {
-    img: "/images/projects/3.jpg",
+    img: "/images/projects/8.jpg",
     title: "2021 – 2023 Васильків",
     description: "Загальна площа – 920 м2",
   },
   {
-    img: "/images/projects/2.jpg",
+    img: "/images/projects/11.jpg",
     title: "2016 – 2018 Вишневе",
     description: "Загальна площа – 340 м2",
   },
   {
-    img: "/images/projects/1.jpg",
+    img: "/images/projects/7.jpg",
     title: "2015 – 2017 Обухів",
     description: "Загальна площа – 630 м2",
   },
