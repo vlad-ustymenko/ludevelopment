@@ -1,0 +1,133 @@
+.dropDown {
+  position: relative;
+  width: 100%;
+  margin-bottom: 48px;
+  border-bottom: 0.2vw solid var(--accent);
+}
+
+.selectWrapper {
+  -webkit-tap-highlight-color: transparent;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 16px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.dropDownTitleWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: "MariupolMedium", sans-serif;
+  font-size: 2vw;
+  text-align: center;
+}
+
+.select {
+  padding: 1vw 1vw 1vw 1.5vw;
+  font-size: 1.5vw;
+}
+
+.dropDownList {
+  width: 100%;
+  height: 0;
+  list-style: none;
+  position: absolute;
+  left: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-family: "MariupolRegular", sans-serif;
+  font-size: 18px;
+  overflow: auto;
+  background-color: white;
+  z-index: 10;
+}
+
+.dropDownActive {
+  height: 10vw;
+}
+
+/* .dropDownList::-webkit-scrollbar {
+  width: 8px;
+  padding: 2px;
+} */
+
+/* .dropDownList::-webkit-scrollbar-track {
+  margin: 2px;
+  background-color: white;
+}
+
+.dropDownList::-webkit-scrollbar-thumb {
+  background-color: black;
+  border: 2px solid white;
+} */
+
+.dropDownList .dropDownListItem:last-child {
+  padding-bottom: 1.5vw;
+}
+
+.dropDownList .dropDownListItem:first-child {
+  padding-top: 1.5vw;
+}
+
+.dropDownListItem {
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1.5vw;
+  padding: 1.5vw 1.5vw 0 1.5vw;
+  cursor: pointer;
+}
+
+.dropDownListItem:hover {
+  color: var(--accent);
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .dropDown {
+    margin-bottom: 24px;
+    border-right: none;
+  }
+  .dropDownTitleWrapper {
+    padding: 0 0 24px 0;
+  }
+  .selectWrapper {
+    padding: 24px 0 0 0;
+  }
+  .title {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .dropDown {
+    margin-bottom: 16px;
+    border-right: none;
+  }
+  .dropDownTitleWrapper {
+    padding: 0 0 16px 0;
+  }
+  .selectWrapper {
+    padding: 16px 0 0 0;
+  }
+  .title {
+    padding-left: 0;
+
+    font-size: 22px;
+  }
+
+  .select {
+    font-size: 16px;
+  }
+  .dropDownListItem {
+    font-size: 16px;
+    padding: 24px 16px 0 16px;
+  }
+  .dropDownList .dropDownListItem:last-child {
+    padding-bottom: 16px;
+  }
+
+  .dropDownList .dropDownListItem:first-child {
+    padding-top: 16px;
+  }
+}
