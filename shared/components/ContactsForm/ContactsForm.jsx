@@ -67,9 +67,9 @@ const ContactsForm = () => {
                 <input
                   {...field}
                   className={styles.formInputField}
-                  id="name"
+                  id="contactName"
                   autoComplete="name"
-                  placeholder="Ім’я*"
+                  placeholder="Ваше ім'я*"
                   onChange={(e) => {
                     const value = e.target.value.replace(
                       /[^a-zA-Zа-яА-ЯіІїЇєЄґҐ' ]/g,
@@ -111,9 +111,9 @@ const ContactsForm = () => {
                 <input
                   className={styles.formInputField}
                   {...field}
-                  id="email"
+                  id="contactEmail"
                   autoComplete="email"
-                  placeholder="Email*"
+                  placeholder="Ваш email*"
                 />
                 {errors.email && (
                   <span className={styles.requiredSpan}>
@@ -173,6 +173,7 @@ const ContactsForm = () => {
                 <>
                   <input
                     {...field}
+                    id="contactPhone"
                     className={styles.formInputField}
                     type="tel"
                     autoComplete="tel"
@@ -220,6 +221,7 @@ const ContactsForm = () => {
               return (
                 <textarea
                   {...field}
+                  id="contactMessage"
                   className={styles.formInputField}
                   placeholder="Коментар"
                   onChange={handleChange}

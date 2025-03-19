@@ -42,7 +42,7 @@ const Contacts = () => {
                 <Phone className={styles.icon} />
               </div>
               <address className={styles.contactsItemsWrapper}>
-                <h2 className={styles.contactsItemsTitle}>Phone:</h2>
+                <h2 className={styles.contactsItemsTitle}>Телефон:</h2>
                 <a
                   href="tel:+380953195758"
                   className={styles.contactsItemsSubtitle}
