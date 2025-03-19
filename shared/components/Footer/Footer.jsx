@@ -1,8 +1,10 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./Footer.module.css";
 
 const Footer = () => {
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   return (
     <section className={styles.container}>
       <a href="#main" className={styles.logo}>
@@ -15,7 +17,8 @@ const Footer = () => {
         />
       </a>
       <div className={styles.copyright}>
-        &copy; 2013-2025 <span>LineUp Development</span> All rights reserved
+        &copy; 2016-{currentYear} <span>LineUp Development</span> All rights
+        reserved
       </div>
     </section>
   );
