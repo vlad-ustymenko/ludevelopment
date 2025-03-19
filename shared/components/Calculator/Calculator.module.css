@@ -1,0 +1,22 @@
+.container {
+  background-color: white;
+  padding: var(--wrapperPadding);
+}
+
+.calculatorWrapper {
+  border: 2vw solid var(--accent);
+  padding: 3vw;
+  margin: var(--wrapperPadding) 0;
+}
+
+.bigDropDownsWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5vw;
+}
+
+.smallDropDownsWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5vw;
+}
