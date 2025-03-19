@@ -97,6 +97,16 @@ const Header = () => {
               </a>
             </li>
             <li>
+              <a href="#advantages" className={styles.navLink}>
+                Переваги
+              </a>
+            </li>
+            <li>
+              <a href="#prices" className={styles.navLink}>
+                Ціни
+              </a>
+            </li>
+            <li>
               <a href="#about" className={styles.navLink}>
                 Про нас
               </a>
