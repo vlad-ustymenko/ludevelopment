@@ -1,0 +1,38 @@
+.icon {
+  position: relative;
+  width: 2vw;
+  height: 2vw;
+  cursor: pointer;
+  transition: 0.5s;
+  justify-self: end;
+}
+
+.icon__left,
+.icon__right {
+  position: absolute;
+  display: inline-block;
+  border-radius: 1vw;
+  top: 0.8vw;
+  width: 1.4vw;
+  height: 0.3vw;
+  background-color: black;
+  transition: 0.5s;
+}
+
+.icon__left {
+  left: -0.1vw;
+  rotate: 45deg;
+}
+
+.icon__left.open {
+  rotate: 135deg;
+}
+
+.icon__right {
+  right: -0.1vw;
+  rotate: -45deg;
+}
+
+.icon__right.open {
+  rotate: -135deg;
+}
