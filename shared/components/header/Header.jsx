@@ -83,8 +83,8 @@ const Header = () => {
         <Image
           src="/logo.webp"
           fill
+          sizes="100%"
           alt="Logo"
-          priority
           className={styles.logoImage}
         />
       </a>
@@ -129,7 +129,7 @@ const Header = () => {
           </ul>
         </nav>
       )}
-      {viewportWidth > 768 && (
+      {viewportWidth > 767 && !activeMenu && (
         <a href="tel:+38 (095) 319-57-58" className={styles.telephone}>
           +38 (095) 319-57-58
         </a>

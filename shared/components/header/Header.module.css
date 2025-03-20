@@ -10,7 +10,7 @@
   z-index: 10;
   color: white;
   font-family: "MariupolRegular", sans-serif;
-  padding: 1.2vw 3.5vw;
+  padding: 0.5vw var(--wrapperPadding);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
@@ -21,8 +21,8 @@
 
 .logo {
   position: relative;
-  width: 6.5vw;
-  height: 3vw;
+  width: 9vw;
+  height: 4.3vw;
 }
 .navList {
   display: flex;
@@ -62,9 +62,12 @@
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
+  .headerWrapper {
+    padding: 1vw var(--wrapperPadding);
+  }
   .logo {
-    width: 17vw;
-    height: 8vw;
+    width: 25vw;
+    height: 12vw;
   }
   .telephone {
     font-size: 4vw;
@@ -73,10 +76,10 @@
 
 @media (max-width: 767px) {
   .headerWrapper {
-    padding: 2.5vw 6vw;
+    padding: 1vw var(--wrapperPaddingMobile);
   }
   .logo {
-    width: 17vw;
-    height: 8vw;
+    width: 25vw;
+    height: 12vw;
   }
 }
