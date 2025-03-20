@@ -54,6 +54,7 @@ const MainScreen = () => {
       <section className={styles.gradient} id="main">
         <Image
           fill
+          sizes="(max-width: 768px) 100dvh, (max-width: 1200px) 100dvh, 100dvh"
           src="/images/mainScreen.webp"
           alt="main image"
           quality={100}
@@ -68,7 +69,7 @@ const MainScreen = () => {
                 className={styles.subcontent}
                 ref={(el) => (subcontentRefs.current[0] = el)}
               >
-                <p>Комерційні</p>
+                <p className={styles.typeBuildText}>Комерційні</p>
                 <p className={styles.price}>від 250$/м2</p>
               </div>
               <div className={styles.line}></div>
@@ -76,7 +77,7 @@ const MainScreen = () => {
                 className={styles.subcontent}
                 ref={(el) => (subcontentRefs.current[1] = el)}
               >
-                <p>Житлові</p>
+                <p className={styles.typeBuildText}>Житлові</p>
                 <p className={styles.price}>від 150$/м2</p>
               </div>
             </div>

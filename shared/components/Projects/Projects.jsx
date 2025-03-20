@@ -220,7 +220,7 @@ const Projects = () => {
     <section id="projects" className={styles.projects}>
       <SectionTitle
         title="Проекти"
-        number="04"
+        number="06"
         color="white"
         lineColor="var(--secondAccent)"
       />

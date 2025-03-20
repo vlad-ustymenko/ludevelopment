@@ -74,6 +74,7 @@
     width: 100%;
     max-width: none;
     height: auto;
+    border-radius: 3vw;
   }
   .title {
     font-size: 5vw;
@@ -120,12 +121,13 @@
   }
   .image {
     max-width: 100%;
+    border-radius: 3vw;
   }
   .title {
-    font-size: 5vw;
+    font-size: 4vw;
   }
   .text {
-    font-size: 4vw;
+    font-size: 3vw;
   }
 
   .contentListItem {

@@ -11,6 +11,15 @@
   font-size: 4vw;
   line-height: 1.2;
 }
+@media (min-width: 768px) and (max-width: 1279px) {
+  .sectionTitle {
+    border-bottom: 0.6vw solid var(--accent);
+  }
+  .title,
+  .number {
+    font-size: 6vw;
+  }
+}
 
 @media (max-width: 767px) {
   .sectionTitle {

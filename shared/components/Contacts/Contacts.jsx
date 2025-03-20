@@ -9,7 +9,7 @@ const Contacts = () => {
     <section id="contacts" className={styles.container}>
       <SectionTitle
         title="Контакти"
-        number="06"
+        number="08"
         color="white"
         lineColor="var(--secondAccent)"
       />

@@ -8,7 +8,7 @@ const Services = () => {
     <section id="services" className={styles.container}>
       <SectionTitle
         title="Послуги"
-        number="05"
+        number="07"
         lineColor="var(--accent)"
       ></SectionTitle>
       <div className={styles.servicesWrapper}>
@@ -18,7 +18,7 @@ const Services = () => {
           className={styles.image}
           width={500}
           height={400}
-        ></Image>
+        />
         <div className={styles.content}>
           <h2 className={styles.title}>Девелопмент та інвестиційний аналіз</h2>
           <div className={styles.text}>

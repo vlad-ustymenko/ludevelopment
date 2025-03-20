@@ -32,7 +32,7 @@ const AdvantagesItem = [
 
 const Advantages = () => {
   return (
-    <div className={styles.container} id="advantages">
+    <section className={styles.container} id="advantages">
       <SectionTitle
         title="Наші переваги"
         number="02"
@@ -56,7 +56,7 @@ const Advantages = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

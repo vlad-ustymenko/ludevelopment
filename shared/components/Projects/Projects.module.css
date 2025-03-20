@@ -27,7 +27,7 @@
 }
 
 .projectsCardGallery {
-  border-radius: 0.75rem;
+  border-radius: 1vw;
   cursor: pointer;
   flex: 1;
   overflow: hidden;
@@ -38,7 +38,7 @@
 
 .projectsCardGalleryMobile {
   -webkit-tap-highlight-color: transparent;
-  border-radius: 0.75rem;
+  border-radius: 3vw;
   width: 100%;
   cursor: pointer;
   overflow: hidden;

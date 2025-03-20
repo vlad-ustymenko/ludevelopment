@@ -15,6 +15,8 @@ const SectionTitle = ({ title, number, color, lineColor }) => {
         borderBottom:
           viewportWidth < 768
             ? `0.8vw solid ${lineColor}`
+            : viewportWidth < 1280 && viewportWidth >= 768
+            ? `0.6vw solid ${lineColor}`
             : `0.3vw solid ${lineColor}`,
       }}
     >

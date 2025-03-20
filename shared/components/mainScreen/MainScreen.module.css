@@ -50,14 +50,14 @@
 .title {
   font-family: "MariupolBold", sans-serif;
   font-size: 7vw;
-  filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 0.5vw 0.5vw rgba(0, 0, 0, 0.5));
   opacity: 0;
 }
 
 .subtitle {
   font-family: "MariupolBold", sans-serif;
   font-size: 2.5vw;
-  filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 0.5vw 0.5vw rgba(0, 0, 0, 0.5));
   opacity: 0;
 }
 
@@ -86,8 +86,13 @@
   text-align: right;
 }
 
+.typeBuildText {
+  filter: drop-shadow(0px 0.5vw 0.5vw rgba(0, 0, 0, 0.5));
+}
+
 .price {
   font-size: 2.5vw;
+  filter: drop-shadow(0px 0.5vw 0.5vw rgba(0, 0, 0, 0.5));
 }
 
 .button {
@@ -117,6 +122,7 @@
   }
   .container {
     align-items: flex-start;
+    padding: 35vw 5vw;
   }
   .mainContentWrapper {
     width: 100%;
@@ -132,6 +138,14 @@
     font-size: 4vw;
     margin-top: 3rem;
   }
+  .button {
+    bottom: 20vw;
+    right: 50%;
+    transform: translateX(50%);
+    padding: 5vw 10vw;
+    border-radius: 1.5vw;
+    font-size: 5vw;
+  }
 
   .price {
     font-size: 5vw;
@@ -144,7 +158,6 @@
 @media (max-width: 767px) {
   .container {
     align-items: flex-start;
-
     padding: 50vw 5vw;
   }
   .mainContentWrapper {

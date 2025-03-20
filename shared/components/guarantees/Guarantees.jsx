@@ -43,7 +43,7 @@ const Guarantees = () => {
   return (
     <section id="guarantees" ref={guaranteesRef} className={styles.guarantees}>
       <SectionTitle title="Гарантії" number="01" color={"var(--background)"} />
-      {viewportWidth < 768 ? (
+      {viewportWidth < 1280 ? (
         <div className={styles.guaranteesContainerMobile}>
           <div className={styles.flexBlock}>
             <div className={styles.blockMobile}>

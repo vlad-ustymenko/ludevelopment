@@ -54,7 +54,7 @@ const Feedback = () => {
     <section id="feedback" className={styles.container}>
       <SectionTitle
         title="Зворотній зв'язок"
-        number="03"
+        number="05"
         color="var(--background)"
       />
       <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
