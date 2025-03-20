@@ -1,15 +1,26 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./DropDown.module.css";
 import Arrow from "../Arrow/Arrow";
+import { useViewportWidthContext } from "@/context/ViewportWidthContext";
+import useClickOutside from "@/hooks/useClickOutside";
 
-const DropDown = ({ list, title, selectTitle, onChange, disabled }) => {
+const DropDown = ({ list, title, selectTitle, onChange, small, big }) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(false);
 
+  const { viewportWidth } = useViewportWidthContext();
+
+  const handleOpen = (event) => {
+    event.stopPropagation();
+    setOpen((prev) => !prev);
+  };
+
+  const dropDownRef = useClickOutside(() => setOpen(false));
+
   return (
-    <div className={styles.dropDown}>
+    <div className={styles.dropDown} ref={dropDownRef}>
       <div className={styles.dropDownTitleWrapper}>
         <h3 className={styles.title}>{title}</h3>
         <div
@@ -30,7 +41,26 @@ const DropDown = ({ list, title, selectTitle, onChange, disabled }) => {
         </div>
       </div>
 
-      <ul className={`${styles.dropDownList} ${open && styles.dropDownActive}`}>
+      <ul
+        className={styles.dropDownList}
+        style={{
+          height: open
+            ? big
+              ? viewportWidth > 1279
+                ? "16.6vw"
+                : viewportWidth > 767
+                ? "33vw"
+                : "55vw"
+              : small
+              ? viewportWidth > 1279
+                ? "7.5vw"
+                : viewportWidth > 767
+                ? "15vw"
+                : "25vw"
+              : "0"
+            : "0",
+        }}
+      >
         {list.map((item) => {
           return (
             <li
