@@ -19,7 +19,6 @@
 
 .title {
   font-family: "MariupolRegular", sans-serif;
-  font-weight: 400;
   font-size: 1.5vw;
   line-height: 1.2;
   margin-bottom: 1vw;
@@ -34,13 +33,42 @@
   border-radius: 1vw;
 }
 
+.subtitle {
+  font-family: "MariupolRegular", sans-serif;
+  font-size: 1.5vw;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 1vw;
+}
+
 .contentList {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
 }
 
 .contentListItem {
+  margin-left: 1vw;
+  position: relative;
+  font-size: 1.3vw;
+  line-height: 1.2;
+}
+
+.contentListItem span {
+  font-family: "MariupolMedium", sans-serif;
+  display: block;
+}
+
+.contentListItem::before {
+  content: "";
+  position: absolute;
+  top: 0.8vw;
+  left: -1vw;
+  transform: translateY(-50%);
+  width: 0.5vw;
+  height: 0.5vw;
+  background-color: var(--secondAccent);
+  border-radius: 50%;
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -54,9 +82,31 @@
     width: 100%;
     max-width: none;
     height: auto;
+    border-radius: 3vw;
   }
   .title {
-    font-size: 5vw;
+    font-size: 4vw;
+  }
+  .subtitle {
+    font-size: 4vw;
+  }
+  .contentList {
+    gap: 3vw;
+  }
+  .contentListItem {
+    position: relative;
+    font-size: 3vw;
+    line-height: 1.2;
+    margin-left: 5vw;
+  }
+
+  .contentListItem::before {
+    content: "";
+    position: absolute;
+    top: 2vw;
+    left: -5vw;
+    width: 2vw;
+    height: 2vw;
   }
 }
 
@@ -73,8 +123,33 @@
   }
   .image {
     max-width: 100%;
+    border-radius: 3vw;
   }
   .title {
     font-size: 5vw;
+  }
+  .subtitle {
+    font-size: 5vw;
+  }
+  .contentList {
+    gap: 3vw;
+  }
+  .contentListItem {
+    position: relative;
+    font-size: 4vw;
+    line-height: 1.2;
+    margin-left: 5vw;
+  }
+
+  .contentListItem::before {
+    content: "";
+    position: absolute;
+    top: 2.5vw;
+    left: -5vw;
+    transform: translateY(-50%);
+    width: 2vw;
+    height: 2vw;
+    background-color: var(--secondAccent);
+    border-radius: 50%;
   }
 }
