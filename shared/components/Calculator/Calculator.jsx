@@ -133,7 +133,7 @@ const Calculator = () => {
     "Складська",
   ];
   return (
-    <div className={styles.container} id="prices">
+    <section className={styles.container} id="prices">
       <SectionTitle title="Ціни" number="03" lineColor="var(--accent)" />
 
       <div className={styles.calculatorWrapper}>
@@ -259,7 +259,7 @@ const Calculator = () => {
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
