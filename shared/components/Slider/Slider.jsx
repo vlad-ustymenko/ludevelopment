@@ -3,12 +3,19 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./Slider.module.css";
 
-export default function Slider({ step, value, minValue, maxValue, setValue, ariaLabel }) {
+export default function Slider({
+  step,
+  value,
+  minValue,
+  maxValue,
+  setValue,
+  ariaLabel,
+}) {
   const sliderWidth = useRef(null);
 
   const handleChange = (e) => {
     if (sliderWidth.current) {
-      setValue(e.target.value);
+      setValue(Number(e.target.value));
     }
   };
 
