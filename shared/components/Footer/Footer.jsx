@@ -11,8 +11,8 @@ const Footer = () => {
         <Image
           src="/logo.webp"
           fill
+          sizes="100%"
           alt="Logo"
-          priority
           className={styles.logoImage}
         />
       </a>

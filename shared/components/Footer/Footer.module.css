@@ -8,8 +8,8 @@
 
 .logo {
   position: relative;
-  width: 6.5vw;
-  height: 3vw;
+  width: 9vw;
+  height: 4.3vw;
 }
 
 .copyright {
@@ -21,6 +21,16 @@
   color: var(--secondAccent);
 }
 
+@media (min-width: 768px) and (max-width: 1279px) {
+  .logo {
+    width: 25vw;
+    height: 12vw;
+  }
+  .copyright {
+    font-size: 2.5vw;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .container {
     padding: 5vw;
@@ -30,8 +40,8 @@
     border-top: 0.8vw solid var(--accent);
   }
   .logo {
-    width: 17vw;
-    height: 8vw;
+    width: 25vw;
+    height: 12vw;
   }
   .copyright {
     font-size: 3vw;
