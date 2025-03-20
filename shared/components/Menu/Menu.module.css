@@ -22,7 +22,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   gap: 6vw;
 }
 
@@ -47,8 +46,6 @@
   position: relative;
   width: max-content;
   font-size: 8vw;
-  padding: 10px;
-  letter-spacing: 3px;
   transform: translateY(50px);
   animation: unset;
 }
@@ -63,6 +60,21 @@
   .nav {
     display: flex;
   }
+  .navLink {
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    width: max-content;
+    font-size: 6vw;
+    transform: translateY(50px);
+    animation: unset;
+  }
+  .telephone {
+    font-size: 7vw;
+    margin-bottom: 10vw;
+  }
+  .navList {
+    gap: 5vw;
+  }
 }
 
 @media (max-width: 767px) {
@@ -73,6 +85,6 @@
     margin-bottom: 20vw;
   }
   .navList {
-    gap: 15vw;
+    gap: 10vw;
   }
 }

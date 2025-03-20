@@ -23,6 +23,16 @@ const Menu = () => {
           </a>
         </li>
         <li onClick={() => setActiveMenu(false)}>
+          <a href="#advantages" className={styles.navLink}>
+            Переваги
+          </a>
+        </li>
+        <li onClick={() => setActiveMenu(false)}>
+          <a href="#prices" className={styles.navLink}>
+            Ціни
+          </a>
+        </li>
+        <li onClick={() => setActiveMenu(false)}>
           <a href="#about" className={styles.navLink}>
             Про нас
           </a>
