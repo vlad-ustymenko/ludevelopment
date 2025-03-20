@@ -35,7 +35,7 @@ const Advantages = () => {
     <div className={styles.container} id="advantages">
       <SectionTitle
         title="Наші переваги"
-        number="03"
+        number="02"
         lineColor="var(--secondAccent)"
         color="white"
       />

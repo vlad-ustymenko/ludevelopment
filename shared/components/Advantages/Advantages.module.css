@@ -24,17 +24,17 @@
   top: 0;
   left: 0;
   border-radius: 1vw;
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease;
 }
 
 .imageWrapper:hover::after {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0);
 }
 
 .imageWrapper:hover .text {
-  top: 50%;
-  opacity: 1;
+  top: 70%;
+  opacity: 0;
 }
 .title {
   font-family: "MariupolMedium", sans-serif;
@@ -44,16 +44,18 @@
 }
 .text {
   position: absolute;
-  top: 70%;
+  top: 50%;
   left: 50%;
   width: 100%;
   text-align: center;
   font-family: "MariupolMedium", sans-serif;
-  transform: translate(-50%, -50%);
   font-size: 1.5vw;
+  line-height: 1.2;
+  transform: translate(-50%, -50%);
   z-index: 1;
-  opacity: 0;
+  opacity: 1;
   transition: all 0.3s ease;
+  padding: 5vw;
 }
 
 .image {
@@ -63,10 +65,45 @@
   border-radius: 1vw;
 }
 @media (min-width: 768px) and (max-width: 1279px) {
+  .advantagesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vw;
+  }
+  .imageWrapper::after {
+    border-radius: 2vw;
+  }
+  .title {
+    font-size: 4vw;
+    margin-bottom: 3vw;
+  }
+  .text {
+    font-size: 2vw;
+  }
+  .image {
+    border-radius: 2vw;
+  }
 }
 
 @media (max-width: 767px) {
   .container {
     padding: 5vw;
+  }
+  .advantagesGrid {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+  .imageWrapper::after {
+    border-radius: 3vw;
+  }
+
+  .title {
+    font-size: 5vw;
+    margin-bottom: 5vw;
+  }
+  .text {
+    font-size: 5vw;
+  }
+  .image {
+    border-radius: 3vw;
   }
 }
