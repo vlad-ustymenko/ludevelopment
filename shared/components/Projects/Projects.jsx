@@ -315,6 +315,7 @@ const Projects = () => {
 
       <div className={styles.buttonsWrapper}>
         <button
+          aria-label="prevSlide"
           className={styles.navButton}
           onClick={viewportWidth >= 1280 ? prevSlide : prevSlideMobile}
           disabled={index === 0}
@@ -334,6 +335,7 @@ const Projects = () => {
           ))}
         </ul>
         <button
+          aria-label="nextSlide"
           className={styles.navButton}
           onClick={viewportWidth >= 1280 ? nextSlide : nextSlideMobile}
           disabled={

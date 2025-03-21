@@ -1,8 +1,9 @@
 import localFont from "next/font/local";
 import { MenuProvider } from "@/context/MenuContext";
+import { ViewportWidthProvider } from "@/context/ViewportWidthContext";
+import { ModalProvider } from "@/context/ModalContext";
 
 import "./globals.css";
-import { ViewportWidthProvider } from "@/context/ViewportWidthContext";
 
 const MariupolBold = localFont({
   src: "../public/fonts/Mariupol-Bold.ttf",
@@ -27,21 +28,21 @@ const MariupolRegular = localFont({
 
 export const metadata = {
   // metadataBase: new URL("https://sofua.army"),
-  title: "LineUp Development",
+  title: "LineUP Development",
   description: "Studio Architecture",
   icons: "/favicon.png",
-  openGraph: {
-    title: "Рекрутинг Сил спеціальних операцій.",
-    description: "Звичайні люди. Надзвичайні задачі.",
-    images: [
-      {
-        url: "og-image.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "Рекрутинг Сил спеціальних операцій.",
-      },
-    ],
-  },
+  // openGraph: {
+  //   title: "Рекрутинг Сил спеціальних операцій.",
+  //   description: "Звичайні люди. Надзвичайні задачі.",
+  //   images: [
+  //     {
+  //       url: "og-image.jpg",
+  //       width: 1920,
+  //       height: 1080,
+  //       alt: "Рекрутинг Сил спеціальних операцій.",
+  //     },
+  //   ],
+  // },
 };
 
 export default function RootLayout({ children }) {
@@ -53,9 +54,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${MariupolBold.className} ${MariupolMedium.className} ${MariupolRegular.className}`}
       >
-        <ViewportWidthProvider>
-          <MenuProvider>{children}</MenuProvider>
-        </ViewportWidthProvider>
+        <ModalProvider>
+          <ViewportWidthProvider>
+            <MenuProvider>{children}</MenuProvider>
+          </ViewportWidthProvider>
+        </ModalProvider>
       </body>
     </html>
   );

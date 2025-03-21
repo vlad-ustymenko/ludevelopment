@@ -10,6 +10,7 @@ import Contacts from "@/shared/components/Contacts/Contacts";
 import Footer from "@/shared/components/Footer/Footer";
 import Advantages from "@/shared/components/Advantages/Advantages";
 import Calculator from "@/shared/components/Calculator/Calculator";
+import Modal from "@/shared/components/Modal/Modal";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       </main>
       <Footer />
       <Menu />
+      <Modal />
     </>
   );
 }

@@ -2,8 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-// import Logo from "../../../src/assets/logo.svg";
-// import SmallLogo from "../../../src/assets/smallLogo.svg";
 import { useMenuContext } from "../../../context/MenuContext";
 import { useViewportWidthContext } from "../../../context/ViewportWidthContext";
 import styles from "./Header.module.css";
@@ -12,7 +10,6 @@ import MenuBtn from "../MenuBtn/MenuBtn";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  // const [viewportWidth, setViewportWidth] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
   const { activeMenu, setActiveMenu } = useMenuContext();
   const { viewportWidth, setViewportWidth } = useViewportWidthContext();
@@ -25,7 +22,6 @@ const Header = () => {
       const height = headerRef.current.offsetHeight;
       setHeaderHeight(height);
 
-      // Оновлення змінної CSS в кореневому елементі
       document.documentElement.style.setProperty(
         "--header-height",
         `${height}px`
@@ -61,7 +57,7 @@ const Header = () => {
           { opacity: 1, duration: 0.5, y: 0, stagger: 0.1 }
         );
       } else {
-        console.log("No elements found");
+        return;
       }
     }, 1);
   }, []);

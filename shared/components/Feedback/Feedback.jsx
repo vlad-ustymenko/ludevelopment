@@ -1,14 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, set } from "react-hook-form";
 import { Check } from "lucide-react";
-import styles from "./Feedback.module.css";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import { useModalContext } from "@/context/ModalContext";
+import styles from "./Feedback.module.css";
 
 const Feedback = () => {
   const [activeCheckbox, setActiveCheckbox] = useState(false);
   const [checkboxRequire, setCheckboxRequire] = useState(false);
   const [sending, setSending] = useState(false);
+  const { setActiveModal, setLoading } = useModalContext();
 
   const {
     control,
@@ -24,6 +26,8 @@ const Feedback = () => {
     }
 
     try {
+      setActiveModal(true);
+      setLoading(true);
       setSending(true);
       const formData = { ...data };
       const response = await fetch("/api/sendMail", {
@@ -37,14 +41,15 @@ const Feedback = () => {
       if (response.ok) {
         reset();
         setActiveCheckbox(false);
-        // setActiveFormModal(false);
+        setLoading(false);
       } else {
         alert("Помилка при відправці форми.");
       }
     } catch (error) {
       console.error("Помилка:", error);
       alert("Щось пішло не так. Спробуйте пізніше.");
-      // setActiveFormModal(false);
+      setLoading(false);
+      setActiveModal(false);
     } finally {
       setSending(false);
     }

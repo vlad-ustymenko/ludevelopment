@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styles from "./DropDown.module.css";
 import Arrow from "../Arrow/Arrow";
 import { useViewportWidthContext } from "@/context/ViewportWidthContext";
@@ -11,11 +11,6 @@ const DropDown = ({ list, title, selectTitle, onChange, small, big }) => {
   const [selected, setSelected] = useState(false);
 
   const { viewportWidth } = useViewportWidthContext();
-
-  const handleOpen = (event) => {
-    event.stopPropagation();
-    setOpen((prev) => !prev);
-  };
 
   const dropDownRef = useClickOutside(() => setOpen(false));
 

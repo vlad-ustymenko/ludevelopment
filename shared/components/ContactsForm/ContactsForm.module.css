@@ -140,6 +140,71 @@ textarea.formInputField {
   background-color: #ffa32b;
 }
 
+@media (min-width: 768px) and (max-width: 1279px) {
+  .form {
+    padding: 5vw;
+    border-radius: 3vw;
+  }
+  .formWrapper {
+    margin: 0 0 6vw 0;
+  }
+  .formLabel {
+    font-size: 4vw;
+    margin: 0 0 3vw 0;
+  }
+  .formIcon {
+    width: 4vw;
+    height: 4vw;
+    top: 2vw;
+    left: 2vw;
+  }
+  .formInputField {
+    padding: 2vw 2vw 2vw 9vw;
+    border-radius: 3vw;
+    font-size: 4vw;
+  }
+  textarea.formInputField {
+    height: 20vw;
+  }
+  .formButton {
+    padding: 4vw 8vw;
+    border-radius: 1.5vw;
+    font-size: 4vw;
+  }
+  .personalDataWrapper {
+    margin-bottom: 8vw;
+  }
+  .personalDataCheckbox {
+    position: relative;
+    cursor: pointer;
+    min-width: 5vw;
+    min-height: 5vw;
+    border: 0.5vw solid #c5c5c5;
+    margin-right: 5vw;
+  }
+  .checked {
+    width: 5vw;
+    height: 5vw;
+    color: white;
+    background-color: var(--secondAccent);
+  }
+  .checkboxRequire {
+    border: 0.5vw solid red;
+  }
+  .requiredSpan {
+    bottom: -5vw;
+    right: 0;
+    font-size: 4vw;
+  }
+
+  .active {
+    border: none;
+  }
+  .personalDataText {
+    font-size: 4vw;
+  }
+}
+
 @media (max-width: 767px) {
   .form {
     padding: 6vw;

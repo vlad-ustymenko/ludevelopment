@@ -30,7 +30,7 @@ const Guarantees = () => {
           snap: { textContent: 1 },
           scrollTrigger: {
             trigger: guaranteesRef.current,
-            start: "top 30%",
+            start: "top 10%",
             end: "bottom 30%",
             toggleActions: "play reverse play reverse",
             once: false,

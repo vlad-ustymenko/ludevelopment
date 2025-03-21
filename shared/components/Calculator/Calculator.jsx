@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import styles from "./Calculator.module.css";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import Slider from "../Slider/Slider";
@@ -17,7 +17,6 @@ const Calculator = () => {
   const [buildingLength, setBuildingLength] = useState(1);
   const [floorHeight, setFloorHeight] = useState(2);
   const [floorsCount, setFloorsCount] = useState(1);
-  const [result, setResult] = useState(0);
 
   useEffect(() => {
     fetch("/api/getDollarRate")
@@ -39,48 +38,6 @@ const Calculator = () => {
         setRateError(error.message);
       });
   }, []);
-
-  useEffect(() => {
-    const buildTypeData = buildType[type];
-    const walsTypeData = walsType[wals];
-    const foundationTypeData = foundationType[foundation];
-    const roofingTypeData = roofingType[roofing];
-    const facadeTypeData = facadeType[facade];
-    const buildingArea = buildingWidth * buildingLength * floorsCount;
-
-    const firstParam =
-      (buildingWidth + buildingLength) *
-      2 *
-      floorHeight *
-      floorsCount *
-      walsTypeData;
-    const secondParam = roofingTypeData * buildingArea;
-    const threeParam =
-      (buildingWidth + buildingLength) *
-      floorHeight *
-      floorsCount *
-      facadeTypeData;
-
-    const fourthParam = foundationTypeData * buildingArea;
-    const result =
-      ((firstParam + secondParam + threeParam + fourthParam) * buildTypeData) /
-      rate;
-
-    setResult(Math.floor(result));
-  }, [
-    rate,
-    type,
-    wals,
-    foundation,
-    roofing,
-    facade,
-    buildingLength,
-    buildingWidth,
-    floorHeight,
-    floorsCount,
-  ]);
-
-  // console.log(buildingWidth);
 
   const buildType = {
     Житлова: 1,
@@ -132,6 +89,52 @@ const Calculator = () => {
     "Промислова",
     "Складська",
   ];
+
+  const buildTypeData = useMemo(() => buildType[type], [type]);
+  const walsTypeData = useMemo(() => walsType[wals], [wals]);
+  const foundationTypeData = useMemo(
+    () => foundationType[foundation],
+    [foundation]
+  );
+  const roofingTypeData = useMemo(() => roofingType[roofing], [roofing]);
+  const facadeTypeData = useMemo(() => facadeType[facade], [facade]);
+
+  const buildingArea = useMemo(
+    () => buildingWidth * buildingLength * floorsCount,
+    [buildingWidth, buildingLength, floorsCount]
+  );
+
+  const result = useMemo(() => {
+    const firstParam =
+      (buildingWidth + buildingLength) *
+      2 *
+      floorHeight *
+      floorsCount *
+      walsTypeData;
+    const secondParam = roofingTypeData * buildingArea;
+    const thirdParam =
+      (buildingWidth + buildingLength) *
+      floorHeight *
+      floorsCount *
+      facadeTypeData;
+    const fourthParam = foundationTypeData * buildingArea;
+
+    return Math.floor(
+      ((firstParam + secondParam + thirdParam + fourthParam) * buildTypeData) /
+        rate
+    );
+  }, [
+    rate,
+    type,
+    wals,
+    foundation,
+    roofing,
+    facade,
+    buildingWidth,
+    buildingLength,
+    floorHeight,
+    floorsCount,
+  ]);
   return (
     <section className={styles.container} id="prices">
       <SectionTitle title="Ціни" number="03" lineColor="var(--accent)" />

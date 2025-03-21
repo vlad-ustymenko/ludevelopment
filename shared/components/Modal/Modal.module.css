@@ -1,0 +1,193 @@
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100dvh;
+  padding: 8vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.container.active {
+  opacity: 1;
+  z-index: 100;
+}
+
+.contentWrapper {
+  width: fit-content;
+  height: fit-content;
+  padding: 4vw;
+  background-color: white;
+  border-radius: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4vw;
+  position: relative;
+}
+
+.title {
+  text-align: center;
+  font-family: "MariupolBold", sans-serif;
+  font-size: 4vw;
+}
+
+.content {
+  text-align: center;
+  font-size: 2vw;
+  line-height: 1.2;
+}
+
+.closeIcon {
+  -webkit-tap-highlight-color: transparent;
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  top: 0.5vw;
+  right: 0.5vw;
+  cursor: pointer;
+  padding: 0.5vw;
+}
+
+.loader {
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  position: relative;
+}
+
+.loaderOuter,
+.loaderInner {
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loaderOuter {
+  width: 100%;
+  height: 100%;
+  border: 0.5vw solid #6379d8;
+  border-left-color: transparent;
+  border-bottom: none;
+  animation: rotate 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+}
+
+.loaderInner {
+  width: 7vw;
+  height: 7vw;
+  border: 0.5vw solid var(--secondAccent);
+  border-top-color: transparent;
+  border-right: none;
+  animation: rotate-reverse 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate-reverse {
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .contentWrapper {
+    padding: 8vw;
+    gap: 8vw;
+  }
+  .title {
+    font-size: 8vw;
+  }
+
+  .content {
+    font-size: 4vw;
+    line-height: 1.2;
+  }
+
+  .closeIcon {
+    width: 8vw;
+    height: 8vw;
+    top: 2vw;
+    right: 2vw;
+    padding: 0.1vw;
+  }
+  .loader {
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .loaderOuter {
+    border: 1.5vw solid #6379d8;
+    border-left-color: transparent;
+    border-bottom: none;
+    animation: rotate 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+  }
+
+  .loaderInner {
+    width: 23vw;
+    height: 23vw;
+    border: 1.5vw solid var(--secondAccent);
+    border-top-color: transparent;
+    border-right: none;
+    animation: rotate-reverse 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+  }
+}
+
+@media (max-width: 767px) {
+  .contentWrapper {
+    padding: 8vw;
+    gap: 8vw;
+  }
+  .title {
+    font-size: 8vw;
+  }
+
+  .content {
+    font-size: 4vw;
+    line-height: 1.2;
+  }
+
+  .closeIcon {
+    width: 8vw;
+    height: 8vw;
+    top: 2vw;
+    right: 2vw;
+    padding: 0.1vw;
+  }
+  .loader {
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .loaderOuter {
+    border: 1.5vw solid #6379d8;
+    border-left-color: transparent;
+    border-bottom: none;
+    animation: rotate 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+  }
+
+  .loaderInner {
+    width: 23vw;
+    height: 23vw;
+    border: 1.5vw solid var(--secondAccent);
+    border-top-color: transparent;
+    border-right: none;
+    animation: rotate-reverse 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+  }
+}

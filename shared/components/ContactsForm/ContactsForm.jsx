@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Check } from "lucide-react";
+import { useModalContext } from "@/context/ModalContext";
 import { useForm, Controller } from "react-hook-form";
 import { Mail, Phone, CircleUserRound, MessageCircleMore } from "lucide-react";
 import styles from "./ContactsForm.module.css";
@@ -9,6 +10,7 @@ const ContactsForm = () => {
   const [activeCheckbox, setActiveCheckbox] = useState(false);
   const [checkboxRequire, setCheckboxRequire] = useState(false);
   const [sending, setSending] = useState(false);
+  const { setActiveModal, setLoading } = useModalContext();
 
   const {
     control,
@@ -24,6 +26,8 @@ const ContactsForm = () => {
     }
 
     try {
+      setActiveModal(true);
+      setLoading(true);
       setSending(true);
       const formData = { ...data };
       const response = await fetch("/api/sendMail", {
@@ -37,14 +41,15 @@ const ContactsForm = () => {
       if (response.ok) {
         reset();
         setActiveCheckbox(false);
-        // setActiveFormModal(false);
+        setLoading(false);
       } else {
         alert("Помилка при відправці форми.");
       }
     } catch (error) {
       console.error("Помилка:", error);
       alert("Щось пішло не так. Спробуйте пізніше.");
-      // setActiveFormModal(false);
+      setLoading(false);
+      setActiveModal(false);
     } finally {
       setSending(false);
     }
@@ -257,6 +262,7 @@ const ContactsForm = () => {
       </div>
 
       <button
+        aria-label="submit"
         type="button"
         className={styles.formButton}
         onClick={() => handleSubmit(onSubmit)()}
