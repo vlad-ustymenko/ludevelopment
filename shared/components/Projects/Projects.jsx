@@ -206,12 +206,10 @@ const Projects = () => {
 
   const handleTouchEnd = () => {
     if (touchStartX - touchEndX > 50) {
-      // Свайп вліво
       nextSlideMobile();
     }
 
     if (touchEndX - touchStartX > 50) {
-      // Свайп вправо
       prevSlideMobile();
     }
   };

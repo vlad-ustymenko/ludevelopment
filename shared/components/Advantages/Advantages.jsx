@@ -10,11 +10,11 @@ const AdvantagesItem = [
   },
   {
     imageSrc: "/images/advantages/4.jpg",
-    text: "Швидка зміна проектних рішень та погодження у відповідних інстанціях ",
+    text: "Швидку зміну проектних рішень та погодження у відповідних інстанціях ",
   },
   {
     imageSrc: "/images/advantages/6.jpg",
-    text: "Оцінка проектних рішень та надання рекомендацій",
+    text: "Експертну оцінку проектних рішень та надання рекомендацій",
   },
   {
     imageSrc: "/images/advantages/3.jpg",
@@ -22,7 +22,7 @@ const AdvantagesItem = [
   },
   {
     imageSrc: "/images/advantages/5.jpg",
-    text: "Висококваліфіковані інженери з багаторічним досвідом в будівництві",
+    text: "Висококваліфікованих інженерів з багаторічним досвідом в будівництві",
   },
   {
     imageSrc: "/images/advantages/1.webp",

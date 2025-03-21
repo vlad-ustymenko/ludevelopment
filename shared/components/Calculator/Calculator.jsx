@@ -137,7 +137,9 @@ const Calculator = () => {
       <SectionTitle title="Ціни" number="03" lineColor="var(--accent)" />
 
       <div className={styles.calculatorWrapper}>
-        <div className={styles.calculatorTitle}>Розахунок вартості споруди</div>
+        <div className={styles.calculatorTitle}>
+          Розрахунок вартості споруди
+        </div>
         <div className={styles.dropDownsWrapper}>
           <div className={styles.bigDropDownsWrapper}>
             <DropDown
