@@ -1,51 +1,56 @@
 "use client";
 
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import styles from "./MainScreen.module.css";
 
 const MainScreen = () => {
   const subcontentRefs = useRef([]);
+  const mainContentWrapperRef = useRef(null);
+  const lineRef = useRef(null);
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (subcontentRefs.current.length > 0) {
       gsap.fromTo(
         subcontentRefs.current[0],
-        { opacity: 0, x: 50 },
-        { opacity: 1, x: 0, duration: 0.5 }
+        { autoAlpha: 0, x: 50 },
+        { autoAlpha: 1, x: 0, duration: 0.5 }
       );
 
       gsap.fromTo(
         subcontentRefs.current[1],
-        { opacity: 0, x: -50 },
-        { opacity: 1, x: 0, duration: 0.5 }
+        { autoAlpha: 0, x: -50 },
+        { autoAlpha: 1, x: 0, duration: 0.5 }
       );
     }
     gsap.fromTo(
-      `.${styles.line}`,
-      { opacity: 0 },
+      lineRef.current,
+      { autoAlpha: 0 },
       { opacity: 1, duration: 0.5 }
     );
     gsap.fromTo(
-      `.${styles.mainContentWrapper}`,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.5 }
+      mainContentWrapperRef.current,
+      { autoAlpha: 0 },
+      { autoAlpha: 1, duration: 0.5 }
     );
     gsap.fromTo(
-      `.${styles.title}`,
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 0.5 }
+      titleRef.current,
+      { autoAlpha: 0, y: -50 },
+      { autoAlpha: 1, y: 0, duration: 0.5 }
     );
     gsap.fromTo(
-      `.${styles.subtitle}`,
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 0.5 }
+      subtitleRef.current,
+      { autoAlpha: 0, y: -50 },
+      { autoAlpha: 1, y: 0, duration: 0.5 }
     );
     gsap.fromTo(
-      `.${styles.button}`,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.5 }
+      buttonRef.current,
+      { autoAlpha: 0, y: 50 },
+      { autoAlpha: 1, y: 0, duration: 0.5 }
     );
   }, []);
 
@@ -54,16 +59,23 @@ const MainScreen = () => {
       <section className={styles.gradient} id="main">
         <Image
           fill
-          sizes="(max-width: 768px) 100dvh, (max-width: 1200px) 100dvh, 100dvh"
           src="/images/mainScreen.webp"
           alt="main image"
-          quality={100}
+          quality={90}
+          priority
           className={styles.mainScreen}
         />
         <div className={styles.container}>
-          <div className={styles.mainContentWrapper}>
-            <h1 className={styles.title}>Будівництво</h1>
-            <h2 className={styles.subtitle}>комерційних споруд та будинків</h2>
+          <div
+            className={styles.mainContentWrapper}
+            ref={mainContentWrapperRef}
+          >
+            <h1 className={styles.title} ref={titleRef}>
+              Будівництво
+            </h1>
+            <h2 className={styles.subtitle} ref={subtitleRef}>
+              комерційних споруд та будинків
+            </h2>
             <div className={styles.subcontentWrapper}>
               <div
                 className={styles.subcontent}
@@ -72,7 +84,7 @@ const MainScreen = () => {
                 <p className={styles.typeBuildText}>Комерційні</p>
                 <p className={styles.price}>від 250$/м2</p>
               </div>
-              <div className={styles.line}></div>
+              <div className={styles.line} ref={lineRef}></div>
               <div
                 className={styles.subcontent}
                 ref={(el) => (subcontentRefs.current[1] = el)}
@@ -83,7 +95,7 @@ const MainScreen = () => {
             </div>
           </div>
         </div>
-        <a href="#feedback" className={styles.button}>
+        <a href="#feedback" className={styles.button} ref={buttonRef}>
           Консультація
         </a>
       </section>

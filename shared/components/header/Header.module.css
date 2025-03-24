@@ -37,6 +37,7 @@
 .navList li {
   position: relative;
   opacity: 0;
+  will-change: transform, opacity;
 }
 
 .navList li::after {
