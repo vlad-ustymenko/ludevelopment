@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import IMask from "imask";
 import { Check } from "lucide-react";
 import { useModalContext } from "@/context/ModalContext";
 import { useForm, Controller } from "react-hook-form";
@@ -11,6 +12,7 @@ const ContactsForm = () => {
   const [checkboxRequire, setCheckboxRequire] = useState(false);
   const [sending, setSending] = useState(false);
   const { setActiveModal, setLoading } = useModalContext();
+  const phoneInputRef = useRef(null);
 
   const {
     control,
@@ -18,6 +20,15 @@ const ContactsForm = () => {
     reset,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    if (phoneInputRef.current) {
+      IMask(phoneInputRef.current, {
+        mask: "+38 (000) 000-00-00",
+        placeholder: "_",
+      });
+    }
+  }, []);
 
   const onSubmit = async (data) => {
     if (!activeCheckbox) {
@@ -144,36 +155,11 @@ const ContactsForm = () => {
             rules={{
               required: "Це поле обов’язкове",
               pattern: {
-                value: /^\+38\d{10}$/,
+                value: /^\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
                 message: "Некоректний номер",
               },
             }}
             render={({ field }) => {
-              const phoneLength = field.value?.length || 0;
-
-              const formatPhoneNumber = (input) => {
-                let formatted = "+38";
-                formatted += input.slice(3, 20).replace(/\D/g, "");
-                return formatted;
-              };
-
-              const handleChange = (e) => {
-                const rawValue = e.target.value;
-                field.onChange(formatPhoneNumber(rawValue));
-              };
-
-              const handleFocus = () => {
-                if (!field.value) {
-                  field.onChange("+38");
-                }
-              };
-
-              const handleBlur = () => {
-                if (field.value === "+38") {
-                  field.onChange("");
-                }
-              };
-
               return (
                 <>
                   <input
@@ -181,20 +167,16 @@ const ContactsForm = () => {
                     id="contactPhone"
                     className={styles.formInputField}
                     type="tel"
+                    ref={phoneInputRef}
                     autoComplete="tel"
                     placeholder="Телефон* +38 "
-                    maxLength={13}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      field.onChange(e.target.value);
+                    }}
                   />
                   {errors.phone ? (
                     <span className={styles.requiredSpan}>
-                      {field.value.length < 13
-                        ? `*Не вистачає ${13 - phoneLength} ${
-                            13 - phoneLength > 4 ? "цифр" : "цифри"
-                          }`
-                        : errors.phone.message}
+                      {errors.phone.message}
                     </span>
                   ) : null}
                 </>
