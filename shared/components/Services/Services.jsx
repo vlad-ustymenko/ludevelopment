@@ -13,11 +13,12 @@ const Services = () => {
       ></SectionTitle>
       <div className={styles.servicesWrapper}>
         <Image
-          src="/images/services/3.jpg"
+          src="/images/services/3.webp"
           alt="services"
           className={styles.image}
           width={500}
           height={400}
+          loading="lazy"
         />
         <div className={styles.content}>
           <h2 className={styles.title}>Девелопмент та інвестиційний аналіз</h2>
@@ -83,20 +84,22 @@ const Services = () => {
           </div>
         </div>
         <Image
-          src="/images/services/1.jpg"
+          src="/images/services/1.webp"
           alt="services"
           className={styles.image}
           width={500}
           height={400}
+          loading="lazy"
         ></Image>
       </div>
       <div className={styles.servicesWrapper}>
         <Image
-          src="/images/services/4.jpg"
+          src="/images/services/4.webp"
           alt="services"
           className={styles.image}
           width={500}
           height={400}
+          loading="lazy"
         ></Image>
         <div className={styles.content}>
           <h2 className={styles.title}>Отримання дозвільної документації</h2>
@@ -161,11 +164,12 @@ const Services = () => {
           </div>
         </div>
         <Image
-          src="/images/services/2.jpg"
+          src="/images/services/2.webp"
           alt="services"
           className={styles.image}
           width={500}
           height={400}
+          loading="lazy"
         ></Image>
       </div>
     </section>
