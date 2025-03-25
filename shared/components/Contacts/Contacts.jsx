@@ -31,7 +31,6 @@ const Contacts = () => {
                   href="https://maps.app.goo.gl/MSd2sphvoWWAEeDd7"
                   className={styles.contactsItemsSubtitle}
                   target="_blank"
-                  rel="noopener noreferrer"
                 >
                   Київ , пр-т Лобановського, 4Ж, офіс 198
                 </a>
