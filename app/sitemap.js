@@ -1,3 +1,5 @@
+export const revalidate = 3600;
+
 export default async function sitemap() {
   const baseUrl = "https://lineup.dev";
 
