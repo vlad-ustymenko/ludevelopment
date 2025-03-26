@@ -49,12 +49,14 @@
   border-radius: 0.1vw;
 }
 
-.image {
+.imageWrapper {
   flex: 1;
-  max-width: 50%;
-  height: auto;
+  width: 100%;
+  position: relative;
+}
+
+.image {
   object-fit: cover;
-  object-position: center;
   border-radius: 1vw;
 }
 
@@ -70,10 +72,10 @@
   .content {
     max-width: 100%;
   }
+  .imageWrapper {
+    min-height: 50vw;
+  }
   .image {
-    width: 100%;
-    max-width: none;
-    height: auto;
     border-radius: 3vw;
   }
   .title {
@@ -119,8 +121,10 @@
   .content {
     max-width: 100%;
   }
+  .imageWrapper {
+    min-height: 50vw;
+  }
   .image {
-    max-width: 100%;
     border-radius: 3vw;
   }
   .title {

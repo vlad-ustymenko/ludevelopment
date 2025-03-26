@@ -13,55 +13,55 @@ const MainScreen = () => {
   const subtitleRef = useRef(null);
   const buttonRef = useRef(null);
 
-  useEffect(() => {
-    if (subcontentRefs.current.length > 0) {
-      gsap.fromTo(
-        subcontentRefs.current[0],
-        { autoAlpha: 0, x: 50 },
-        { autoAlpha: 1, x: 0, duration: 0.5 }
-      );
+  // useEffect(() => {
+  //   if (subcontentRefs.current.length > 0) {
+  //     gsap.fromTo(
+  //       subcontentRefs.current[0],
+  //       { autoAlpha: 0, x: 50 },
+  //       { autoAlpha: 1, x: 0, duration: 0.5 }
+  //     );
 
-      gsap.fromTo(
-        subcontentRefs.current[1],
-        { autoAlpha: 0, x: -50 },
-        { autoAlpha: 1, x: 0, duration: 0.5 }
-      );
-    }
-    gsap.fromTo(
-      lineRef.current,
-      { autoAlpha: 0 },
-      { opacity: 1, duration: 0.5 }
-    );
-    gsap.fromTo(
-      mainContentWrapperRef.current,
-      { autoAlpha: 0 },
-      { autoAlpha: 1, duration: 0.5 }
-    );
-    gsap.fromTo(
-      titleRef.current,
-      { autoAlpha: 0, y: -50 },
-      { autoAlpha: 1, y: 0, duration: 0.5 }
-    );
-    gsap.fromTo(
-      subtitleRef.current,
-      { autoAlpha: 0, y: -50 },
-      { autoAlpha: 1, y: 0, duration: 0.5 }
-    );
-    gsap.fromTo(
-      buttonRef.current,
-      { autoAlpha: 0, y: 50 },
-      { autoAlpha: 1, y: 0, duration: 0.5 }
-    );
-  }, []);
+  //     gsap.fromTo(
+  //       subcontentRefs.current[1],
+  //       { autoAlpha: 0, x: -50 },
+  //       { autoAlpha: 1, x: 0, duration: 0.5 }
+  //     );
+  //   }
+  //   gsap.fromTo(
+  //     lineRef.current,
+  //     { autoAlpha: 0 },
+  //     { opacity: 1, duration: 0.5 }
+  //   );
+  //   gsap.fromTo(
+  //     mainContentWrapperRef.current,
+  //     { autoAlpha: 0 },
+  //     { autoAlpha: 1, duration: 0.5 }
+  //   );
+  //   gsap.fromTo(
+  //     titleRef.current,
+  //     { autoAlpha: 0, y: -50 },
+  //     { autoAlpha: 1, y: 0, duration: 0.5 }
+  //   );
+  //   gsap.fromTo(
+  //     subtitleRef.current,
+  //     { autoAlpha: 0, y: -50 },
+  //     { autoAlpha: 1, y: 0, duration: 0.5 }
+  //   );
+  //   gsap.fromTo(
+  //     buttonRef.current,
+  //     { autoAlpha: 0, y: 50 },
+  //     { autoAlpha: 1, y: 0, duration: 0.5 }
+  //   );
+  // }, []);
 
   return (
     <>
       <section className={styles.gradient} id="main">
         <Image
           fill
+          sizes="100%"
           src="/images/mainScreen.webp"
           alt="main image"
-          quality={90}
           priority
           className={styles.mainScreen}
         />

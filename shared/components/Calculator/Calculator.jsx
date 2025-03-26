@@ -3,13 +3,13 @@ import React, { useState, useEffect, useMemo } from "react";
 import styles from "./Calculator.module.css";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import Slider from "../Slider/Slider";
+import useDollarRate from "../../../hooks/useDollarRate";
 import DropDown from "../DropDown/DropDown";
+import useBuildingCost from "@/hooks/useBuildingCost";
 
 const Calculator = () => {
   const [type, setType] = useState("Житлова");
   const [wals, setWals] = useState("Цегла");
-  const [rate, setRate] = useState(0);
-  const [rateError, setRateError] = useState("");
   const [foundation, setFoundation] = useState("Плита");
   const [roofing, setRoofing] = useState("Скатна");
   const [facade, setFacade] = useState("Пінопласт");
@@ -17,27 +17,7 @@ const Calculator = () => {
   const [buildingLength, setBuildingLength] = useState(1);
   const [floorHeight, setFloorHeight] = useState(2);
   const [floorsCount, setFloorsCount] = useState(1);
-
-  useEffect(() => {
-    fetch("/api/getDollarRate")
-      .then((res) => {
-        if (!res.ok) {
-          if (res.status === 500) {
-            throw new Error(
-              "Помилка отримання, оновіть сторінку через 10 секунд"
-            );
-          }
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setRate(data.rate);
-        setRateError("");
-      })
-      .catch((error) => {
-        setRateError(error.message);
-      });
-  }, []);
+  const { rate, rateError } = useDollarRate();
 
   const buildType = {
     Житлова: 1,
@@ -90,41 +70,7 @@ const Calculator = () => {
     "Складська",
   ];
 
-  const buildTypeData = useMemo(() => buildType[type], [type]);
-  const walsTypeData = useMemo(() => walsType[wals], [wals]);
-  const foundationTypeData = useMemo(
-    () => foundationType[foundation],
-    [foundation]
-  );
-  const roofingTypeData = useMemo(() => roofingType[roofing], [roofing]);
-  const facadeTypeData = useMemo(() => facadeType[facade], [facade]);
-
-  const buildingArea = useMemo(
-    () => buildingWidth * buildingLength * floorsCount,
-    [buildingWidth, buildingLength, floorsCount]
-  );
-
-  const result = useMemo(() => {
-    const firstParam =
-      (buildingWidth + buildingLength) *
-      2 *
-      floorHeight *
-      floorsCount *
-      walsTypeData;
-    const secondParam = roofingTypeData * buildingArea;
-    const thirdParam =
-      (buildingWidth + buildingLength) *
-      floorHeight *
-      floorsCount *
-      facadeTypeData;
-    const fourthParam = foundationTypeData * buildingArea;
-
-    return Math.floor(
-      ((firstParam + secondParam + thirdParam + fourthParam) * buildTypeData) /
-        rate
-    );
-  }, [
-    rate,
+  const cost = useBuildingCost({
     type,
     wals,
     foundation,
@@ -134,7 +80,10 @@ const Calculator = () => {
     buildingLength,
     floorHeight,
     floorsCount,
-  ]);
+    rate,
+    typesData: { buildType, walsType, foundationType, roofingType, facadeType },
+  });
+
   return (
     <section className={styles.container} id="prices">
       <SectionTitle title="Ціни" number="03" lineColor="var(--accent)" />
@@ -256,11 +205,9 @@ const Calculator = () => {
             </div>
           </div>
           {rateError === "" ? (
-            <div className={styles.result}>
-              {result.toLocaleString("uk-UA")} $
-            </div>
+            <div className={styles.cost}>{cost.toLocaleString("uk-UA")} $</div>
           ) : (
-            <div className={styles.result}>0 $</div>
+            <div className={styles.cost}>0 $</div>
           )}
         </div>
       </div>

@@ -23,14 +23,14 @@
   line-height: 1.2;
   margin-bottom: 1vw;
 }
-
-.image {
+.imageWrapper {
   flex: 1;
   max-width: 50%;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
+  position: relative;
+}
+.image {
   border-radius: 1vw;
+  object-fit: cover;
 }
 
 .subtitle {
@@ -78,10 +78,11 @@
   .content {
     max-width: 100%;
   }
+  .imageWrapper {
+    max-width: 100%;
+    min-height: 50vw;
+  }
   .image {
-    width: 100%;
-    max-width: none;
-    height: auto;
     border-radius: 3vw;
   }
   .title {
@@ -120,6 +121,10 @@
   }
   .content {
     max-width: 100%;
+  }
+  .imageWrapper {
+    max-width: 100%;
+    min-height: 50vw;
   }
   .image {
     max-width: 100%;

@@ -38,14 +38,15 @@ const About = () => {
             </li>
           </ul>
         </div>
-        <Image
-          src="/images/about.webp"
-          alt="about"
-          className={styles.image}
-          width={500}
-          height={400}
-          loading="lazy"
-        ></Image>
+        <div className={styles.imageWrapper}>
+          <Image
+            src="/images/about.webp"
+            alt="about"
+            className={styles.image}
+            fill
+            sizes="100%"
+          />
+        </div>
       </div>
     </section>
   );

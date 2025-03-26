@@ -47,8 +47,8 @@ const Advantages = () => {
               <Image
                 src={item.imageSrc}
                 alt="advantages"
-                width={500}
-                height={500}
+                fill
+                sizes="100%"
                 className={styles.image}
               ></Image>
               <p className={styles.text}>{item.text}</p>

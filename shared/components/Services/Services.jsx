@@ -12,14 +12,15 @@ const Services = () => {
         lineColor="var(--accent)"
       ></SectionTitle>
       <div className={styles.servicesWrapper}>
-        <Image
-          src="/images/services/3.webp"
-          alt="services"
-          className={styles.image}
-          width={500}
-          height={400}
-          loading="lazy"
-        />
+        <div className={styles.imageWrapper}>
+          <Image
+            src="/images/services/3.webp"
+            alt="services"
+            className={styles.image}
+            fill
+            sizes="100%"
+          />
+        </div>
         <div className={styles.content}>
           <h2 className={styles.title}>Девелопмент та інвестиційний аналіз</h2>
           <div className={styles.text}>
@@ -83,24 +84,26 @@ const Services = () => {
             </ul>
           </div>
         </div>
-        <Image
-          src="/images/services/1.webp"
-          alt="services"
-          className={styles.image}
-          width={500}
-          height={400}
-          loading="lazy"
-        ></Image>
+        <div className={styles.imageWrapper}>
+          <Image
+            src="/images/services/1.webp"
+            alt="services"
+            className={styles.image}
+            fill
+            sizes="100%"
+          />
+        </div>
       </div>
       <div className={styles.servicesWrapper}>
-        <Image
-          src="/images/services/4.webp"
-          alt="services"
-          className={styles.image}
-          width={500}
-          height={400}
-          loading="lazy"
-        ></Image>
+        <div className={styles.imageWrapper}>
+          <Image
+            src="/images/services/4.webp"
+            alt="services"
+            className={styles.image}
+            fill
+            sizes="100%"
+          />
+        </div>
         <div className={styles.content}>
           <h2 className={styles.title}>Отримання дозвільної документації</h2>
           <div className={styles.text}>
@@ -163,14 +166,15 @@ const Services = () => {
             </ul>
           </div>
         </div>
-        <Image
-          src="/images/services/2.webp"
-          alt="services"
-          className={styles.image}
-          width={500}
-          height={400}
-          loading="lazy"
-        ></Image>
+        <div className={styles.imageWrapper}>
+          <Image
+            src="/images/services/2.webp"
+            alt="services"
+            className={styles.image}
+            fill
+            sizes="100%"
+          />
+        </div>
       </div>
     </section>
   );

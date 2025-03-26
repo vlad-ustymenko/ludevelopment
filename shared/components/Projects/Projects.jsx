@@ -6,73 +6,12 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
+import Image from "next/image";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { useViewportWidthContext } from "@/context/ViewportWidthContext";
+import projectsData from "@/assets/projectData/projects.json";
 import styles from "./Projects.module.css";
-
-const projectsData = [
-  {
-    img: "/images/projects/1.webp",
-    title: "2022 – 2023 Ходосівка",
-    description: "Загальна площа – 300 м2",
-  },
-  {
-    img: "/images/projects/2.webp",
-    title: "2020 – 2023 Гатне",
-    description: "Загальна площа – 320 м2",
-  },
-  {
-    img: "/images/projects/3.webp",
-    title: "2022 – 2025 Українка",
-    description: "Загальна площа – 22 573 м2",
-  },
-  {
-    img: "/images/projects/4.webp",
-    title: "2017 – 2019 Бровари",
-    description: "Загальна площа – 800 м2",
-  },
-  {
-    img: "/images/projects/5.webp",
-    title: "2020 – 2021 Крюківщина",
-    description: "Загальна площа – 596 м2",
-  },
-  {
-    img: "/images/projects/9.webp",
-    title: "2021 – 2022 Білогородка",
-    description: "Загальна площа – 833 м2",
-  },
-  {
-    img: "/images/projects/6.webp",
-    title: "2023 – 2024 Київ",
-    description: "Загальна площа – 450 м2",
-  },
-  {
-    img: "/images/projects/10.webp",
-    title: "2018 – 2019 Ірпінь",
-    description: "Загальна площа – 700 м2",
-  },
-  {
-    img: "/images/projects/12.webp",
-    title: "2019 – 2021 Буча",
-    description: "Загальна площа – 580 м2",
-  },
-  {
-    img: "/images/projects/8.webp",
-    title: "2021 – 2023 Васильків",
-    description: "Загальна площа – 920 м2",
-  },
-  {
-    img: "/images/projects/11.webp",
-    title: "2016 – 2018 Вишневе",
-    description: "Загальна площа – 340 м2",
-  },
-  {
-    img: "/images/projects/7.webp",
-    title: "2015 – 2017 Обухів",
-    description: "Загальна площа – 630 м2",
-  },
-];
 
 const Projects = () => {
   const { viewportWidth } = useViewportWidthContext();
@@ -100,14 +39,13 @@ const Projects = () => {
 
   useEffect(() => {
     calculateCardWidth();
-  }, [calculateCardWidth]);
+  }, [viewportWidth]);
 
   useEffect(() => {
-    if (sliderRefFirst.current && cardWidth > 0) {
+    if (sliderRefFirst.current && cardWidth > 0 && viewportWidth >= 1280) {
       setTimeout(() => {
         sliderRefFirst.current.scrollBy({
           left: cardWidth + 16,
-          behavior: "smooth",
         });
       }, 500);
     }
@@ -224,13 +162,15 @@ const Projects = () => {
       />
 
       <div className={styles.sliderContainer} ref={sliderRefFirst}>
-        {viewportWidth >= 1280 && (
+        {viewportWidth >= 1280 ? (
           <>
             <div
               className={styles.projectsCard}
               style={{ minWidth: cardWidth }}
             >
-              <img
+              <Image
+                fill
+                sizes="100%"
                 src={projectsData[index > 0 ? index - 1 : 0].img}
                 alt={projectsData[index].title}
               />
@@ -250,7 +190,12 @@ const Projects = () => {
                   ref={cardRef}
                   className={styles.projectsCardGallery}
                 >
-                  <img src={project.img} alt={project.title} />
+                  <Image
+                    fill
+                    sizes="100%"
+                    src={project.img}
+                    alt={project.title}
+                  />
                   <div className={styles.descriptionShadow}>
                     <div className={styles.descriptionWrapper}>
                       <p className={styles.title}>{project.title}</p>
@@ -267,7 +212,9 @@ const Projects = () => {
               className={styles.projectsCard}
               style={{ minWidth: cardWidth }}
             >
-              <img
+              <Image
+                fill
+                sizes="100%"
                 src={
                   projectsData[index > 5 ? projectsData.length - 1 : index + 6]
                     .img
@@ -284,8 +231,7 @@ const Projects = () => {
               </div>
             </div>
           </>
-        )}
-        {viewportWidth < 1280 && (
+        ) : (
           <div
             className={styles.projectsGalleryMobile}
             onTouchStart={handleTouchStart}
@@ -298,7 +244,13 @@ const Projects = () => {
                 ref={cardMobileRef}
                 className={styles.projectsCardGalleryMobile}
               >
-                <img src={project.img} alt={project.title} loading="lazy" />
+                <Image
+                  fill
+                  sizes="100%"
+                  src={project.img}
+                  alt={project.title}
+                  loading="lazy"
+                />
                 <div className={styles.descriptionShadowMobile}>
                   <div className={styles.descriptionWrapperMobile}>
                     <p className={styles.titleMobile}>{project.title}</p>
