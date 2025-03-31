@@ -36,8 +36,8 @@
 
 .navList li {
   position: relative;
-  opacity: 0;
-  will-change: transform, opacity;
+  /* opacity: 0;
+  will-change: transform, opacity; */
 }
 
 .navList li::after {
@@ -73,6 +73,9 @@
   .telephone {
     font-size: 4vw;
   }
+  .navList li {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
@@ -82,5 +85,11 @@
   .logo {
     width: 25vw;
     height: 12vw;
+  }
+  .navList li {
+    display: none;
+  }
+  .telephone {
+    display: none;
   }
 }

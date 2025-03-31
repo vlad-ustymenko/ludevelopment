@@ -48,19 +48,19 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (navListRef.current && navListRef.current.children.length > 0) {
-        gsap.fromTo(
-          navListRef.current.children,
-          { autoAlpha: 0, y: -50 },
-          { autoAlpha: 1, duration: 0.5, y: 0, stagger: 0.1 }
-        );
-      } else {
-        return;
-      }
-    }, 1);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     if (navListRef.current && navListRef.current.children.length > 0) {
+  //       gsap.fromTo(
+  //         navListRef.current.children,
+  //         { autoAlpha: 0, y: -50 },
+  //         { autoAlpha: 1, duration: 0.5, y: 0, stagger: 0.1 }
+  //       );
+  //     } else {
+  //       return;
+  //     }
+  //   }, 1);
+  // }, []);
 
   return (
     <section
