@@ -30,7 +30,6 @@ export const metadata = {
   // metadataBase: new URL("https://sofua.army"),
   title: "LineUP Development",
   description: "Studio Architecture",
-  icons: "/favicon.png",
   // openGraph: {
   //   title: "Рекрутинг Сил спеціальних операцій.",
   //   description: "Звичайні люди. Надзвичайні задачі.",
@@ -49,7 +48,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="uk">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.png" />
       </head>
       <body
         className={`${MariupolBold.className} ${MariupolMedium.className} ${MariupolRegular.className}`}
