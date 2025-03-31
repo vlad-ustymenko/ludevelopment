@@ -44,24 +44,24 @@
   backdrop-filter: blur(10px);
   z-index: 2;
   color: white;
-  opacity: 1;
-  will-change: opacity;
+  /* opacity: 0; */
+  /* will-change: opacity; */
 }
 
 .title {
   font-family: "MariupolBold", sans-serif;
   font-size: 7vw;
   filter: drop-shadow(0px 0.5vw 0.5vw rgba(0, 0, 0, 0.5));
-  opacity: 1;
-  will-change: transform, opacity;
+  /* opacity: 0;
+  will-change: transform, opacity; */
 }
 
 .subtitle {
   font-family: "MariupolBold", sans-serif;
   font-size: 2.5vw;
   filter: drop-shadow(0px 0.5vw 0.5vw rgba(0, 0, 0, 0.5));
-  opacity: 1;
-  will-change: transform, opacity;
+  /* opacity: 0; */
+  /* will-change: transform, opacity; */
 }
 
 .subcontentWrapper {
@@ -75,16 +75,16 @@
 
 .subcontent {
   width: 100%;
-  opacity: 1;
-  will-change: transform, opacity;
+  /* opacity: 0; */
+  /* will-change: transform, opacity; */
 }
 
 .line {
   width: 4px;
   height: 6vw;
   background-color: white;
-  opacity: 1;
-  will-change: opacity;
+  /* opacity: 0; */
+  /* will-change: opacity; */
 }
 
 .subcontent:nth-child(3) {
@@ -114,8 +114,8 @@
   border-radius: 0.8vw;
   font-family: "MariupolMedium", sans-serif;
   font-size: 2.3vw;
-  opacity: 1;
-  will-change: transform, opacity;
+  /* opacity: 1; */
+  /* will-change: transform, opacity; */
 }
 
 .button:hover {
