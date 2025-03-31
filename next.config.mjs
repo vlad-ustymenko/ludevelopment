@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+
   async headers() {
     return [
       {
@@ -21,6 +22,12 @@ const nextConfig = {
       test: /\.svg$/,
       use: ["@svgr/webpack"],
     });
+    config.optimization.splitChunks = {
+      chunks: "all",
+      minSize: 30 * 1024,
+      maxSize: 256 * 1024,
+    };
+
     return config;
   },
 };
