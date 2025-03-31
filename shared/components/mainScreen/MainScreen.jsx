@@ -82,7 +82,7 @@ const MainScreen = () => {
                 ref={(el) => (subcontentRefs.current[0] = el)}
               >
                 <p className={styles.typeBuildText}>Комерційні</p>
-                <p className={styles.price}>від 250$/м2</p>
+                <p className={styles.price}>від 550$/м2</p>
               </div>
               <div className={styles.line} ref={lineRef}></div>
               <div
@@ -90,7 +90,7 @@ const MainScreen = () => {
                 ref={(el) => (subcontentRefs.current[1] = el)}
               >
                 <p className={styles.typeBuildText}>Житлові</p>
-                <p className={styles.price}>від 150$/м2</p>
+                <p className={styles.price}>від 350$/м2</p>
               </div>
             </div>
           </div>
