@@ -1,10 +1,15 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useMemo, useEffect } from "react";
 import IMask from "imask";
-import { Check } from "lucide-react";
+import {
+  Check,
+  Mail,
+  Phone,
+  CircleUserRound,
+  MessageCircleMore,
+} from "lucide-react";
 import { useModalContext } from "@/context/ModalContext";
 import { useForm, Controller } from "react-hook-form";
-import { Mail, Phone, CircleUserRound, MessageCircleMore } from "lucide-react";
 import styles from "./ContactsForm.module.css";
 
 const ContactsForm = () => {
@@ -23,10 +28,7 @@ const ContactsForm = () => {
 
   useEffect(() => {
     if (phoneInputRef.current) {
-      IMask(phoneInputRef.current, {
-        mask: "+38 (000) 000-00-00",
-        placeholder: "_",
-      });
+      IMask(phoneInputRef.current, { mask: "+38 (000) 000-00-00" });
     }
   }, []);
 
@@ -40,185 +42,114 @@ const ContactsForm = () => {
       setActiveModal(true);
       setLoading(true);
       setSending(true);
-      const formData = { ...data };
       const response = await fetch("/api/sendMail", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
 
       if (response.ok) {
         reset();
         setActiveCheckbox(false);
-        setLoading(false);
       } else {
         alert("Помилка при відправці форми.");
       }
     } catch (error) {
       console.error("Помилка:", error);
       alert("Щось пішло не так. Спробуйте пізніше.");
+    } finally {
       setLoading(false);
       setActiveModal(false);
-    } finally {
       setSending(false);
     }
   };
 
+  const formFields = useMemo(
+    () => [
+      {
+        name: "nameContact",
+        label: "Ім'я",
+        icon: CircleUserRound,
+        pattern: /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ' ]+$/,
+        error: "Введіть коректне ім'я",
+      },
+      {
+        name: "emailContact",
+        label: "Email",
+        icon: Mail,
+        pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        error: "Невірний формат email",
+      },
+      {
+        name: "phoneContact",
+        label: "Телефон",
+        icon: Phone,
+        ref: phoneInputRef,
+        pattern: /^\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
+        error: "Некоректний номер",
+      },
+    ],
+    []
+  );
+
   return (
-    <form className={styles.form}>
-      <div className={styles.formWrapper}>
-        <label htmlFor="contactName" className={styles.formLabel}>
-          Ім'я
-        </label>
-        <div className={styles.formInputWrapper}>
-          <Controller
-            name="name"
-            control={control}
-            defaultValue=""
-            rules={{ required: "*Це поле обов’язкове" }}
-            render={({ field }) => (
-              <>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      {formFields.map(({ name, label, icon: Icon, pattern, error, ref }) => (
+        <div key={name} className={styles.formWrapper}>
+          <label htmlFor={name} className={styles.formLabel}>
+            {label}
+          </label>
+          <div className={styles.formInputWrapper}>
+            <Controller
+              name={name}
+              control={control}
+              defaultValue=""
+              rules={{
+                required: `*Це поле обов’язкове`,
+                pattern: { value: pattern, message: error },
+              }}
+              render={({ field }) => (
                 <input
                   {...field}
+                  id={name}
+                  ref={ref}
                   className={styles.formInputField}
-                  id="contactName"
-                  autoComplete="name"
-                  placeholder="Ваше ім'я*"
-                  onChange={(e) => {
-                    const value = e.target.value.replace(
-                      /[^a-zA-Zа-яА-ЯіІїЇєЄґҐ' ]/g,
-                      ""
-                    );
-                    field.onChange(value);
-                  }}
+                  placeholder={`${label}*`}
                 />
-                {errors.name && (
-                  <span className={styles.requiredSpan}>
-                    {errors.name.message}
-                  </span>
-                )}
-              </>
+              )}
+            />
+            {errors[name] && (
+              <span className={styles.requiredSpan}>
+                {errors[name].message}
+              </span>
             )}
-          />
-          <CircleUserRound className={styles.formIcon} />
+            <Icon className={styles.formIcon} />
+          </div>
         </div>
-      </div>
+      ))}
 
       <div className={styles.formWrapper}>
-        <label htmlFor="contactEmail" className={styles.formLabel}>
-          Email
-        </label>
-        <div className={styles.formInputWrapper}>
-          <Controller
-            name="email"
-            control={control}
-            defaultValue=""
-            rules={{
-              required: "*Це поле обов’язкове",
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: "Невірний формат email",
-              },
-            }}
-            render={({ field }) => (
-              <>
-                <input
-                  className={styles.formInputField}
-                  {...field}
-                  id="contactEmail"
-                  autoComplete="email"
-                  placeholder="Ваш email*"
-                />
-                {errors.email && (
-                  <span className={styles.requiredSpan}>
-                    {errors.email.message}
-                  </span>
-                )}
-              </>
-            )}
-          />
-          <Mail className={styles.formIcon} />
-        </div>
-      </div>
-
-      <div className={styles.formWrapper}>
-        <label htmlFor="contactPhone" className={styles.formLabel}>
-          Телефон
-        </label>
-        <div className={styles.formInputWrapper}>
-          <Controller
-            name="phone"
-            control={control}
-            defaultValue=""
-            rules={{
-              required: "Це поле обов’язкове",
-              pattern: {
-                value: /^\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
-                message: "Некоректний номер",
-              },
-            }}
-            render={({ field }) => {
-              return (
-                <>
-                  <input
-                    {...field}
-                    id="contactPhone"
-                    className={styles.formInputField}
-                    type="tel"
-                    ref={phoneInputRef}
-                    autoComplete="tel"
-                    placeholder="Телефон* +38 "
-                    onChange={(e) => {
-                      field.onChange(e.target.value);
-                    }}
-                  />
-                  {errors.phone ? (
-                    <span className={styles.requiredSpan}>
-                      {errors.phone.message}
-                    </span>
-                  ) : null}
-                </>
-              );
-            }}
-          />
-          <Phone className={styles.formIcon} />
-        </div>
-      </div>
-
-      <div className={styles.formWrapper}>
-        <label htmlFor="contactMessage" className={styles.formLabel}>
+        <label htmlFor="commentContact" className={styles.formLabel}>
           Коментар
         </label>
         <div className={styles.formInputWrapper}>
           <Controller
-            name="comment"
+            name="commentContact"
             control={control}
             defaultValue=""
-            render={({ field }) => {
-              const handleChange = (e) => {
-                const value = e.target.value.replace(
-                  /[^a-zA-Zа-яА-Я0-9 *]/g,
-                  ""
-                );
-                field.onChange(value);
-              };
-
-              return (
-                <textarea
-                  {...field}
-                  id="contactMessage"
-                  className={styles.formInputField}
-                  placeholder="Коментар"
-                  onChange={handleChange}
-                />
-              );
-            }}
+            render={({ field }) => (
+              <textarea
+                {...field}
+                id="commentContact"
+                className={styles.formInputField}
+                placeholder="Коментар"
+              />
+            )}
           />
           <MessageCircleMore className={styles.formIcon} />
         </div>
       </div>
+
       <div className={styles.personalDataWrapper}>
         <div
           className={`${styles.personalDataCheckbox} ${
@@ -236,7 +167,7 @@ const ContactsForm = () => {
             checkboxRequire && styles.textRequire
           }`}
         >
-          Даю згоду на обробку
+          Даю згоду на обробку{" "}
           <a href="#" className={styles.personalDataLink}>
             персональних даних
           </a>
@@ -245,13 +176,10 @@ const ContactsForm = () => {
 
       <button
         aria-label="submit"
-        type="button"
+        type="submit"
         className={styles.formButton}
-        onClick={() => handleSubmit(onSubmit)()}
         disabled={sending}
-        style={{
-          backgroundColor: sending && "gray",
-        }}
+        style={{ backgroundColor: sending ? "gray" : "" }}
       >
         {sending ? "Відправка..." : "Замовити проект"}
       </button>
