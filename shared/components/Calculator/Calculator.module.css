@@ -58,7 +58,7 @@
   align-items: center;
 }
 
-.result {
+.cost {
   padding: 2vw 2vw 0 2vw;
   width: 30vw;
   background-color: var(--accent);
@@ -117,7 +117,7 @@
     display: flex;
     flex-direction: column;
   }
-  .result {
+  .cost {
     width: 100%;
     text-align: center;
     font-size: 5vw;
@@ -171,7 +171,7 @@
     display: flex;
     flex-direction: column;
   }
-  .result {
+  .cost {
     width: 100%;
     text-align: center;
     font-size: 10vw;
