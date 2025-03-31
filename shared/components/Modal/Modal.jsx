@@ -89,7 +89,7 @@ const Modal = () => {
 
               <li>
                 <a
-                  href="https://vm.tiktok.com/ZMeVgjmnL/"
+                  href="https://www.tiktok.com/@lineup_kyiv?_t=ZM-8v8hlarOFIU"
                   className={styles.socialLink}
                   target="_blank"
                   aria-label="tiktiok page"
