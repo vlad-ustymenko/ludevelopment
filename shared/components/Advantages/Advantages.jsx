@@ -12,13 +12,14 @@ const AdvantagesItem = [
     imageSrc: "/images/advantages/4.webp",
     text: "Швидку зміну проектних рішень та погодження у відповідних інстанціях ",
   },
-  {
-    imageSrc: "/images/advantages/6.webp",
-    text: "Експертну оцінку проектних рішень та надання рекомендацій",
-  },
+
   {
     imageSrc: "/images/advantages/3.webp",
     text: "Живучість об’єкту – захист об’єкту від уламків збитих дронів та ракет ",
+  },
+  {
+    imageSrc: "/images/advantages/6.webp",
+    text: "Експертну оцінку проектних рішень та надання рекомендацій",
   },
   {
     imageSrc: "/images/advantages/5.webp",
