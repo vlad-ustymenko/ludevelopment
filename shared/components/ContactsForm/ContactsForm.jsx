@@ -24,13 +24,22 @@ const ContactsForm = () => {
     handleSubmit,
     reset,
     formState: { errors },
+    setValue,
   } = useForm();
 
   useEffect(() => {
     if (phoneInputRef.current) {
-      IMask(phoneInputRef.current, { mask: "+38 (000) 000-00-00" });
+      const mask = IMask(phoneInputRef.current, {
+        mask: "+38 (000) 000-00-00",
+      });
+
+      mask.on("accept", () => {
+        setValue("phoneContact", mask.value, { shouldValidate: true });
+      });
+
+      return () => mask.destroy();
     }
-  }, []);
+  }, [setValue]);
 
   const onSubmit = async (data) => {
     if (!activeCheckbox) {
@@ -45,7 +54,12 @@ const ContactsForm = () => {
       const response = await fetch("/api/sendMail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          name: data.nameContact,
+          email: data.emailContact,
+          phone: data.phoneContact,
+          comment: data.commentContact,
+        }),
       });
 
       if (response.ok) {
@@ -59,7 +73,6 @@ const ContactsForm = () => {
       alert("Щось пішло не так. Спробуйте пізніше.");
     } finally {
       setLoading(false);
-      setActiveModal(false);
       setSending(false);
     }
   };

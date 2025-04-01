@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
-import { useForm, Controller, set } from "react-hook-form";
+import React, { useState, useEffect, useRef } from "react";
+import { useForm, Controller } from "react-hook-form";
 import { Check } from "lucide-react";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import IMask from "imask";
@@ -18,17 +18,23 @@ const Feedback = () => {
     control,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm();
 
   useEffect(() => {
     if (phoneInputRef.current) {
-      IMask(phoneInputRef.current, {
+      const mask = IMask(phoneInputRef.current, {
         mask: "+38 (000) 000-00-00",
-        placeholder: "_",
       });
+
+      mask.on("accept", () => {
+        setValue("phone", mask.value, { shouldValidate: true });
+      });
+
+      return () => mask.destroy();
     }
-  }, []);
+  }, [setValue]);
 
   const onSubmit = async (data) => {
     if (!activeCheckbox) {
@@ -36,17 +42,15 @@ const Feedback = () => {
       return;
     }
 
+    setActiveModal(true);
+    setLoading(true);
+    setSending(true);
+
     try {
-      setActiveModal(true);
-      setLoading(true);
-      setSending(true);
-      const formData = { ...data };
       const response = await fetch("/api/sendMail", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
 
       if (response.ok) {
@@ -59,12 +63,50 @@ const Feedback = () => {
     } catch (error) {
       console.error("Помилка:", error);
       alert("Щось пішло не так. Спробуйте пізніше.");
-      setLoading(false);
-      setActiveModal(false);
     } finally {
       setSending(false);
+      setLoading(false);
     }
   };
+
+  const fields = [
+    {
+      name: "name",
+      placeholder: "Ім’я*",
+      autoComplete: "name",
+      rules: { required: "*Це поле обов’язкове" },
+    },
+    {
+      name: "email",
+      placeholder: "Email*",
+      autoComplete: "email",
+      rules: {
+        required: "Невірний формат email",
+        pattern: {
+          value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+          message: "Невірний формат email",
+        },
+      },
+    },
+    {
+      name: "phone",
+      placeholder: "Телефон* +38",
+      autoComplete: "tel",
+      isPhone: true,
+      rules: {
+        required: "Некоректний номер",
+        pattern: {
+          value: /^\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
+          message: "Некоректний номер",
+        },
+      },
+    },
+    {
+      name: "comment",
+      placeholder: "Коментар",
+      autoComplete: "off",
+    },
+  ];
 
   return (
     <section id="feedback" className={styles.container}>
@@ -74,136 +116,34 @@ const Feedback = () => {
         color="var(--background)"
       />
       <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
-        <label className={styles.label}>
-          <Controller
-            name="name"
-            control={control}
-            defaultValue=""
-            rules={{ required: "*Це поле обов’язкове" }}
-            render={({ field }) => (
-              <>
-                <input
-                  {...field}
-                  className={`${styles.input} ${
-                    errors.name && styles.inputError
-                  }`}
-                  id="name"
-                  autoComplete="name"
-                  placeholder="Ім’я*"
-                  onChange={(e) => {
-                    const value = e.target.value.replace(
-                      /[^a-zA-Zа-яА-ЯіІїЇєЄґҐ' ]/g,
-                      ""
-                    );
-                    field.onChange(value);
-                  }}
-                />
-                {errors.name && (
-                  <span className={styles.requiredSpan}>
-                    {errors.name.message}
-                  </span>
-                )}
-              </>
-            )}
-          />
-        </label>
-        <label className={styles.label}>
-          <Controller
-            name="email"
-            control={control}
-            defaultValue=""
-            rules={{
-              required: "*Це поле обов’язкове",
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: "Невірний формат email",
-              },
-            }}
-            render={({ field }) => (
-              <>
-                <input
-                  className={`${styles.input} ${
-                    errors.email ? styles.inputError : ""
-                  }`}
-                  {...field}
-                  id="email"
-                  autoComplete="email"
-                  placeholder="Email*"
-                />
-                {errors.email && (
-                  <span className={styles.requiredSpan}>
-                    {errors.email.message}
-                  </span>
-                )}
-              </>
-            )}
-          />
-        </label>
-
-        <label className={styles.label}>
-          <Controller
-            name="phone"
-            control={control}
-            defaultValue=""
-            rules={{
-              required: "Це поле обов’язкове",
-              pattern: {
-                value: /^\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
-                message: "Некоректний номер",
-              },
-            }}
-            render={({ field }) => {
-              return (
+        {fields.map(({ name, placeholder, autoComplete, rules, isPhone }) => (
+          <label key={name} className={styles.label}>
+            <Controller
+              name={name}
+              control={control}
+              defaultValue=""
+              rules={rules}
+              render={({ field }) => (
                 <>
                   <input
                     {...field}
                     className={`${styles.input} ${
-                      errors.phone && styles.inputError
+                      errors[name] ? styles.inputError : ""
                     }`}
-                    type="tel"
-                    ref={phoneInputRef}
-                    autoComplete="tel"
-                    placeholder="Телефон* +38 "
-                    onChange={(e) => {
-                      field.onChange(e.target.value);
-                    }}
+                    placeholder={placeholder}
+                    autoComplete={autoComplete}
+                    ref={isPhone ? phoneInputRef : null}
                   />
-                  {errors.phone ? (
+                  {errors[name] && (
                     <span className={styles.requiredSpan}>
-                      {errors.phone.message}
+                      {errors[name].message}
                     </span>
-                  ) : null}
+                  )}
                 </>
-              );
-            }}
-          />
-        </label>
-
-        <label className={styles.label}>
-          <Controller
-            name="comment"
-            control={control}
-            defaultValue=""
-            render={({ field }) => {
-              const handleChange = (e) => {
-                const value = e.target.value.replace(
-                  /[^a-zA-Zа-яА-Я0-9 *]/g,
-                  ""
-                );
-                field.onChange(value);
-              };
-
-              return (
-                <input
-                  {...field}
-                  className={styles.input}
-                  placeholder="Коментар"
-                  onChange={handleChange}
-                />
-              );
-            }}
-          />
-        </label>
+              )}
+            />
+          </label>
+        ))}
       </form>
 
       <div className={styles.buttonWrapper}>
@@ -224,7 +164,7 @@ const Feedback = () => {
               checkboxRequire && styles.textRequire
             }`}
           >
-            Даю згоду на обробку
+            Даю згоду на обробку{" "}
             <a href="#" className={styles.personalDataLink}>
               персональних даних
             </a>
@@ -236,9 +176,7 @@ const Feedback = () => {
           className={styles.button}
           onClick={() => handleSubmit(onSubmit)()}
           disabled={sending}
-          style={{
-            backgroundColor: sending && "gray",
-          }}
+          style={{ backgroundColor: sending && "gray" }}
         >
           {sending ? "Відправка..." : "Замовити проект"}
         </button>
