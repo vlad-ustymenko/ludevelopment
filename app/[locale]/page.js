@@ -20,9 +20,8 @@ const Advantages = dynamic(() =>
 const Calculator = dynamic(() =>
   import("@/shared/components/Calculator/Calculator")
 );
-
-export default function Home({ params }) {
-  const { locale } = params;
+export default async function Home({ params }) {
+  const { locale } = await params;
 
   setRequestLocale(locale);
   return (
