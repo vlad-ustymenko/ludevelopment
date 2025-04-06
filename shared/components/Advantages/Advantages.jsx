@@ -34,12 +34,7 @@ const AdvantagesItem = [
 const Advantages = () => {
   return (
     <section className={styles.container} id="advantages">
-      <SectionTitle
-        title="Наші переваги"
-        number="02"
-        lineColor="var(--secondAccent)"
-        color="white"
-      />
+      <SectionTitle title="Наші переваги" number="02" blackBG />
       <div className={styles.contentWrapper}>
         <h2 className={styles.title}>Обираючи нас ви отримуєте</h2>
         <div className={styles.advantagesGrid}>

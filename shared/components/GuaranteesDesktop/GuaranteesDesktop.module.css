@@ -1,0 +1,70 @@
+.guaranteesContainer {
+  padding: var(--wrapperPadding);
+}
+
+.topBlocks {
+  border-bottom: 0.3vw solid var(--accent);
+}
+
+.topBlocks,
+.bottomBlocks {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.divader {
+  width: 0.3vw;
+  height: auto;
+  background-color: var(--accent);
+}
+
+.title {
+  font-family: MariupolBold, sans-serif;
+  font-size: 11vw;
+  line-height: 1;
+  color: #242424;
+}
+
+.subtitle {
+  font-family: MariupolMedium, sans-serif;
+  font-size: var(--background);
+  font-size: 2.5vw;
+}
+
+@media (width >= 768px) and (width <= 1024px) {
+  .guaranteesContainer {
+    display: none;
+  }
+
+  .guaranteesContainerMobile {
+    display: block;
+  }
+}
+
+@media (width <= 767px) {
+  .guarantees {
+    padding: 5vw;
+  }
+
+  .guaranteesContainer {
+    display: none;
+  }
+
+  .guaranteesContainerMobile {
+    display: block;
+  }
+
+  .topBlocks {
+    border-bottom: 0.8vw solid var(--accent);
+  }
+
+  .divader {
+    width: 0.8vw;
+  }
+
+  .flexBlock {
+    border-bottom: 0.8vw solid var(--accent);
+  }
+}

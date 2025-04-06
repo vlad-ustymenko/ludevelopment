@@ -2,23 +2,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #303030;
   padding: 2vw;
   border-radius: 1vw;
   color: white;
-  box-shadow: 10px 10px 40px hsla(0, 0%, 0%, 0.4);
+  background: #303030;
+  box-shadow: 10px 10px 40px hsl(0deg 0% 0% / 40%);
 }
 
 .formWrapper {
-  margin: 0 0 2vw 0;
   width: 100%;
+  margin: 0 0 2vw;
 }
 
 .formLabel {
   display: block;
+  margin: 0 0 1vw;
   font-size: 1.5vw;
   font-weight: 800;
-  margin: 0 0 1vw 0;
 }
 
 .formInputWrapper {
@@ -26,25 +26,26 @@
 }
 
 .formIcon {
-  position: absolute;
   width: 1.7vw;
   height: 1.7vw;
+  position: absolute;
   top: 0.7vw;
   left: 0.7vw;
-  color: hsl(0, 0%, 62%);
+  color: hsl(0deg 0% 62%);
 }
 
 .formInputField {
   width: 100%;
   padding: 0.7vw 0.7vw 0.7vw 3vw;
   border-radius: 1rem;
-  color: var(--secondAccent);
   font-size: 1.7vw;
+  color: var(--secondAccent);
   background: var(--background);
 }
+
 .formInputField:-webkit-autofill {
+  box-shadow: 0 0 0 1000px var(--background) inset !important;
   caret-color: var(--secondAccent);
-  box-shadow: 0 0 0px 1000px var(--background) inset !important;
   -webkit-text-fill-color: var(--secondAccent) !important;
 }
 
@@ -71,8 +72,8 @@ textarea.formInputField {
 
 .personalDataWrapper {
   display: flex;
-  align-items: center;
   flex: 1;
+  align-items: center;
   margin-bottom: 2vw;
 }
 
@@ -80,11 +81,11 @@ textarea.formInputField {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   min-width: 2vw;
   min-height: 2vw;
-  border: 0.2vw solid #c5c5c5;
   margin-right: 2vw;
+  border: 0.2vw solid #c5c5c5;
+  cursor: pointer;
 }
 
 .active {
@@ -93,11 +94,12 @@ textarea.formInputField {
 
 .requiredSpan {
   position: absolute;
-  bottom: -1.5vw;
   right: 0;
+  bottom: -1.5vw;
   font-size: 1.3vw;
   color: red;
 }
+
 .textRequire {
   color: red;
 }
@@ -108,6 +110,7 @@ textarea.formInputField {
   color: white;
   background-color: var(--secondAccent);
 }
+
 .checkboxRequire {
   border: 0.2vw solid red;
 }
@@ -117,154 +120,178 @@ textarea.formInputField {
 }
 
 .personalDataLink {
-  text-decoration: underline;
-  color: var(--secondAccent);
   margin-left: 0.7vw;
+  color: var(--secondAccent);
+  text-decoration: underline;
 }
 
 .formButton {
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
   padding: 2vw 3vw;
-  color: white;
-  background-color: var(--secondAccent);
   border: none;
   border-radius: 0.8vw;
-  font-family: "MariupolMedium", sans-serif;
+  font-family: MariupolMedium, sans-serif;
   font-size: 2.3vw;
+  color: white;
+  background-color: var(--secondAccent);
   opacity: 1;
   transition: all 0.3s ease;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .formButton:hover {
   background-color: #ffa32b;
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (width >= 768px) and (width <= 1024px) {
   .form {
     padding: 5vw;
     border-radius: 3vw;
   }
+
   .formWrapper {
-    margin: 0 0 6vw 0;
+    margin: 0 0 6vw;
   }
+
   .formLabel {
+    margin: 0 0 3vw;
     font-size: 4vw;
-    margin: 0 0 3vw 0;
   }
+
   .formIcon {
     width: 4vw;
     height: 4vw;
     top: 2vw;
     left: 2vw;
   }
+
   .formInputField {
     padding: 2vw 2vw 2vw 9vw;
     border-radius: 3vw;
     font-size: 4vw;
   }
+
   textarea.formInputField {
     height: 20vw;
   }
+
   .formButton {
     padding: 4vw 8vw;
     border-radius: 1.5vw;
     font-size: 4vw;
   }
+
   .personalDataWrapper {
     margin-bottom: 8vw;
   }
+
   .personalDataCheckbox {
-    position: relative;
-    cursor: pointer;
     min-width: 5vw;
     min-height: 5vw;
-    border: 0.5vw solid #c5c5c5;
     margin-right: 5vw;
+    border: 0.5vw solid #c5c5c5;
+    position: relative;
+    cursor: pointer;
   }
+
   .checked {
     width: 5vw;
     height: 5vw;
     color: white;
     background-color: var(--secondAccent);
   }
+
   .checkboxRequire {
     border: 0.5vw solid red;
   }
+
   .requiredSpan {
-    bottom: -5vw;
     right: 0;
+    bottom: -5vw;
     font-size: 4vw;
   }
 
   .active {
     border: none;
   }
+
   .personalDataText {
     font-size: 4vw;
   }
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .form {
     padding: 6vw;
     border-radius: 3vw;
   }
+
   .formWrapper {
-    margin: 0 0 6vw 0;
+    margin: 0 0 6vw;
   }
+
   .formLabel {
+    margin: 0 0 3vw;
     font-size: 4vw;
-    margin: 0 0 3vw 0;
   }
+
   .formIcon {
     width: 5vw;
     height: 5vw;
     top: 2vw;
     left: 2vw;
   }
+
   .formInputField {
     padding: 2vw 2vw 2vw 9vw;
     border-radius: 3vw;
     font-size: 6vw;
   }
+
   textarea.formInputField {
     height: clamp(50vw, 30vw, 90vw);
   }
+
   .formButton {
     padding: 5vw 10vw;
     border-radius: 1.5vw;
     font-size: 5vw;
   }
+
   .personalDataWrapper {
     margin-bottom: 8vw;
   }
+
   .personalDataCheckbox {
-    position: relative;
-    cursor: pointer;
     min-width: 5vw;
     min-height: 5vw;
-    border: 0.5vw solid #c5c5c5;
     margin-right: 5vw;
+    border: 0.5vw solid #c5c5c5;
+    position: relative;
+    cursor: pointer;
   }
+
   .checked {
     width: 5vw;
     height: 5vw;
     color: white;
     background-color: var(--secondAccent);
   }
+
   .checkboxRequire {
     border: 0.5vw solid red;
   }
+
   .requiredSpan {
-    bottom: -5vw;
     right: 0;
+    bottom: -5vw;
     font-size: 4vw;
   }
 
   .active {
     border: none;
   }
+
   .personalDataText {
     font-size: 4vw;
   }

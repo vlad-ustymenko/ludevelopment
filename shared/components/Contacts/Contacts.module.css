@@ -4,34 +4,36 @@
 
 .contacts {
   display: grid;
-  gap: 3vw;
   grid-template-columns: repeat(2, 1fr);
+  gap: 3vw;
   padding-top: var(--wrapperPadding);
 }
 
 .content {
-  color: white;
   position: relative;
+  color: white;
 }
+
 .title {
+  margin: 0 0 2.5vw;
   font-size: 2.5vw;
-  margin: 0px 0px 2.5vw 0px;
 }
 
 .contactsItems {
   display: flex;
-  margin: 0px 0px 2.5vw 0px;
+  margin: 0 0 2.5vw;
 }
 
 .contactsItemsWrapper {
-  font-style: normal;
+  margin: 0 0 0 1.7vw;
   font-size: 2vw;
-  margin: 0px 0px 0px 1.7vw;
+  font-style: normal;
 }
 
 .contactsItemsTitle {
-  margin: 0px 0px 1vw 0px;
+  margin: 0 0 1vw;
 }
+
 .contactsItemsSubtitle {
   font-size: 1.5vw;
   color: grey;
@@ -47,14 +49,15 @@
   padding: 0 0 0 3.5vw;
   list-style: none;
 }
+
 .socialLink {
-  color: black;
-  position: relative;
-  height: 3vw;
-  width: 3vw;
-  background: white;
-  border-radius: 50%;
   display: grid;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  position: relative;
+  color: black;
+  background: white;
   place-items: center;
 }
 
@@ -64,54 +67,65 @@
 
 .socialImage,
 .icon {
-  height: 2vw;
   width: 2vw;
+  height: 2vw;
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (width >= 768px) and (width <= 1024px) {
   .container {
     padding: 4vw;
   }
+
   .contacts {
     grid-template-columns: 1fr;
     padding-top: var(--wrapperPaddingMobile);
   }
+
   .title {
+    margin: 0 0 3vw;
     font-size: 4vw;
-    margin: 0px 0px 3vw 0px;
   }
+
   .contactsItems {
     display: flex;
-    margin: 0px 0px 3vw 0px;
+    margin: 0 0 3vw;
   }
+
   .contactsItems:nth-child(3) {
-    margin: 0px 0px 6vw 0px;
+    margin: 0 0 6vw;
   }
+
   .contactsItems:nth-child(4) {
-    margin: 0px 0px 6vw 0px;
+    margin: 0 0 6vw;
   }
 
   .contactsItemsWrapper {
+    margin: 0 0 0 4vw;
     font-size: 4vw;
-    margin: 0px 0px 0px 4vw;
   }
 
   .contactsItemsTitle {
-    margin: 0px 0px 2vw 0px;
+    margin: 0 0 2vw;
   }
+
   .contactsItemsSubtitle {
     font-size: 3.5vw;
   }
+
   .contactsItemsSubtitle:hover {
     color: grey;
   }
+
   .socialList {
+    justify-content: center;
     gap: 5vw;
-    padding: 0 0 0 3vw;
+    width: 100%;
+    padding: unset;
   }
+
   .socialLink {
-    height: 8vw;
     width: 8vw;
+    height: 8vw;
   }
 
   .socialLink:hover {
@@ -120,60 +134,66 @@
 
   .socialImage,
   .icon {
-    height: 4vw;
     width: 4vw;
-  }
-  .socialList {
-    width: 100%;
-    justify-content: center;
-    padding: unset;
+    height: 4vw;
   }
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .container {
     padding: 5vw;
   }
+
   .contacts {
     grid-template-columns: 1fr;
     padding-top: var(--wrapperPaddingMobile);
   }
+
   .title {
+    margin: 0 0 3vw;
     font-size: 5vw;
-    margin: 0px 0px 3vw 0px;
   }
+
   .contactsItems {
     display: flex;
-    margin: 0px 0px 3vw 0px;
+    margin: 0 0 3vw;
   }
+
   .contactsItems:nth-child(3) {
-    margin: 0px 0px 10vw 0px;
+    margin: 0 0 10vw;
   }
+
   .contactsItems:nth-child(4) {
-    margin: 0px 0px 10vw 0px;
+    margin: 0 0 10vw;
   }
 
   .contactsItemsWrapper {
+    margin: 0 0 0 4vw;
     font-size: 6vw;
-    margin: 0px 0px 0px 4vw;
   }
 
   .contactsItemsTitle {
-    margin: 0px 0px 2vw 0px;
+    margin: 0 0 2vw;
   }
+
   .contactsItemsSubtitle {
     font-size: 5vw;
   }
+
   .contactsItemsSubtitle:hover {
     color: grey;
   }
+
   .socialList {
+    justify-content: center;
     gap: 5vw;
-    padding: 0 0 0 3vw;
+    width: 100%;
+    padding: unset;
   }
+
   .socialLink {
-    height: 12vw;
     width: 12vw;
+    height: 12vw;
   }
 
   .socialLink:hover {
@@ -182,12 +202,7 @@
 
   .socialImage,
   .icon {
-    height: 7vw;
     width: 7vw;
-  }
-  .socialList {
-    width: 100%;
-    justify-content: center;
-    padding: unset;
+    height: 7vw;
   }
 }

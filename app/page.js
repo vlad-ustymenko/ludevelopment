@@ -1,8 +1,8 @@
 import Header from "@/shared/components/Header/Header";
 import MainScreen from "@/shared/components/MainScreen/MainScreen";
-import Menu from "@/shared/components/Menu/Menu";
 import dynamic from "next/dynamic";
 
+const Menu = dynamic(() => import("@/shared/components/Menu/Menu"));
 const Projects = dynamic(() => import("@/shared/components/Projects/Projects"));
 const Guarantees = dynamic(() =>
   import("@/shared/components/Guarantees/Guarantees")

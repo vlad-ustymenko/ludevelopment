@@ -1,59 +1,59 @@
 .container {
-  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100dvh;
   padding: 8vw;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: -1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: -1;
+  background-color: rgb(0 0 0 / 70%);
   opacity: 0;
   transition: all 0.3s ease;
 }
 
 .container.active {
-  opacity: 1;
   z-index: 100;
+  opacity: 1;
 }
 
 .contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4vw;
   width: fit-content;
   height: fit-content;
   padding: 4vw;
-  background-color: white;
   border-radius: 1.5vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 4vw;
   position: relative;
+  background-color: white;
 }
 
 .title {
-  text-align: center;
-  font-family: "MariupolBold", sans-serif;
+  font-family: MariupolBold, sans-serif;
   font-size: 4vw;
+  text-align: center;
 }
 
 .content {
-  text-align: center;
   font-size: 2vw;
   line-height: 1.2;
+  text-align: center;
 }
 
 .closeIcon {
-  -webkit-tap-highlight-color: transparent;
-  position: absolute;
   width: 5vw;
   height: 5vw;
+  padding: 0.5vw;
+  position: absolute;
   top: 0.5vw;
   right: 0.5vw;
   cursor: pointer;
-  padding: 0.5vw;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .loader {
@@ -65,10 +65,10 @@
 
 .loaderOuter,
 .loaderInner {
-  position: absolute;
   border-radius: 50%;
-  left: 50%;
+  position: absolute;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
@@ -76,18 +76,18 @@
   width: 100%;
   height: 100%;
   border: 0.5vw solid #6379d8;
-  border-left-color: transparent;
   border-bottom: none;
   animation: rotate 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+  border-left-color: transparent;
 }
 
 .loaderInner {
   width: 7vw;
   height: 7vw;
   border: 0.5vw solid var(--secondAccent);
-  border-top-color: transparent;
   border-right: none;
   animation: rotate-reverse 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+  border-top-color: transparent;
 }
 
 .socialWrapper {
@@ -98,28 +98,28 @@
 }
 
 .socialTitle {
-  font-family: "MariupolMedium", sans-serif;
+  font-family: MariupolMedium, sans-serif;
   font-size: 2vw;
 }
 
 .socialIcons {
   display: flex;
-  gap: 2vw;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 2vw;
 }
 
 .socialLink {
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 5vw;
   height: 5vw;
-  border-radius: 50%;
   padding: 0.5vw;
+  border-radius: 50%;
   background-color: var(--background);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .socialImage {
@@ -144,11 +144,12 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (width >= 768px) and (width <= 1024px) {
   .contentWrapper {
-    padding: 8vw;
     gap: 8vw;
+    padding: 8vw;
   }
+
   .title {
     font-size: 8vw;
   }
@@ -161,10 +162,11 @@
   .closeIcon {
     width: 8vw;
     height: 8vw;
+    padding: 0.1vw;
     top: 2vw;
     right: 2vw;
-    padding: 0.1vw;
   }
+
   .loader {
     width: 30vw;
     height: 30vw;
@@ -174,19 +176,20 @@
 
   .loaderOuter {
     border: 1.5vw solid #6379d8;
-    border-left-color: transparent;
     border-bottom: none;
     animation: rotate 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+    border-left-color: transparent;
   }
 
   .loaderInner {
     width: 23vw;
     height: 23vw;
     border: 1.5vw solid var(--secondAccent);
-    border-top-color: transparent;
     border-right: none;
     animation: rotate-reverse 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+    border-top-color: transparent;
   }
+
   .socialWrapper {
     gap: 5vw;
   }
@@ -210,11 +213,12 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .contentWrapper {
-    padding: 8vw;
     gap: 8vw;
+    padding: 8vw;
   }
+
   .title {
     font-size: 8vw;
   }
@@ -227,10 +231,11 @@
   .closeIcon {
     width: 8vw;
     height: 8vw;
+    padding: 0.1vw;
     top: 2vw;
     right: 2vw;
-    padding: 0.1vw;
   }
+
   .loader {
     width: 30vw;
     height: 30vw;
@@ -240,19 +245,20 @@
 
   .loaderOuter {
     border: 1.5vw solid #6379d8;
-    border-left-color: transparent;
     border-bottom: none;
     animation: rotate 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+    border-left-color: transparent;
   }
 
   .loaderInner {
     width: 23vw;
     height: 23vw;
     border: 1.5vw solid var(--secondAccent);
-    border-top-color: transparent;
     border-right: none;
     animation: rotate-reverse 1s cubic-bezier(0.15, 0.61, 0.58, 0.4) infinite;
+    border-top-color: transparent;
   }
+
   .socialWrapper {
     gap: 5vw;
   }

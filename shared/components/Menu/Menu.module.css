@@ -1,24 +1,24 @@
 .nav {
-  position: fixed;
-  background: var(--background);
-  top: 100%;
-  left: 0;
-  height: 100dvh;
-  width: 100%;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: 0.75s cubic-bezier(0.71, 0.01, 0.24, 0.99);
-  font-family: "MariupolMedium", sans-serif;
+  width: 100%;
+  height: 100dvh;
+  position: fixed;
+  top: 100%;
+  left: 0;
   z-index: 3;
+  font-family: MariupolMedium, sans-serif;
   color: white;
+  background: var(--background);
+  transition: 0.75s cubic-bezier(0.71, 0.01, 0.24, 0.99);
   overflow: hidden;
 }
 
 .navList {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -35,55 +35,60 @@
   transition-delay: 0s;
 }
 
+.navLink {
+  width: max-content;
+  position: relative;
+  font-size: 8vw;
+  animation: unset;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateY(50px);
+}
+
 .active .navLink {
-  transform: translateY(0);
   opacity: 1;
+  transform: translateY(0);
   transition-delay: 0.2s;
 }
 
-.navLink {
-  -webkit-tap-highlight-color: transparent;
-  position: relative;
-  width: max-content;
-  font-size: 8vw;
-  transform: translateY(50px);
-  animation: unset;
-}
-
 .telephone {
-  -webkit-tap-highlight-color: transparent;
-  font-size: 8vw;
   margin-bottom: 15vw;
+  font-size: 8vw;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (width >= 768px) and (width <= 1024px) {
   .nav {
     display: flex;
   }
+
   .navLink {
-    -webkit-tap-highlight-color: transparent;
-    position: relative;
     width: max-content;
+    position: relative;
     font-size: 6vw;
-    transform: translateY(50px);
     animation: unset;
+    -webkit-tap-highlight-color: transparent;
+    transform: translateY(50px);
   }
+
   .telephone {
-    font-size: 7vw;
     margin-bottom: 10vw;
+    font-size: 7vw;
   }
+
   .navList {
     gap: 5vw;
   }
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .nav {
     display: flex;
   }
+
   .telephone {
     margin-bottom: 20vw;
   }
+
   .navList {
     gap: 10vw;
   }

@@ -3,28 +3,45 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 0.3vw solid var(--accent);
+  color: var(--background);
+}
+
+.lineColor {
+  border-bottom: 0.3vw solid var(--secondAccent);
+  color: white;
 }
 
 .title,
 .number {
-  font-family: "MariupolBold", sans-serif;
+  font-family: MariupolBold, sans-serif;
   font-size: 4vw;
   line-height: 1.2;
 }
-@media (min-width: 768px) and (max-width: 1279px) {
+
+@media (width >= 768px) and (width <= 1024px) {
   .sectionTitle {
     border-bottom: 0.6vw solid var(--accent);
   }
+
+  .lineColor {
+    border-bottom: 0.6vw solid var(--secondAccent);
+  }
+
   .title,
   .number {
     font-size: 6vw;
   }
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .sectionTitle {
     border-bottom: 0.8vw solid var(--accent);
   }
+
+  .lineColor {
+    border-bottom: 0.8vw solid var(--secondAccent);
+  }
+
   .title,
   .number {
     font-size: 8vw;

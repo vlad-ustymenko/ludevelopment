@@ -1,0 +1,155 @@
+.sliderContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  margin: var(--wrapperPadding) 0;
+  overflow-x: hidden;
+}
+
+.projectsGallery {
+  display: flex;
+  gap: 1rem;
+  min-width: 100%;
+  height: 50vh;
+}
+
+.projectsCardGallery {
+  flex: 1;
+  border-radius: 1vw;
+  position: relative;
+  filter: grayscale(100%) contrast(1.2);
+  transition: all 0.5s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.projectsCard {
+  height: 50vh;
+  border-radius: 0.75rem;
+  position: relative;
+  filter: grayscale(100%) contrast(1.2);
+  transition: all 0.5s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.projectsCardGallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projectsCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projectsCardGallery:hover {
+  flex: 3;
+  z-index: 3;
+  filter: grayscale(0%) contrast(1);
+}
+
+.descriptionShadow {
+  width: 100%;
+  min-height: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(0 0 0 / 0%) 0%,
+    rgb(0 0 0 / 100%) 100%
+  );
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.descriptionWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  color: white;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.title {
+  font-family: MariupolBold, sans-serif;
+  font-size: 1.7vw;
+  line-height: 1.2;
+}
+
+.description {
+  font-family: MariupolRegular, sans-serif;
+  font-size: 1.2vw;
+}
+
+.projectsCardGallery:hover .descriptionShadow {
+  opacity: 1;
+}
+
+.projectsCardGallery:hover .descriptionWrapper {
+  bottom: 10px;
+  left: 10px;
+  opacity: 1;
+}
+
+.buttonsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.navButton {
+  display: grid;
+  padding: 0.5vw;
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  place-items: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dotList {
+  display: flex;
+  justify-content: center;
+  gap: 1.5vw;
+  list-style: none;
+}
+
+.dot {
+  width: 0.8vw;
+  height: 0.8vw;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.icon {
+  width: 3vw;
+  height: 3vw;
+}
+
+@media (width >= 768px) and (width <= 1024px) {
+  .sliderContainer {
+    display: none;
+  }
+
+  .buttonsWrapper {
+    display: none;
+  }
+}
+
+@media (width <= 767px) {
+  .sliderContainer {
+    display: none;
+  }
+
+  .buttonsWrapper {
+    display: none;
+  }
+}

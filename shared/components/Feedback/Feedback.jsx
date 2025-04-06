@@ -110,11 +110,7 @@ const Feedback = () => {
 
   return (
     <section id="feedback" className={styles.container}>
-      <SectionTitle
-        title="Зворотній зв'язок"
-        number="05"
-        color="var(--background)"
-      />
+      <SectionTitle title="Зворотній зв'язок" number="05" />
       <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
         {fields.map(({ name, placeholder, autoComplete, rules, isPhone }) => (
           <label key={name} className={styles.label}>

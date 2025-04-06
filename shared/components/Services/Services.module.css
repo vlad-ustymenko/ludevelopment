@@ -18,12 +18,13 @@
 }
 
 .title {
-  font-family: "MariupolMedium", sans-serif;
-  font-weight: 400;
-  font-size: 2.5vw;
-  line-height: 1;
   margin-bottom: 1vw;
+  font-family: MariupolMedium, sans-serif;
+  font-size: 2.5vw;
+  font-weight: 400;
+  line-height: 1;
 }
+
 .text {
   font-size: 1.5vw;
 }
@@ -32,21 +33,22 @@
   margin-top: 0.5vw;
   margin-left: 1vw;
 }
+
 .contentListItem p {
-  font-family: "MariupolMedium", sans-serif;
   position: relative;
+  font-family: MariupolMedium, sans-serif;
 }
 
-.contentListItem p:before {
-  content: "";
+.contentListItem p::before {
+  width: 0.5vw;
+  height: 0.5vw;
+  border-radius: 0.1vw;
   position: absolute;
   top: 50%;
   left: -1vw;
-  transform: translateY(-50%);
-  width: 0.5vw;
-  height: 0.5vw;
   background-color: var(--background);
-  border-radius: 0.1vw;
+  content: "";
+  transform: translateY(-50%);
 }
 
 .imageWrapper {
@@ -56,34 +58,37 @@
 }
 
 .image {
-  object-fit: cover;
   border-radius: 1vw;
+  object-fit: cover;
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (width >= 768px) and (width <= 1024px) {
   .servicesWrapper {
     flex-direction: column;
-    padding-top: 7vw;
     gap: 7vw;
+    padding-top: 7vw;
   }
+
   .servicesWrapper:nth-of-type(odd) {
     flex-direction: column-reverse;
   }
+
   .content {
     max-width: 100%;
   }
+
   .imageWrapper {
     min-height: 50vw;
   }
+
   .image {
     border-radius: 3vw;
   }
+
   .title {
     font-size: 5vw;
   }
-  .text {
-    font-size: 3vw;
-  }
+
   .text {
     font-size: 4vw;
   }
@@ -92,44 +97,52 @@
     margin-top: 6vw;
     margin-left: 3vw;
   }
+
   .contentListItem p {
-    font-family: "MariupolMedium", sans-serif;
     position: relative;
+    font-family: MariupolMedium, sans-serif;
   }
 
-  .contentListItem p:before {
-    top: 50%;
-    left: -3vw;
+  .contentListItem p::before {
     width: 2vw;
     height: 2vw;
     border-radius: 0.5vw;
+    top: 50%;
+    left: -3vw;
   }
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .container {
     padding: 5vw;
   }
+
   .servicesWrapper {
     flex-direction: column;
-    padding-top: var(--wrapperPaddingMobile);
     gap: var(--wrapperPaddingMobile);
+    padding-top: var(--wrapperPaddingMobile);
   }
+
   .servicesWrapper:nth-of-type(odd) {
     flex-direction: column-reverse;
   }
+
   .content {
     max-width: 100%;
   }
+
   .imageWrapper {
     min-height: 50vw;
   }
+
   .image {
     border-radius: 3vw;
   }
+
   .title {
     font-size: 4vw;
   }
+
   .text {
     font-size: 3vw;
   }
@@ -138,16 +151,17 @@
     margin-top: 6vw;
     margin-left: 3vw;
   }
+
   .contentListItem p {
-    font-family: "MariupolMedium", sans-serif;
     position: relative;
+    font-family: MariupolMedium, sans-serif;
   }
 
-  .contentListItem p:before {
-    top: 50%;
-    left: -3vw;
+  .contentListItem p::before {
     width: 2vw;
     height: 2vw;
     border-radius: 0.5vw;
+    top: 50%;
+    left: -3vw;
   }
 }

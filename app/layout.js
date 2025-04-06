@@ -1,6 +1,5 @@
 import localFont from "next/font/local";
 import { MenuProvider } from "@/context/MenuContext";
-import { ViewportWidthProvider } from "@/context/ViewportWidthContext";
 import { ModalProvider } from "@/context/ModalContext";
 
 import "./globals.css";
@@ -55,9 +54,7 @@ export default function RootLayout({ children }) {
         className={`${MariupolBold.className} ${MariupolMedium.className} ${MariupolRegular.className}`}
       >
         <ModalProvider>
-          <ViewportWidthProvider>
-            <MenuProvider>{children}</MenuProvider>
-          </ViewportWidthProvider>
+          <MenuProvider>{children}</MenuProvider>
         </ModalProvider>
       </body>
     </html>

@@ -1,48 +1,51 @@
 .container {
-  padding: 0.5vw 3.5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0.5vw 3.5vw;
   border-top: 0.3vw solid var(--accent);
 }
 
 .logo {
-  position: relative;
   width: 9vw;
   height: 4.3vw;
+  position: relative;
 }
 
 .copyright {
   font-size: 1.5vw;
-  color: hsl(0, 0%, 62%);
+  color: hsl(0deg 0% 62%);
 }
 
 .copyright span {
   color: var(--secondAccent);
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (width >= 768px) and (width <= 1024px) {
   .logo {
     width: 25vw;
     height: 12vw;
   }
+
   .copyright {
     font-size: 2.5vw;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (width <= 767px) {
   .container {
-    padding: 5vw;
     flex-direction: column;
     align-items: center;
     gap: 5vw;
+    padding: 5vw;
     border-top: 0.8vw solid var(--accent);
   }
+
   .logo {
     width: 25vw;
     height: 12vw;
   }
+
   .copyright {
     font-size: 3vw;
   }

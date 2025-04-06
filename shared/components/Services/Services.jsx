@@ -6,11 +6,7 @@ import styles from "./Services.module.css";
 const Services = () => {
   return (
     <section id="services" className={styles.container}>
-      <SectionTitle
-        title="Послуги"
-        number="07"
-        lineColor="var(--accent)"
-      ></SectionTitle>
+      <SectionTitle title="Послуги" number="07"/>
       <div className={styles.servicesWrapper}>
         <div className={styles.imageWrapper}>
           <Image

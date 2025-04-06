@@ -1,7 +1,7 @@
 .container {
   width: 100%;
-  background-color: #fdfbf8;
   padding: 3.5vw;
+  background-color: #fdfbf8;
 }
 
 .formWrapper {
@@ -12,25 +12,26 @@
 }
 
 .input {
-  font-family: "MariupolRegular", sans-serif;
   width: 100%;
-  font-size: 2vw;
-  border: none;
-  background-color: transparent;
-  border-bottom: 0.2vw solid var(--accent);
   padding: 0.6vw;
   margin-bottom: 1.5vw;
-  outline: none;
+  border: none;
+  border-bottom: 0.2vw solid var(--accent);
   position: relative;
+  font-family: MariupolRegular, sans-serif;
+  font-size: 2vw;
+  background-color: transparent;
+  outline: none;
 }
+
 .input:-webkit-autofill {
-  box-shadow: 0 0 0px 1000px #fcfbf7 inset !important; /* Білий фон */
+  box-shadow: 0 0 0 1000px #fcfbf7 inset !important; /* Білий фон */
   -webkit-text-fill-color: black !important; /* Колір тексту */
 }
 
 .label {
-  position: relative;
   flex: 1;
+  position: relative;
 }
 
 .inputError {
@@ -38,16 +39,16 @@
 }
 
 .requiredSpan {
+  width: 100%;
   position: absolute;
   bottom: -0.5vw;
   left: 0;
-  width: 100%;
   font-size: 1.3vw;
   color: red;
 }
 
 .input::placeholder {
-  font-family: "MariupolRegular", sans-serif;
+  font-family: MariupolRegular, sans-serif;
   font-size: 2vw;
 }
 
@@ -59,19 +60,19 @@
 
 .personalDataWrapper {
   display: flex;
-  align-items: center;
   flex: 1;
+  align-items: center;
 }
 
 .personalDataCheckbox {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   min-width: 2vw;
   min-height: 2vw;
-  border: 0.2vw solid #c5c5c5;
   margin-right: 2vw;
+  border: 0.2vw solid #c5c5c5;
+  cursor: pointer;
 }
 
 .active {
@@ -98,76 +99,87 @@
 }
 
 .personalDataLink {
-  text-decoration: underline;
-  color: var(--accent);
   margin-left: 0.7vw;
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 .button {
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
   padding: 2vw 3vw;
-  color: white;
-  background-color: var(--accent);
   border: none;
   border-radius: 0.8vw;
-  font-family: "MariupolMedium", sans-serif;
+  font-family: MariupolMedium, sans-serif;
   font-size: 2.3vw;
+  color: white;
+  background-color: var(--accent);
   transition: all 0.3s ease;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button:hover {
   background-color: #495ba3;
 }
-@media (min-width: 768px) and (max-width: 1279px) {
+
+@media (width >= 768px) and (width <= 1024px) {
   .formWrapper {
     grid-template-columns: repeat(2, 1fr);
     gap: 5vw;
   }
+
   .input {
     font-size: 3vw;
   }
+
   .input::placeholder {
     font-size: 3vw;
   }
+
   .personalDataCheckbox {
     min-width: 3vw;
     min-height: 3vw;
     border: 0.3vw solid #c5c5c5;
   }
+
   .checkboxRequire {
     border: 0.3vw solid red;
   }
+
   .checked {
     width: 3vw;
     height: 3vw;
     color: white;
     background-color: var(--accent);
   }
+
   .active {
     border: none;
   }
+
   .personalDataText {
     font-size: 2.2vw;
   }
+
   .requiredSpan {
     bottom: -1.5vw;
     left: 0;
     font-size: 2vw;
   }
+
   .button:hover {
     background-color: var(--accent);
   }
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .container {
     padding: 5vw;
   }
+
   .formWrapper {
     grid-template-columns: 1fr;
-    padding: var(--wrapperPaddingMobile) 0;
     gap: 10vw;
+    padding: var(--wrapperPaddingMobile) 0;
   }
 
   .personalDataCheckbox {
@@ -175,6 +187,7 @@
     min-height: 5vw;
     border: 0.5vw solid #c5c5c5;
   }
+
   .checked {
     width: 5vw;
     height: 5vw;
@@ -185,14 +198,16 @@
   .active {
     border: none;
   }
+
   .personalDataText {
     font-size: 4vw;
   }
 
   .input {
-    font-size: 4vw;
     border-bottom: 0.6vw solid var(--accent);
+    font-size: 4vw;
   }
+
   .input::placeholder {
     font-size: 1.2rem;
   }
@@ -202,20 +217,25 @@
     left: 0;
     font-size: 4vw;
   }
+
   .inputError {
     border-bottom: 0.6vw solid red;
   }
+
   .checkboxRequire {
     border: 0.5vw solid red;
   }
+
   .label {
     width: 100%;
   }
+
   .buttonWrapper {
     flex-direction: column;
-    padding: 0;
     gap: 2rem;
+    padding: 0;
   }
+
   .button {
     padding: 5vw 10vw;
     border-radius: 1.5vw;

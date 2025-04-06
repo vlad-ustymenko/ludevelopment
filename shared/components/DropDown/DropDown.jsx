@@ -3,14 +3,11 @@
 import React, { useState } from "react";
 import styles from "./DropDown.module.css";
 import Arrow from "../Arrow/Arrow";
-import { useViewportWidthContext } from "@/context/ViewportWidthContext";
 import useClickOutside from "@/hooks/useClickOutside";
 
 const DropDown = ({ list, title, selectTitle, onChange, small, big }) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(false);
-
-  const { viewportWidth } = useViewportWidthContext();
 
   const dropDownRef = useClickOutside(() => setOpen(false));
 
@@ -37,24 +34,9 @@ const DropDown = ({ list, title, selectTitle, onChange, small, big }) => {
       </div>
 
       <ul
-        className={styles.dropDownList}
-        style={{
-          height: open
-            ? big
-              ? viewportWidth > 1279
-                ? "16.6vw"
-                : viewportWidth > 767
-                ? "33vw"
-                : "55vw"
-              : small
-              ? viewportWidth > 1279
-                ? "7.5vw"
-                : viewportWidth > 767
-                ? "15vw"
-                : "25vw"
-              : "0"
-            : "0",
-        }}
+        className={`${styles.dropDownList} ${
+          open ? (big ? styles.openBig : small ? styles.openSmall : "") : ""
+        }`}
       >
         {list.map((item) => {
           return (

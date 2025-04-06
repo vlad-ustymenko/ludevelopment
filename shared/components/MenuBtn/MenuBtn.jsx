@@ -1,5 +1,5 @@
 import { useMenuContext } from "../../../context/MenuContext";
-
+import { memo } from "react";
 import styles from "./MenuBtn.module.css";
 
 const MenuBtn = () => {
@@ -20,4 +20,4 @@ const MenuBtn = () => {
   );
 };
 
-export default MenuBtn;
+export default memo(MenuBtn);

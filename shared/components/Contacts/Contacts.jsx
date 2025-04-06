@@ -1,5 +1,4 @@
 "use client";
-import { useMemo } from "react";
 import { MapPin, Mail, Phone } from "lucide-react";
 import ContactsForm from "../ContactsForm/ContactsForm";
 import SectionTitle from "../SectionTitle/SectionTitle";
@@ -9,12 +8,7 @@ import styles from "./Contacts.module.css";
 const Contacts = () => {
   return (
     <section id="contacts" className={styles.container}>
-      <SectionTitle
-        title="Контакти"
-        number="08"
-        color="white"
-        lineColor="var(--secondAccent)"
-      />
+      <SectionTitle title="Контакти" number="08" blackBG />
       <section className={styles.contacts}>
         <div className={styles.content}>
           <div className={styles.title}>

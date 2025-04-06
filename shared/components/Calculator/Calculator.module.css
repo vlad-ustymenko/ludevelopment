@@ -1,26 +1,27 @@
 .container {
-  background-color: white;
   padding: var(--wrapperPadding);
+  background-color: white;
 }
 
 .calculatorWrapper {
-  border: 2vw solid var(--accent);
   margin: var(--wrapperPadding) 0 0 0;
+  border: 2vw solid var(--accent);
   position: relative;
 }
+
 .calculatorTitle {
+  width: fit-content;
+  padding: 2vw;
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
-  font-family: "MariupolMedium", sans-serif;
+  font-family: MariupolMedium, sans-serif;
   font-size: 2.5vw;
-  white-space: nowrap;
-  width: fit-content;
-  text-align: center;
-  padding: 2vw;
-  background-color: var(--accent);
   color: white;
+  text-align: center;
+  background-color: var(--accent);
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 
 .bigDropDownsWrapper {
@@ -38,33 +39,32 @@
 .slidersWrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 5vw;
-  row-gap: 2vw;
-  padding: 3vw 3vw;
+  gap: 2vw 5vw;
+  padding: 3vw;
 }
 
 .dropDownsWrapper {
-  padding: 10vw 3vw 0 3vw;
+  padding: 10vw 3vw 0;
 }
 
 .sliderTitle {
-  font-family: "MariupolMedium", sans-serif;
+  font-family: MariupolMedium, sans-serif;
   font-size: 1.5vw;
 }
 
 .priceWrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .cost {
-  padding: 2vw 2vw 0 2vw;
   width: 30vw;
-  background-color: var(--accent);
-  color: white;
-  font-family: "MariupolBold", sans-serif;
+  padding: 2vw 2vw 0;
+  font-family: MariupolBold, sans-serif;
   font-size: 4vw;
+  color: white;
+  background-color: var(--accent);
 }
 
 .rateContentWrapper {
@@ -72,9 +72,9 @@
 }
 
 .rate {
-  font-family: "MariupolMedium", sans-serif;
-  font-size: 1.5vw;
   margin-bottom: 1vw;
+  font-family: MariupolMedium, sans-serif;
+  font-size: 1.5vw;
 }
 
 .rate span {
@@ -82,14 +82,15 @@
 }
 
 .rateText {
-  font-size: 1vw;
   position: relative;
+  font-size: 1vw;
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (width >= 768px) and (width <= 1024px) {
   .calculatorTitle {
     font-size: 4vw;
   }
+
   .bigDropDownsWrapper {
     grid-template-columns: 1fr;
     gap: 3vw;
@@ -101,35 +102,40 @@
     gap: 3vw;
     margin-bottom: 3vw;
   }
+
   .slidersWrapper {
     grid-template-columns: 1fr;
-    row-gap: 1vw;
     padding: 3vw;
+    row-gap: 1vw;
   }
+
   .dropDownsWrapper {
-    padding: 15vw 3vw 0 3vw;
+    padding: 15vw 3vw 0;
   }
 
   .sliderTitle {
     font-size: 3vw;
   }
+
   .priceWrapper {
     display: flex;
     flex-direction: column;
   }
+
   .cost {
     width: 100%;
-    text-align: center;
     font-size: 5vw;
+    text-align: center;
   }
+
   .rateContentWrapper {
     width: 100%;
-    padding: 0 3vw 3vw 3vw;
+    padding: 0 3vw 3vw;
   }
 
   .rate {
-    font-size: 3vw;
     margin-bottom: 3vw;
+    font-size: 3vw;
   }
 
   .rateText {
@@ -137,13 +143,15 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .container {
     padding: var(--wrapperPaddingMobile);
   }
+
   .calculatorTitle {
     font-size: 5vw;
   }
+
   .bigDropDownsWrapper {
     grid-template-columns: 1fr;
     gap: 7vw;
@@ -155,34 +163,39 @@
     gap: 7vw;
     margin-bottom: 7vw;
   }
+
   .slidersWrapper {
     grid-template-columns: 1fr;
-    row-gap: 2vw;
     padding: 5vw;
+    row-gap: 2vw;
   }
+
   .dropDownsWrapper {
-    padding: 15vw 5vw 0 5vw;
+    padding: 15vw 5vw 0;
   }
 
   .sliderTitle {
     font-size: 5vw;
   }
+
   .priceWrapper {
     display: flex;
     flex-direction: column;
   }
+
   .cost {
     width: 100%;
-    text-align: center;
     font-size: 10vw;
+    text-align: center;
   }
+
   .rateContentWrapper {
-    margin: 0 5vw 5vw 5vw;
+    margin: 0 5vw 5vw;
   }
 
   .rate {
-    font-size: 4vw;
     margin-bottom: 3vw;
+    font-size: 4vw;
   }
 
   .rateText {
