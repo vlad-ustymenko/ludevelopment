@@ -10,9 +10,11 @@ import {
 } from "lucide-react";
 import { useModalContext } from "@/context/ModalContext";
 import { useForm, Controller } from "react-hook-form";
+import { useTranslations } from "next-intl";
 import styles from "./ContactsForm.module.css";
 
 const ContactsForm = () => {
+  const t = useTranslations("Contacts.form");
   const [activeCheckbox, setActiveCheckbox] = useState(false);
   const [checkboxRequire, setCheckboxRequire] = useState(false);
   const [sending, setSending] = useState(false);
@@ -81,7 +83,7 @@ const ContactsForm = () => {
     () => [
       {
         name: "nameContact",
-        label: "Ім'я",
+        label: t("name"),
         icon: CircleUserRound,
         pattern: /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ' ]+$/,
         error: "Введіть коректне ім'я",
@@ -95,7 +97,7 @@ const ContactsForm = () => {
       },
       {
         name: "phoneContact",
-        label: "Телефон",
+        label: t("phone"),
         icon: Phone,
         ref: phoneInputRef,
         pattern: /^\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
@@ -143,7 +145,7 @@ const ContactsForm = () => {
 
       <div className={styles.formWrapper}>
         <label htmlFor="commentContact" className={styles.formLabel}>
-          Коментар
+          {t("comment")}
         </label>
         <div className={styles.formInputWrapper}>
           <Controller
@@ -155,7 +157,7 @@ const ContactsForm = () => {
                 {...field}
                 id="commentContact"
                 className={styles.formInputField}
-                placeholder="Коментар"
+                placeholder={t("comment")}
               />
             )}
           />
@@ -180,9 +182,9 @@ const ContactsForm = () => {
             checkboxRequire && styles.textRequire
           }`}
         >
-          Даю згоду на обробку{" "}
+          {t("checkbox")}
           <a href="#" className={styles.personalDataLink}>
-            персональних даних
+            {t("privacy")}
           </a>
         </p>
       </div>
@@ -194,7 +196,7 @@ const ContactsForm = () => {
         disabled={sending}
         style={{ backgroundColor: sending ? "gray" : "" }}
       >
-        {sending ? "Відправка..." : "Замовити проект"}
+        {sending ? t("sending") : t("button")}
       </button>
     </form>
   );

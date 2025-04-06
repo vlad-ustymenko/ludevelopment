@@ -3,9 +3,11 @@ import { useModalContext } from "@/context/ModalContext";
 import { useEffect } from "react";
 import { X } from "lucide-react";
 import useClickOutside from "@/hooks/useClickOutside";
+import { useTranslations } from "next-intl";
 import styles from "./Modal.module.css";
 
 const Modal = () => {
+  const t = useTranslations("Modal");
   const { activeModal, setActiveModal, loading } = useModalContext();
 
   useEffect(() => {
@@ -30,13 +32,13 @@ const Modal = () => {
         </div>
       ) : (
         <div className={styles.contentWrapper} ref={modalRef}>
-          <h2 className={styles.title}>Заявку надіслано</h2>
+          <h2 className={styles.title}>{t("title")}</h2>
           <p className={styles.content}>
-            Дякуємо Вам!
-            <br /> Найближчим часом наш менеджер зв'яжеться з Вами.
+            {t("thanks")}
+            <br /> {t("manage")}
           </p>
           <div className={styles.socialWrapper}>
-            <h3 className={styles.socialTitle}>Ми в соцмережах</h3>
+            <h3 className={styles.socialTitle}>{t("social")}</h3>
             <ul className={styles.socialIcons}>
               <li>
                 <a

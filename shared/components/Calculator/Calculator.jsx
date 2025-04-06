@@ -1,18 +1,22 @@
 "use client";
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState } from "react";
 import styles from "./Calculator.module.css";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import Slider from "../Slider/Slider";
-import useDollarRate from "../../../hooks/useDollarRate";
 import DropDown from "../DropDown/DropDown";
+import useDollarRate from "@/hooks/useDollarRate";
 import useBuildingCost from "@/hooks/useBuildingCost";
+import { useTranslations } from "next-intl";
 
 const Calculator = () => {
-  const [type, setType] = useState("Житлова");
-  const [wals, setWals] = useState("Цегла");
-  const [foundation, setFoundation] = useState("Плита");
-  const [roofing, setRoofing] = useState("Скатна");
-  const [facade, setFacade] = useState("Пінопласт");
+  const t = useTranslations("Calculator");
+  const tOption = useTranslations("Calculator.options");
+
+  const [type, setType] = useState("residential");
+  const [wals, setWals] = useState("brick");
+  const [foundation, setFoundation] = useState("slab");
+  const [roofing, setRoofing] = useState("gable");
+  const [facade, setFacade] = useState("foam");
   const [buildingWidth, setBuildingWidth] = useState(1);
   const [buildingLength, setBuildingLength] = useState(1);
   const [floorHeight, setFloorHeight] = useState(2);
@@ -20,55 +24,60 @@ const Calculator = () => {
   const { rate, rateError } = useDollarRate();
 
   const buildType = {
-    Житлова: 1,
-    Комерційна: 1.3,
-    "Не житлова": 0.8,
-    Промислова: 0.6,
-    Складська: 0.5,
+    residential: 1,
+    commercial: 1.3,
+    nonResidential: 0.8,
+    industrial: 0.6,
+    warehouse: 0.5,
   };
 
   const walsType = {
-    Цегла: 3900,
-    Газоблок: 2100,
-    Крамоблок: 3200,
-    Бетон: 2600,
-    "Цементно-піщаний блок": 1900,
+    brick: 3900,
+    gasBlock: 2100,
+    keramBlock: 3200,
+    concrete: 2600,
+    sandCement: 1900,
   };
 
   const foundationType = {
-    Стрічка: 4000,
-    Плита: 6000,
+    strip: 4000,
+    slab: 6000,
   };
 
   const roofingType = {
-    Скатна: 2800,
-    Плоска: 3500,
+    gable: 2800,
+    flat: 3500,
   };
 
   const facadeType = {
-    Пінопласт: 2000,
-    Мінвата: 3000,
+    foam: 2000,
+    mineralWool: 3000,
   };
 
-  const roofingList = ["Скатна", "Плоска"];
-  const foundationList = ["Плита", "Стрічка"];
-  const facadeList = ["Пінопласт", "Мінвата"];
+  const buildTypeList = Object.keys(buildType).map((key) => ({
+    label: tOption(key),
+    value: key,
+  }));
 
-  const walsList = [
-    "Цегла",
-    "Газоблок",
-    "Крамоблок",
-    "Бетон",
-    "Цементно-піщаний блок",
-  ];
+  const walsList = Object.keys(walsType).map((key) => ({
+    label: tOption(key),
+    value: key,
+  }));
 
-  const typeList = [
-    "Житлова",
-    "Комерційна",
-    "Не житлова",
-    "Промислова",
-    "Складська",
-  ];
+  const foundationList = Object.keys(foundationType).map((key) => ({
+    label: tOption(key),
+    value: key,
+  }));
+
+  const roofingList = Object.keys(roofingType).map((key) => ({
+    label: tOption(key),
+    value: key,
+  }));
+
+  const facadeList = Object.keys(facadeType).map((key) => ({
+    label: tOption(key),
+    value: key,
+  }));
 
   const cost = useBuildingCost({
     type,
@@ -86,25 +95,23 @@ const Calculator = () => {
 
   return (
     <section className={styles.container} id="prices">
-      <SectionTitle title="Ціни" number="03" />
+      <SectionTitle title={t("title")} number="03" />
 
       <div className={styles.calculatorWrapper}>
-        <div className={styles.calculatorTitle}>
-          Розрахунок вартості споруди
-        </div>
+        <div className={styles.calculatorTitle}>{t("calculatorTitle")}</div>
         <div className={styles.dropDownsWrapper}>
           <div className={styles.bigDropDownsWrapper}>
             <DropDown
-              list={typeList}
-              title="Тип споруди"
-              selectTitle={type}
+              list={buildTypeList}
+              title={t("type")}
+              selectTitle={tOption(type)}
               onChange={setType}
               big
             />
             <DropDown
               list={walsList}
-              title="Стіни"
-              selectTitle={wals}
+              title={t("walls")}
+              selectTitle={tOption(wals)}
               onChange={setWals}
               big
             />
@@ -112,22 +119,22 @@ const Calculator = () => {
           <div className={styles.smallDropDownsWrapper}>
             <DropDown
               list={foundationList}
-              title="Фундамент"
-              selectTitle={foundation}
+              title={t("foundation")}
+              selectTitle={tOption(foundation)}
               onChange={setFoundation}
               small
             />
             <DropDown
               list={roofingList}
-              title="Покрівля"
-              selectTitle={roofing}
+              title={t("roof")}
+              selectTitle={tOption(roofing)}
               onChange={setRoofing}
               small
             />
             <DropDown
               list={facadeList}
-              title="Фасад"
-              selectTitle={facade}
+              title={t("facade")}
+              selectTitle={tOption(facade)}
               onChange={setFacade}
               small
             />
@@ -136,7 +143,7 @@ const Calculator = () => {
         <div className={styles.slidersWrapper}>
           <div>
             <h3 className={styles.sliderTitle}>
-              Ширина будівлі: {buildingWidth} м.
+              {t("buildingWidth", { value: buildingWidth })}
             </h3>
             <Slider
               step={1}
@@ -144,12 +151,12 @@ const Calculator = () => {
               minValue={1}
               maxValue={100}
               setValue={setBuildingWidth}
-              ariaLabel="Ширина будівлі"
+              ariaLabel={t("buildingWidth", { value: buildingWidth })}
             />
           </div>
           <div>
             <h3 className={styles.sliderTitle}>
-              Довжина будівлі: {buildingLength} м.
+              {t("buildingLength", { value: buildingLength })}
             </h3>
             <Slider
               step={1}
@@ -157,12 +164,12 @@ const Calculator = () => {
               minValue={1}
               maxValue={100}
               setValue={setBuildingLength}
-              ariaLabel="Довжина будівлі"
+              ariaLabel={t("buildingLength", { value: buildingLength })}
             />
           </div>
           <div>
             <h3 className={styles.sliderTitle}>
-              Висота поверху: {floorHeight} м.
+              {t("floorHeight", { value: floorHeight })}
             </h3>
             <Slider
               step={0.1}
@@ -170,12 +177,12 @@ const Calculator = () => {
               minValue={2}
               maxValue={5}
               setValue={setFloorHeight}
-              ariaLabel="Висота поверху"
+              ariaLabel={t("floorHeight", { value: floorHeight })}
             />
           </div>
           <div>
             <h3 className={styles.sliderTitle}>
-              Кількість поверхів: {floorsCount}
+              {t("floorCount")}: {floorsCount}
             </h3>
             <Slider
               step={1}
@@ -183,7 +190,7 @@ const Calculator = () => {
               minValue={1}
               maxValue={9}
               setValue={setFloorsCount}
-              ariaLabel="Кількість поверхів"
+              ariaLabel={t("floorCount")}
             />
           </div>
         </div>
@@ -191,23 +198,30 @@ const Calculator = () => {
           <div className={styles.rateContentWrapper}>
             {rateError === "" ? (
               <div className={styles.rate}>
-                Курс $: {rate ? rate.toFixed(2) : "Завантаження..."}
-                {rate ? " грн" : ""}
+                {t("rateLabel")}
+                {rate
+                  ? `${rate.toFixed(2)} ${t("currency")}`
+                  : `${t("loading")}`}
               </div>
             ) : (
               <div className={styles.rate}>
-                Курс $: <span>{rateError}</span>
+                {t("rateLabel")} <span>{rateError}</span>
               </div>
             )}
             <div className={styles.rateText}>
-              Деякі параметри не враховуються в розрахунку.<br></br> Для
-              отримання точних даних рекомендуємо звернутися за консультацією.
+              {t("rateNote")
+                .split("\n")
+                .map((line, i) => (
+                  <p key={i}>{line}</p>
+                ))}
             </div>
           </div>
           {rateError === "" ? (
-            <div className={styles.cost}>{cost.toLocaleString("uk-UA")} $</div>
+            <div className={styles.cost}>
+              {t("cost", { value: cost.toLocaleString("uk-UA") })}
+            </div>
           ) : (
-            <div className={styles.cost}>0 $</div>
+            <div className={styles.cost}>{t("emptyCost")}</div>
           )}
         </div>
       </div>

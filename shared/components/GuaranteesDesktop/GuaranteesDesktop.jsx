@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 import styles from "./GuaranteesDesktop.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const GuaranteesDesktop = ({ containerRef }) => {
+  const t = useTranslations("Guarantees");
   const numberRefs = useRef([]);
 
   useEffect(() => {
@@ -46,7 +48,7 @@ const GuaranteesDesktop = ({ containerRef }) => {
             9
           </span>
           <span className={styles.title}>+</span>
-          <p className={styles.subtitle}>років на ринку</p>
+          <p className={styles.subtitle}>{t("years")}</p>
         </div>
         <div className={styles.divader}></div>
         <div className={styles.block2}>
@@ -57,7 +59,7 @@ const GuaranteesDesktop = ({ containerRef }) => {
           >
             550
           </p>
-          <p className={styles.subtitle}>виконаних проектів</p>
+          <p className={styles.subtitle}>{t("projects")}</p>
         </div>
 
         <div className={styles.divader}></div>
@@ -69,7 +71,7 @@ const GuaranteesDesktop = ({ containerRef }) => {
           >
             16
           </p>
-          <p className={styles.subtitle}>магазинів</p>
+          <p className={styles.subtitle}>{t("shops")}</p>
         </div>
       </div>
       <div className={styles.bottomBlocks}>
@@ -82,7 +84,7 @@ const GuaranteesDesktop = ({ containerRef }) => {
             99
           </span>
           <span className={styles.title}>%</span>
-          <p className={styles.subtitle}>задоволених клієнтів</p>
+          <p className={styles.subtitle}>{t("clients")}</p>
         </div>
         <div className={styles.divader}></div>
         <div className={styles.block5}>
@@ -93,13 +95,13 @@ const GuaranteesDesktop = ({ containerRef }) => {
           >
             85
           </p>
-          <p className={styles.subtitle}>будинків</p>
+          <p className={styles.subtitle}>{t("houses")}</p>
         </div>
         <div className={styles.divader}></div>
 
         <div className={styles.block6}>
           <p className={styles.title}>СС1</p>
-          <p className={styles.subtitle}>сертифікація</p>
+          <p className={styles.subtitle}>{t("certification")}</p>
         </div>
       </div>
     </div>

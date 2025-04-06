@@ -1,53 +1,55 @@
 import React from "react";
 import styles from "./Advantages.module.css";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const AdvantagesItem = [
   {
     imageSrc: "/images/advantages/2.webp",
-    text: "Виконання робіт згідно з ДБН та рекомендаціями ДСТУ",
+    key: "works",
   },
   {
     imageSrc: "/images/advantages/4.webp",
-    text: "Швидку зміну проектних рішень та погодження у відповідних інстанціях ",
+    key: "instances",
   },
 
   {
     imageSrc: "/images/advantages/3.webp",
-    text: "Живучість об’єкту – захист об’єкту від уламків збитих дронів та ракет ",
+    key: "protection",
   },
   {
     imageSrc: "/images/advantages/6.webp",
-    text: "Експертну оцінку проектних рішень та надання рекомендацій",
+    key: "experts",
   },
   {
     imageSrc: "/images/advantages/5.webp",
-    text: "Висококваліфікованих інженерів з багаторічним досвідом в будівництві",
+    key: "ingeners",
   },
   {
     imageSrc: "/images/advantages/1.webp",
-    text: "Використання передових технологій в будівництві",
+    key: "tecnologies",
   },
 ];
 
 const Advantages = () => {
+  const t = useTranslations("Benefits");
   return (
     <section className={styles.container} id="advantages">
-      <SectionTitle title="Наші переваги" number="02" blackBG />
+      <SectionTitle title={t("title")} number="02" blackBG />
       <div className={styles.contentWrapper}>
-        <h2 className={styles.title}>Обираючи нас ви отримуєте</h2>
+        <h2 className={styles.title}>{t("subtitle")}</h2>
         <div className={styles.advantagesGrid}>
           {AdvantagesItem.map((item) => (
-            <div key={item.text} className={styles.imageWrapper}>
+            <div key={item.key} className={styles.imageWrapper}>
               <Image
                 src={item.imageSrc}
                 alt="advantages"
                 fill
-                sizes="100vw"
+                sizes="100%"
                 className={styles.image}
-              />
-              <p className={styles.text}>{item.text}</p>
+              ></Image>
+              <p className={styles.text}>{t(`${item.key}`)}</p>
             </div>
           ))}
         </div>

@@ -5,9 +5,11 @@ import { Check } from "lucide-react";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import IMask from "imask";
 import { useModalContext } from "@/context/ModalContext";
+import { useTranslations } from "next-intl";
 import styles from "./Feedback.module.css";
 
 const Feedback = () => {
+  const t = useTranslations("Feedback");
   const [activeCheckbox, setActiveCheckbox] = useState(false);
   const [checkboxRequire, setCheckboxRequire] = useState(false);
   const [sending, setSending] = useState(false);
@@ -72,13 +74,13 @@ const Feedback = () => {
   const fields = [
     {
       name: "name",
-      placeholder: "Ім’я*",
+      placeholder: t("name"),
       autoComplete: "name",
       rules: { required: "*Це поле обов’язкове" },
     },
     {
       name: "email",
-      placeholder: "Email*",
+      placeholder: t("email"),
       autoComplete: "email",
       rules: {
         required: "Невірний формат email",
@@ -90,7 +92,7 @@ const Feedback = () => {
     },
     {
       name: "phone",
-      placeholder: "Телефон* +38",
+      placeholder: t("phone"),
       autoComplete: "tel",
       isPhone: true,
       rules: {
@@ -103,14 +105,14 @@ const Feedback = () => {
     },
     {
       name: "comment",
-      placeholder: "Коментар",
+      placeholder: t("comment"),
       autoComplete: "off",
     },
   ];
 
   return (
     <section id="feedback" className={styles.container}>
-      <SectionTitle title="Зворотній зв'язок" number="05" />
+      <SectionTitle title={t("title")} number="05" />
       <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
         {fields.map(({ name, placeholder, autoComplete, rules, isPhone }) => (
           <label key={name} className={styles.label}>
@@ -160,9 +162,9 @@ const Feedback = () => {
               checkboxRequire && styles.textRequire
             }`}
           >
-            Даю згоду на обробку{" "}
+            {t("checkbox")}
             <a href="#" className={styles.personalDataLink}>
-              персональних даних
+              {t("privacy")}
             </a>
           </p>
         </div>
@@ -174,7 +176,7 @@ const Feedback = () => {
           disabled={sending}
           style={{ backgroundColor: sending && "gray" }}
         >
-          {sending ? "Відправка..." : "Замовити проект"}
+          {sending ? t("sending") : t("button")}
         </button>
       </div>
     </section>

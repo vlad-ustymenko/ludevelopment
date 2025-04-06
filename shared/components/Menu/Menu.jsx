@@ -1,10 +1,11 @@
 "use client";
 import { useEffect } from "react";
 import { useMenuContext } from "../../../context/MenuContext";
-
+import { useTranslations } from "next-intl";
 import styles from "./Menu.module.css";
 
 const Menu = () => {
+  const t = useTranslations("Menu");
   const { activeMenu, setActiveMenu } = useMenuContext();
   useEffect(() => {
     if (activeMenu) {
@@ -19,37 +20,37 @@ const Menu = () => {
       <ul className={styles.navList}>
         <li onClick={() => setActiveMenu(false)}>
           <a href="#guarantees" className={styles.navLink}>
-            Гарантії
+            {t("guarantees")}
           </a>
         </li>
         <li onClick={() => setActiveMenu(false)}>
           <a href="#advantages" className={styles.navLink}>
-            Переваги
+            {t("benefits")}
           </a>
         </li>
         <li onClick={() => setActiveMenu(false)}>
           <a href="#prices" className={styles.navLink}>
-            Ціни
+            {t("prices")}
           </a>
         </li>
         <li onClick={() => setActiveMenu(false)}>
           <a href="#about" className={styles.navLink}>
-            Про нас
+            {t("about")}
           </a>
         </li>
         <li onClick={() => setActiveMenu(false)}>
           <a href="#projects" className={styles.navLink}>
-            Проекти
+            {t("projects")}
           </a>
         </li>
         <li onClick={() => setActiveMenu(false)}>
           <a href="#services" className={styles.navLink}>
-            Послуги
+            {t("services")}
           </a>
         </li>
         <li onClick={() => setActiveMenu(false)}>
           <a href="#contacts" className={styles.navLink}>
-            Контакти
+            {t("contacts")}
           </a>
         </li>
       </ul>

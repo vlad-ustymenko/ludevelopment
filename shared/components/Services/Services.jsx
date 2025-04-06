@@ -1,12 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import styles from "./Services.module.css";
 
 const Services = () => {
+  const t = useTranslations("Services");
   return (
     <section id="services" className={styles.container}>
-      <SectionTitle title="Послуги" number="07" />
+      <SectionTitle title={t("title")} number="07" />
       <div className={styles.servicesWrapper}>
         <div className={styles.imageWrapper}>
           <Image
@@ -14,36 +16,25 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100vw"
+            sizes="100%"
           />
         </div>
         <div className={styles.content}>
-          <h2 className={styles.title}>Девелопмент та інвестиційний аналіз</h2>
+          <h2 className={styles.title}>{t("devTitle")}</h2>
           <div className={styles.text}>
-            Ми проводимо глибокий аналіз ринку та оцінку інвестиційної
-            привабливості проєктів, допомагаючи ефективно планувати їх
-            реалізацію.
+            {t("devText")}
             <ul className={styles.contentList}>
               <li className={styles.contentListItem}>
-                <p>Аналіз ринку та вибір оптимальної локації:</p>
-                <span>
-                  Визначаємо перспективні місця для інвестування, враховуючи
-                  демографічні та економічні фактори.
-                </span>
+                <p>{t("devList.title1")}</p>
+                <span>{t("devList.description1")}</span>
               </li>
               <li className={styles.contentListItem}>
-                <p>Оцінка інвестиційної привабливості проєкту:</p>
-                <span>
-                  Аналізуємо фінансові ризики та прибутковість, щоб мінімізувати
-                  можливі втрати.
-                </span>
+                <p>{t("devList.title2")}</p>
+                <span>{t("devList.description2")}</span>
               </li>
               <li className={styles.contentListItem}>
-                <p>Розробка бізнес-плану та фінансової моделі:</p>
-                <span>
-                  Створюємо прогнози доходів, витрат і рентабельності для
-                  стратегічного розвитку.
-                </span>
+                <p>{t("devList.title3")}</p>
+                <span>{t("devList.description3")}</span>
               </li>
             </ul>
           </div>
@@ -51,31 +42,21 @@ const Services = () => {
       </div>
       <div className={styles.servicesWrapper}>
         <div className={styles.content}>
-          <h2 className={styles.title}>Проєктування та архітектура</h2>
+          <h2 className={styles.title}>{t("archTitle")}</h2>
           <div className={styles.text}>
-            Ми створюємо ефективні та естетичні рішення для будівництва,
-            поєднуючи функціональність, сучасні технології та естетику.
+            {t("archText")}
             <ul className={styles.contentList}>
               <li className={styles.contentListItem}>
-                <p>Концептуальне проєктування:</p>
-                <span>
-                  Розробляємо ідею майбутнього об’єкта, визначаючи його стиль,
-                  функціональність та відповідність потребам.
-                </span>
+                <p>{t("archList.title1")}</p>
+                <span>{t("archList.description1")}</span>
               </li>
               <li className={styles.contentListItem}>
-                <p>Архітектурне та інженерне проєктування:</p>
-                <span>
-                  Створюємо детальні креслення та технічну документацію для
-                  реалізації проєкту.
-                </span>
+                <p>{t("archList.title2")}</p>
+                <span>{t("archList.description2")}</span>
               </li>
               <li className={styles.contentListItem}>
-                <p>Дизайн інтер’єру та благоустрій територій:</p>
-                <span>
-                  Формуємо комфортний внутрішній простір і гармонійне зовнішнє
-                  середовище.
-                </span>
+                <p>{t("archList.title3")}</p>
+                <span>{t("archList.description3")}</span>
               </li>
             </ul>
           </div>
@@ -86,7 +67,7 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100vw"
+            sizes="100%"
           />
         </div>
       </div>
@@ -97,35 +78,25 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100vw"
+            sizes="100%"
           />
         </div>
         <div className={styles.content}>
-          <h2 className={styles.title}>Отримання дозвільної документації</h2>
+          <h2 className={styles.title}>{t("permitTitle")}</h2>
           <div className={styles.text}>
-            Забезпечуємо повний супровід у процесі оформлення необхідних
-            документів для реалізації будівельних проєктів.
+            {t("permitText")}
             <ul className={styles.contentList}>
               <li className={styles.contentListItem}>
-                <p>Узгодження містобудівних умов та обмежень:</p>
-                <span>
-                  Готуємо та подаємо документи для отримання містобудівних умов,
-                  відповідно до законодавчих норм.
-                </span>
+                <p>{t("permitList.title1")}</p>
+                <span>{t("permitList.description1")}</span>
               </li>
               <li className={styles.contentListItem}>
-                <p>Отримання дозволів на будівництво:</p>
-                <span>
-                  Супроводжуємо процес отримання всіх необхідних дозволів для
-                  початку будівельних робіт.
-                </span>
+                <p>{t("permitList.title2")}</p>
+                <span>{t("permitList.description2")}</span>
               </li>
               <li className={styles.contentListItem}>
-                <p>Взаємодія з державними органами:</p>
-                <span>
-                  Координуємо комунікацію з держструктурами для прискорення та
-                  спрощення бюрократичних процедур.
-                </span>
+                <p>{t("permitList.title3")}</p>
+                <span>{t("permitList.description3")}</span>
               </li>
             </ul>
           </div>
@@ -133,31 +104,21 @@ const Services = () => {
       </div>
       <div className={styles.servicesWrapper}>
         <div className={styles.content}>
-          <h2 className={styles.title}>Будівництво та генеральний підряд</h2>
+          <h2 className={styles.title}>{t("buildTitle")}</h2>
           <div className={styles.text}>
-            Забезпечуємо якісну та ефективну реалізацію будівельних проєктів на
-            всіх етапах.
+            {t("buildText")}
             <ul className={styles.contentList}>
               <li className={styles.contentListItem}>
-                <p>Управління будівельним процесом:</p>
-                <span>
-                  Організовуємо та контролюємо всі роботи для дотримання
-                  термінів і бюджету.
-                </span>
+                <p>{t("buildList.title1")}</p>
+                <span>{t("buildList.description1")}</span>
               </li>
               <li className={styles.contentListItem}>
-                <p>Контроль якості та відповідності проєкту:</p>
-                <span>
-                  Перевіряємо кожен етап будівництва на відповідність проєктній
-                  документації та стандартам.
-                </span>
+                <p>{t("buildList.title2")}</p>
+                <span>{t("buildList.description2")}</span>
               </li>
               <li className={styles.contentListItem}>
-                <p>Використання сучасних технологій і матеріалів:</p>
-                <span>
-                  Застосовуємо інноваційні рішення для підвищення довговічності
-                  та енергоефективності будівель.
-                </span>
+                <p>{t("buildList.title3")}</p>
+                <span>{t("buildList.description3")}</span>
               </li>
             </ul>
           </div>
@@ -168,7 +129,7 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100vw"
+            sizes="100%"
           />
         </div>
       </div>

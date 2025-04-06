@@ -1,11 +1,14 @@
+"use client";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 import styles from "./GuaranteesMobile.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const GuaranteesMobile = ({ containerRef }) => {
+  const t = useTranslations("Guarantees");
   const numberRefs = useRef([]);
 
   useEffect(() => {
@@ -46,7 +49,7 @@ const GuaranteesMobile = ({ containerRef }) => {
             9
           </span>
           <span className={styles.titleMobile}>+</span>
-          <p className={styles.subtitleMobile}>років на ринку</p>
+          <p className={styles.subtitleMobile}>{t("years")}</p>
         </div>
         <div className={styles.divader}></div>
         <div className={styles.blockMobile}>
@@ -57,7 +60,7 @@ const GuaranteesMobile = ({ containerRef }) => {
           >
             550
           </p>
-          <p className={styles.subtitleMobile}>виконаних проектів</p>
+          <p className={styles.subtitleMobile}>{t("projects")}</p>
         </div>
       </div>
       <div className={styles.flexBlock}>
@@ -70,7 +73,7 @@ const GuaranteesMobile = ({ containerRef }) => {
             99
           </span>
           <span className={styles.titleMobile}>%</span>
-          <p className={styles.subtitleMobile}>задоволених клієнтів</p>
+          <p className={styles.subtitleMobile}>{t("clients")}</p>
         </div>
         <div className={styles.divader}></div>
         <div className={styles.blockMobile}>
@@ -81,7 +84,7 @@ const GuaranteesMobile = ({ containerRef }) => {
           >
             16
           </p>
-          <p className={styles.subtitleMobile}>магазинів</p>
+          <p className={styles.subtitleMobile}>{t("shops")}</p>
         </div>
       </div>
       <div className={styles.flexBlock}>
@@ -93,12 +96,12 @@ const GuaranteesMobile = ({ containerRef }) => {
           >
             85
           </p>
-          <p className={styles.subtitleMobile}>будинків</p>
+          <p className={styles.subtitleMobile}>{t("houses")}</p>
         </div>
         <div className={styles.divader}></div>
         <div className={styles.blockMobile}>
           <p className={styles.titleMobile}>СС1</p>
-          <p className={styles.subtitleMobile}>сертифікація</p>
+          <p className={styles.subtitleMobile}>{t("certification")}</p>
         </div>
       </div>
     </div>

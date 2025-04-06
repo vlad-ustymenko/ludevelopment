@@ -36,6 +36,11 @@
     "manage": "Our manager will contact you shortly.",
     "social": "We are on social media"
   },
+  "NotFound": {
+    "title": "Page not found",
+    "text": "Sorry, the page you are looking for does not exist.",
+    "link": "Back to the main"
+  },
   "Guarantees": {
     "title": "Guarantees",
     "years": "years on the market",

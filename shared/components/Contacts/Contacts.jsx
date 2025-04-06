@@ -1,20 +1,18 @@
-"use client";
 import { MapPin, Mail, Phone } from "lucide-react";
 import ContactsForm from "../ContactsForm/ContactsForm";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import { socialLinks } from "../../../assets/socialLinks/socialLinks.js";
+import { useTranslations } from "next-intl";
 import styles from "./Contacts.module.css";
 
 const Contacts = () => {
+  const t = useTranslations("Contacts");
   return (
     <section id="contacts" className={styles.container}>
-      <SectionTitle title="Контакти" number="08" blackBG />
+      <SectionTitle title={t("title")} number="08" blackBG />
       <section className={styles.contacts}>
         <div className={styles.content}>
-          <div className={styles.title}>
-            Ми на зв’язку 12/7 з 9.00 до 21.00 по буднях та вихідних. Зв’яжіться
-            з нами і ми запропонуємо найкращі рішення за вашими бажаннями.
-          </div>
+          <div className={styles.title}>{t("subtitle")}</div>
 
           <ul className={styles.contactsList}>
             <li className={styles.contactsItems}>
@@ -22,13 +20,15 @@ const Contacts = () => {
                 <MapPin className={styles.icon} />
               </div>
               <address className={styles.contactsItemsWrapper}>
-                <h2 className={styles.contactsItemsTitle}>Адреса:</h2>
+                <h2 className={styles.contactsItemsTitle}>
+                  {t("addressTitle")}
+                </h2>
                 <a
                   href="https://maps.app.goo.gl/MSd2sphvoWWAEeDd7"
                   className={styles.contactsItemsSubtitle}
                   target="_blank"
                 >
-                  Київ , пр-т Лобановського, 4Ж, офіс 198
+                  {t("address")}
                 </a>
               </address>
             </li>
@@ -37,7 +37,7 @@ const Contacts = () => {
                 <Phone className={styles.icon} />
               </div>
               <div className={styles.contactsItemsWrapper}>
-                <h2 className={styles.contactsItemsTitle}>Телефон:</h2>
+                <h2 className={styles.contactsItemsTitle}>{t("phoneTitle")}</h2>
                 <a
                   href="tel:+380953195758"
                   className={styles.contactsItemsSubtitle}
