@@ -1,9 +1,12 @@
+import plugin from "next-intl/plugin";
+
+const withNextIntl = plugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-
   async headers() {
     return [
       {
@@ -32,4 +35,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

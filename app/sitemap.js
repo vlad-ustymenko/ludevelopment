@@ -1,14 +1,19 @@
 export const revalidate = 3600;
 
-export default async function sitemap() {
-  const baseUrl = "https://lineup.dev";
+const locales = ["uk", "en"];
+const baseUrl = "https://lineup.dev";
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date().toISOString(),
-      changeFrequency: "monthly",
-      priority: 1.0,
-    },
-  ];
+export default async function sitemap() {
+  const lastModified = new Date().toISOString();
+
+  return locales.map((locale) => ({
+    url: `${baseUrl}/${locale}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 1.0,
+    alternates: locales.map((altLocale) => ({
+      hreflang: altLocale,
+      href: `${baseUrl}/${altLocale}`,
+    })),
+  }));
 }

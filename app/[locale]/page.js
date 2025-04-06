@@ -1,6 +1,7 @@
 import Header from "@/shared/components/Header/Header";
 import MainScreen from "@/shared/components/MainScreen/MainScreen";
 import dynamic from "next/dynamic";
+import { setRequestLocale } from "next-intl/server";
 
 const Menu = dynamic(() => import("@/shared/components/Menu/Menu"));
 const Projects = dynamic(() => import("@/shared/components/Projects/Projects"));
@@ -20,7 +21,10 @@ const Calculator = dynamic(() =>
   import("@/shared/components/Calculator/Calculator")
 );
 
-export default function Home() {
+export default function Home({ params }) {
+  const { locale } = params;
+
+  setRequestLocale(locale);
   return (
     <>
       <Header />

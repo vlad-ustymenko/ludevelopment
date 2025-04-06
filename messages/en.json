@@ -1,0 +1,178 @@
+{
+  "Metadata": {
+    "title": "LineUP Development",
+    "description": "Studio Architecture",
+    "ogTitle": "LineUP Development",
+    "ogDescription": "Studio Architecture"
+  },
+  "MainScreen": {
+    "title": "Construction",
+    "subtitle": "of commercial buildings and houses",
+    "commercial": { "name": "Commercial", "price": "from 550$/m2" },
+    "houses": { "name": "Residential", "price": "from 350$/m2" },
+    "button": "Consultation"
+  },
+  "Header": {
+    "guarantees": "Guarantees",
+    "benefits": "Benefits",
+    "prices": "Prices",
+    "about": "About us",
+    "projects": "Projects",
+    "services": "Services",
+    "contacts": "Contacts"
+  },
+  "Menu": {
+    "guarantees": "Guarantees",
+    "benefits": "Benefits",
+    "prices": "Prices",
+    "about": "About us",
+    "projects": "Projects",
+    "services": "Services",
+    "contacts": "Contacts"
+  },
+  "Modal": {
+    "title": "The application has been sent",
+    "thanks": "Thank you!",
+    "manage": "Our manager will contact you shortly.",
+    "social": "We are on social media"
+  },
+  "Guarantees": {
+    "title": "Guarantees",
+    "years": "years on the market",
+    "projects": "completed projects",
+    "clients": "of satisfied customers",
+    "shops": "shops",
+    "houses": "houses",
+    "certification": "certification"
+  },
+  "Benefits": {
+    "title": "Our benefits",
+    "subtitle": "By choosing us you get",
+    "works": "Performance of work in accordance with SCS and DSTU recommendations",
+    "instances": "Quick change of design decisions and approvals in the relevant authorities",
+    "protection": "Object survivability - protection of the object from the debris of downed drones and missiles",
+    "experts": "Expert assessment of design solutions and provision of recommendations",
+    "ingeners": "Highly qualified engineers with many years of experience in construction",
+    "tecnologies": "The use of advanced technologies in construction"
+  },
+  "Calculator": {
+    "title": "Prices",
+    "calculatorTitle": "Construction Cost Calculator",
+    "type": "Type of construction",
+    "walls": "Walls",
+    "foundation": "Foundation",
+    "roof": "Roofing",
+    "facade": "Facade",
+    "buildingWidth": "Building Width {value} m.",
+    "buildingLength": "Building Length {value} m.",
+    "floorHeight": "Floor Height {value} m.",
+    "floorCount": "Number of Floors",
+    "rateLabel": "USD rate: ",
+    "error": "Retrieval error, refresh the page in 10 seconds.",
+    "loading": "Loading...",
+    "currency": "UAH",
+    "units": "m.",
+    "cost": "$ {value}",
+    "emptyCost": "$ 0",
+    "rateNote": "Some parameters are not included in the calculation.\nTo obtain accurate data, we recommend that youseek advice.",
+    "options": {
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "nonResidential": "Non-residential",
+      "industrial": "Industrial",
+      "warehouse": "Warehouse",
+      "brick": "Brick",
+      "gasBlock": "Gas block",
+      "keramBlock": "Ceramic block",
+      "concrete": "Concrete",
+      "sandCement": "Cement-sand block",
+      "strip": "Strip",
+      "slab": "Slab",
+      "gable": "Pitched",
+      "flat": "Flat",
+      "foam": "Foam",
+      "mineralWool": "Mineral wool"
+    }
+  },
+  "About": {
+    "title": "About us",
+    "description": "LineUp Development is a leading development company specialising in the construction and architectural design of modern residential and commercial properties. We combine advanced technologies, energy-efficient solutions and aesthetic design to create spaces for a comfortable life and successful business.",
+    "subtitle": "Our business areas:",
+    "development": "Development:",
+    "devText": "full cycle of project implementation - from concept to commissioning.",
+    "building": "Construction:",
+    "buildText": "using high-quality and reliable materials in combination with innovative technologies to ensure the durability, environmental friendliness and resilience of the building.",
+    "architecture": "Architecture and design:",
+    "archText": "development of unique architectural solutions that combine functionality, style and energy efficiency."
+  },
+  "Feedback": {
+    "title": "Contact us",
+    "name": "Name*",
+    "phone": "Phone* +38",
+    "email": "Email*",
+    "comment": "Comment",
+    "button": "Order a project",
+    "sending": "Sending...",
+    "checkbox": "I agree to the processing of",
+    "privacy": "my personal data"
+  },
+  "Services": {
+    "title": "Services",
+    "devTitle": "Development and investment analysis",
+    "devText": "We conduct in-depth market analysis and assess the investment attractiveness of projects, helping to plan their implementation effectively.",
+    "devList": {
+      "title1": "Market analysis and selection of the optimal location:",
+      "description1": "We identify promising locations for investment, taking into account demographic and economic factors.",
+      "title2": "Assessment of the project's investment attractiveness:",
+      "description2": "We analyse financial risks and profitability to minimise possible losses.",
+      "title3": "Development of a business plan and financial model:",
+      "description3": "We create forecasts of revenues, expenses, and profitability for strategic development."
+    },
+    "archTitle": "Engineering and architecture",
+    "archText": "We create efficient and aesthetic solutions for construction, combining functionality, modern technology and aesthetics.",
+    "archList": {
+      "title1": "Conceptual design:",
+      "description1": "We develop the idea of the future facility, determining its style, functionality and relevance to the needs.",
+      "title2": "Architectural and engineering design:",
+      "description2": "We create detailed drawings and technical documentation for project implementation.",
+      "title3": "Interior design and landscaping:",
+      "description3": "We create a comfortable interior space and a harmonious external environment."
+    },
+    "permitTitle": "Obtaining permits",
+    "permitText": "We provide full support in the process of obtaining the necessary documents for the implementation of construction projects.",
+    "permitList": {
+      "title1": "Approval of urban planning conditions and restrictions:",
+      "description1": "We prepare and submit documents for obtaining urban planning conditions in accordance with the law.",
+      "title2": "Obtaining construction permits:",
+      "description2": "We support the process of obtaining all necessary permits to start construction work.",
+      "title3": "Interaction with state authorities:",
+      "description3": "We coordinate communication with government agencies to speed up and simplify bureaucratic procedures."
+    },
+    "buildTitle": "Construction and general contracting",
+    "buildText": "We provide high-quality and efficient implementation of construction projects at all stages.",
+    "buildList": {
+      "title1": "Construction process management:",
+      "description1": "We organise and control all work to ensure that it stays on time and on budget.",
+      "title2": "Quality control and project compliance:",
+      "description2": "We check each stage of construction for compliance with project documentation and standards.",
+      "title3": "Use of modern technologies and materials:",
+      "description3": "We apply innovative solutions to improve the durability and energy efficiency of buildings"
+    }
+  },
+  "Contacts": {
+    "title": "Contact us",
+    "subtitle": "198We are available 12/7 from 9.00 to 21.00 at on weekdays and weekends. Contact us and we'll offer the best solutions for your needs.",
+    "addressTitle": "Address:",
+    "address": "Kyiv, Lobanovskyi Avenue, 4Zh, office 198We",
+    "phoneTitle": "Phone number:",
+    "form": {
+      "name": "Name",
+      "phone": "Phone",
+      "comment": "Comment",
+      "button": "Order a project",
+      "sending": "Sending...",
+      "checkbox": "I agree to the processing of",
+      "privacy": "my personal data"
+    }
+  }
+}

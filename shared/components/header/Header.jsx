@@ -4,9 +4,11 @@ import gsap from "gsap";
 import { useMenuContext } from "../../../context/MenuContext";
 import styles from "./Header.module.css";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import MenuBtn from "../MenuBtn/MenuBtn";
 
 const Header = () => {
+  const t = useTranslations("Header");
   const [isScrolled, setIsScrolled] = useState(false);
   const { activeMenu, setActiveMenu } = useMenuContext();
 
@@ -63,7 +65,7 @@ const Header = () => {
         <Image
           src="/logo.webp"
           fill
-          sizes="100vw"
+          sizes="100%"
           alt="Logo"
           priority
           className={styles.logoImage}
@@ -74,37 +76,37 @@ const Header = () => {
         <ul className={styles.navList} ref={navListRef}>
           <li>
             <a href="#guarantees" className={styles.navLink}>
-              Гарантії
+              {t("guarantees")}
             </a>
           </li>
           <li>
             <a href="#advantages" className={styles.navLink}>
-              Переваги
+              {t("benefits")}
             </a>
           </li>
           <li>
             <a href="#prices" className={styles.navLink}>
-              Ціни
+              {t("prices")}
             </a>
           </li>
           <li>
             <a href="#about" className={styles.navLink}>
-              Про нас
+              {t("about")}
             </a>
           </li>
           <li>
             <a href="#projects" className={styles.navLink}>
-              Проекти
+              {t("projects")}
             </a>
           </li>
           <li>
             <a href="#services" className={styles.navLink}>
-              Послуги
+              {t("services")}
             </a>
           </li>
           <li>
             <a href="#contacts" className={styles.navLink}>
-              Контакти
+              {t("contacts")}
             </a>
           </li>
         </ul>
