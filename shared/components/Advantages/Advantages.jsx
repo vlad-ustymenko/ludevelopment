@@ -44,9 +44,9 @@ const Advantages = () => {
                 src={item.imageSrc}
                 alt="advantages"
                 fill
-                sizes="100%"
+                sizes="100vw"
                 className={styles.image}
-              ></Image>
+              />
               <p className={styles.text}>{item.text}</p>
             </div>
           ))}

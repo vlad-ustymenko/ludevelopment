@@ -101,7 +101,7 @@ const ProjectsMobile = () => {
             >
               <Image
                 fill
-                sizes="100%"
+                sizes="100vw"
                 src={project.img}
                 alt={project.title}
                 loading="lazy"

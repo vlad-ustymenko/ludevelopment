@@ -40,7 +40,7 @@ const About = () => {
             alt="about"
             className={styles.image}
             fill
-            sizes="100%"
+            sizes="100vw"
           />
         </div>
       </div>

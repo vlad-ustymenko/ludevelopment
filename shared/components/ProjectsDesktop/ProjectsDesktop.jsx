@@ -11,7 +11,6 @@ import { ChevronRight, ChevronLeft } from "lucide-react";
 import projectsData from "@/assets/projectData/projects.json";
 import styles from "./ProjectsDesktop.module.css";
 
-
 const ProjectsDesktop = () => {
   const [index, setIndex] = useState(0);
   const [dotIndex, setDotIndex] = useState(0);
@@ -90,7 +89,7 @@ const ProjectsDesktop = () => {
           <div className={styles.projectsCard} style={{ minWidth: cardWidth }}>
             <Image
               fill
-              sizes="100%"
+              sizes="100vw"
               src={projectsData[index > 0 ? index - 1 : 0].img}
               alt={projectsData[index].title}
             />
@@ -112,7 +111,7 @@ const ProjectsDesktop = () => {
               >
                 <Image
                   fill
-                  sizes="100%"
+                  sizes="100vw"
                   src={project.img}
                   alt={project.title}
                 />
@@ -129,7 +128,7 @@ const ProjectsDesktop = () => {
           <div className={styles.projectsCard} style={{ minWidth: cardWidth }}>
             <Image
               fill
-              sizes="100%"
+              sizes="100vw"
               src={
                 projectsData[index > 5 ? projectsData.length - 1 : index + 6]
                   .img

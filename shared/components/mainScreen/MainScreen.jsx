@@ -18,7 +18,7 @@ const MainScreen = () => {
       <section className={styles.gradient} id="main">
         <Image
           fill
-          sizes="100%"
+          sizes="100vw"
           src="/images/mainScreen.webp"
           alt="main image"
           priority

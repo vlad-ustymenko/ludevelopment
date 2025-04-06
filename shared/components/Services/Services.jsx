@@ -6,7 +6,7 @@ import styles from "./Services.module.css";
 const Services = () => {
   return (
     <section id="services" className={styles.container}>
-      <SectionTitle title="Послуги" number="07"/>
+      <SectionTitle title="Послуги" number="07" />
       <div className={styles.servicesWrapper}>
         <div className={styles.imageWrapper}>
           <Image
@@ -14,7 +14,7 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100%"
+            sizes="100vw"
           />
         </div>
         <div className={styles.content}>
@@ -86,7 +86,7 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100%"
+            sizes="100vw"
           />
         </div>
       </div>
@@ -97,7 +97,7 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100%"
+            sizes="100vw"
           />
         </div>
         <div className={styles.content}>
@@ -168,7 +168,7 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100%"
+            sizes="100vw"
           />
         </div>
       </div>

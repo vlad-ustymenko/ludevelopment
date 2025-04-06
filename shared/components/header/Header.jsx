@@ -63,7 +63,7 @@ const Header = () => {
         <Image
           src="/logo.webp"
           fill
-          sizes="100%"
+          sizes="100vw"
           alt="Logo"
           priority
           className={styles.logoImage}
