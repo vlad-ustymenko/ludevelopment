@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import styles from "./not-found.module.css";
 
 export default function NotFound() {
@@ -7,9 +8,9 @@ export default function NotFound() {
     <main className={styles.main}>
       <h1 className={styles.title}>{t("title")}</h1>
       <p className={styles.text}>{t("text")}</p>
-      <a href="/" className={styles.link}>
+      <Link href="/" className={styles.link}>
         {t("link")}
-      </a>
+      </Link>
     </main>
   );
 }
