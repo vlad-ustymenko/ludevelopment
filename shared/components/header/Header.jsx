@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useMenuContext } from "../../../context/MenuContext";
 import styles from "./Header.module.css";
 import Image from "next/image";
@@ -111,6 +111,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      <LanguageSwitcher />
 
       <a href="tel:+38 (095) 319-57-58" className={styles.telephone}>
         +38 (095) 319-57-58
