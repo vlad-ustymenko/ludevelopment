@@ -68,8 +68,18 @@
             "font-size",
             "font-weight",
             "line-height",
-            "color",
-            "text-align"
+            "text-align",
+            "text-transform",
+            "text-decoration",
+            "letter-spacing",
+            "word-spacing",
+            "white-space",
+            "text-overflow",
+            "text-shadow",
+            "vertical-align",
+            "word-wrap",
+            "word-break",
+            "color"
           ]
         },
         {
