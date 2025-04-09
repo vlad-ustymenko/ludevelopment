@@ -99,13 +99,7 @@ const ProjectsMobile = () => {
               ref={cardMobileRef}
               className={styles.projectsCardGalleryMobile}
             >
-              <Image
-                fill
-                sizes="100vw"
-                src={project.img}
-                alt={project.title}
-                loading="lazy"
-              />
+              <Image fill sizes="100vw" src={project.img} alt={project.title} />
               <div className={styles.descriptionShadowMobile}>
                 <div className={styles.descriptionWrapperMobile}>
                   <p className={styles.titleMobile}>{project.title}</p>

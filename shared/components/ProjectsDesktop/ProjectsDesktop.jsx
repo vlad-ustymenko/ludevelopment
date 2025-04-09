@@ -89,7 +89,7 @@ const ProjectsDesktop = () => {
           <div className={styles.projectsCard} style={{ minWidth: cardWidth }}>
             <Image
               fill
-              sizes="100vw"
+              sizes="17vw"
               src={projectsData[index > 0 ? index - 1 : 0].img}
               alt={projectsData[index].title}
             />

@@ -11,7 +11,7 @@ const Footer = () => {
         <Image
           src="/logo.webp"
           fill
-          sizes="100%"
+          sizes="(max-width: 1023px) 25vw, 9vw"
           alt="Logo"
           className={styles.logoImage}
         />

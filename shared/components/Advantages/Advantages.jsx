@@ -46,7 +46,7 @@ const Advantages = () => {
                 src={item.imageSrc}
                 alt="advantages"
                 fill
-                sizes="100%"
+                sizes="(max-width: 768px) 100vw, (min-width: 768px) and (max-width: 1023px) 50vw, 33vw"
                 className={styles.image}
               ></Image>
               <p className={styles.text}>{t(`${item.key}`)}</p>

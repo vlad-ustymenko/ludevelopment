@@ -2,24 +2,18 @@ import Header from "@/shared/components/Header/Header";
 import MainScreen from "@/shared/components/MainScreen/MainScreen";
 import dynamic from "next/dynamic";
 import { setRequestLocale } from "next-intl/server";
-
+import Projects from "@/shared/components/Projects/Projects";
+import Guarantees from "@/shared/components/Guarantees/Guarantees";
+import About from "@/shared/components/About/About";
+import Feedback from "@/shared/components/Feedback/Feedback";
+import Footer from "@/shared/components/Footer/Footer";
+import Services from "@/shared/components/Services/Services";
+import Contacts from "@/shared/components/Contacts/Contacts";
+import Advantages from "@/shared/components/Advantages/Advantages";
+import Calculator from "@/shared/components/Calculator/Calculator";
 const Menu = dynamic(() => import("@/shared/components/Menu/Menu"));
-const Projects = dynamic(() => import("@/shared/components/Projects/Projects"));
-const Guarantees = dynamic(() =>
-  import("@/shared/components/Guarantees/Guarantees")
-);
-const About = dynamic(() => import("@/shared/components/About/About"));
-const Feedback = dynamic(() => import("@/shared/components/Feedback/Feedback"));
 const Modal = dynamic(() => import("@/shared/components/Modal/Modal"));
-const Footer = dynamic(() => import("@/shared/components/Footer/Footer"));
-const Services = dynamic(() => import("@/shared/components/Services/Services"));
-const Contacts = dynamic(() => import("@/shared/components/Contacts/Contacts"));
-const Advantages = dynamic(() =>
-  import("@/shared/components/Advantages/Advantages")
-);
-const Calculator = dynamic(() =>
-  import("@/shared/components/Calculator/Calculator")
-);
+
 export default async function Home({ params }) {
   const { locale } = await params;
 

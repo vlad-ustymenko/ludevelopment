@@ -16,7 +16,7 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100%"
+            sizes="(max-width: 1023px) 100vw, 50vw"
           />
         </div>
         <div className={styles.content}>
@@ -67,7 +67,7 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100%"
+            sizes="(max-width: 1023px) 100vw, 50vw"
           />
         </div>
       </div>
@@ -78,7 +78,7 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100%"
+            sizes="(max-width: 1023px) 100vw, 50vw"
           />
         </div>
         <div className={styles.content}>
@@ -129,7 +129,7 @@ const Services = () => {
             alt="services"
             className={styles.image}
             fill
-            sizes="100%"
+            sizes="(max-width: 1023px) 100vw, 50vw"
           />
         </div>
       </div>
