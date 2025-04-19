@@ -68,10 +68,11 @@ const ContactsForm = () => {
         reset();
         setActiveCheckbox(false);
       } else {
-        alert("Помилка при відправці форми.");
+        alert(t("error"));
+        setSending(false);
+        setLoading(false);
       }
     } catch (error) {
-      console.error("Помилка:", error);
       alert("Щось пішло не так. Спробуйте пізніше.");
     } finally {
       setLoading(false);
@@ -86,14 +87,14 @@ const ContactsForm = () => {
         label: t("name"),
         icon: CircleUserRound,
         pattern: /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ' ]+$/,
-        error: "Введіть коректне ім'я",
+        error: "",
       },
       {
         name: "emailContact",
         label: "Email",
         icon: Mail,
         pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-        error: "Невірний формат email",
+        error: t("emailFormat"),
       },
       {
         name: "phoneContact",
@@ -101,7 +102,7 @@ const ContactsForm = () => {
         icon: Phone,
         ref: phoneInputRef,
         pattern: /^\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
-        error: "Некоректний номер",
+        error: t("phoneFormat"),
       },
     ],
     []
@@ -120,7 +121,7 @@ const ContactsForm = () => {
               control={control}
               defaultValue=""
               rules={{
-                required: `*Це поле обов’язкове`,
+                required: t("required"),
                 pattern: { value: pattern, message: error },
               }}
               render={({ field }) => (
@@ -153,12 +154,26 @@ const ContactsForm = () => {
             control={control}
             defaultValue=""
             render={({ field }) => (
-              <textarea
-                {...field}
-                id="commentContact"
-                className={styles.formInputField}
-                placeholder={t("comment")}
-              />
+              <>
+                <textarea
+                  {...field}
+                  id="commentContact"
+                  className={styles.formInputField}
+                  placeholder={t("comment")}
+                  onChange={(e) => {
+                    const sanitizedValue = e.target.value.replace(
+                      /[^a-zA-Zа-яА-ЯіІїЇєЄґҐ0-9\s.,!*()?'"-]/g,
+                      ""
+                    );
+                    field.onChange(sanitizedValue);
+                  }}
+                />
+                {errors.commentContact && (
+                  <span className={styles.requiredSpan}>
+                    {errors.commentContact.message}
+                  </span>
+                )}
+              </>
             )}
           />
           <MessageCircleMore className={styles.formIcon} />

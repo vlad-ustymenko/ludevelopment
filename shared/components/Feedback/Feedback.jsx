@@ -60,10 +60,11 @@ const Feedback = () => {
         setActiveCheckbox(false);
         setLoading(false);
       } else {
-        alert("Помилка при відправці форми.");
+        alert(t("error"));
+        setSending(false);
+        setLoading(false);
       }
     } catch (error) {
-      console.error("Помилка:", error);
       alert("Щось пішло не так. Спробуйте пізніше.");
     } finally {
       setSending(false);
@@ -76,17 +77,17 @@ const Feedback = () => {
       name: "name",
       placeholder: t("name"),
       autoComplete: "name",
-      rules: { required: "*Це поле обов’язкове" },
+      rules: { required: t("required") },
     },
     {
       name: "email",
       placeholder: t("email"),
       autoComplete: "email",
       rules: {
-        required: "Невірний формат email",
+        required: t("required"),
         pattern: {
           value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-          message: "Невірний формат email",
+          message: t("emailFormat"),
         },
       },
     },
@@ -96,10 +97,10 @@ const Feedback = () => {
       autoComplete: "tel",
       isPhone: true,
       rules: {
-        required: "Некоректний номер",
+        required: t("required"),
         pattern: {
           value: /^\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
-          message: "Некоректний номер",
+          message: t("phoneFormat"),
         },
       },
     },
@@ -131,6 +132,17 @@ const Feedback = () => {
                     placeholder={placeholder}
                     autoComplete={autoComplete}
                     ref={isPhone ? phoneInputRef : null}
+                    onChange={(e) => {
+                      if (name === "comment") {
+                        const sanitizedValue = e.target.value.replace(
+                          /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ0-9\s.,!?()'"-]/g,
+                          ""
+                        );
+                        field.onChange(sanitizedValue);
+                      } else {
+                        field.onChange(e);
+                      }
+                    }}
                   />
                   {errors[name] && (
                     <span className={styles.requiredSpan}>
