@@ -1,9 +1,9 @@
 {
   "Metadata": {
-    "title": "LineUP Development",
-    "description": "Studio Architecture",
-    "ogTitle": "LineUP Development",
-    "ogDescription": "Studio Architecture"
+    "title": "LineUp Development - creating space for life and business",
+    "description": "Full-cycle development. Construction of residential and commercial facilities - from design to delivery. Reliability, control, results.",
+    "ogTitle": "LineUp Development - creating space for life and business",
+    "ogDescription": "Full-cycle development. Construction of residential and commercial facilities - from design to delivery. Reliability, control, results."
   },
   "MainScreen": {
     "title": "Construction",
@@ -119,7 +119,11 @@
     "button": "Order a project",
     "sending": "Sending...",
     "checkbox": "I agree to the processing of",
-    "privacy": "my personal data"
+    "privacy": "my personal data",
+    "error": "An error occurred while sending the form. Please try again later.",
+    "required": "*This field is required",
+    "emailFormat": "Incorrect email format",
+    "phoneFormat": "Incorrect phone number"
   },
   "Services": {
     "title": "Services",
@@ -166,9 +170,9 @@
   },
   "Contacts": {
     "title": "Contact us",
-    "subtitle": "198We are available 12/7 from 9.00 to 21.00 at on weekdays and weekends. Contact us and we'll offer the best solutions for your needs.",
+    "subtitle": "We are available 12/7 from 9.00 to 21.00 at on weekdays and weekends. Contact us and we'll offer the best solutions for your needs.",
     "addressTitle": "Address:",
-    "address": "Kyiv, Lobanovskyi Avenue, 4Zh, office 198We",
+    "address": "Kyiv, Lobanovskyi Avenue, 4Zh, office 198",
     "phoneTitle": "Phone number:",
     "form": {
       "name": "Name",
@@ -177,7 +181,11 @@
       "button": "Order a project",
       "sending": "Sending...",
       "checkbox": "I agree to the processing of",
-      "privacy": "my personal data"
+      "privacy": "my personal data",
+      "error": "An error occurred while sending the form. Please try again later.",
+      "required": "*This field is required",
+      "emailFormat": "Incorrect email format",
+      "phoneFormat": "Incorrect phone number"
     }
   }
 }
