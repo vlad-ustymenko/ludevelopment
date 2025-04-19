@@ -1,7 +1,6 @@
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -34,7 +33,7 @@ export const generateMetadata = async ({ params }) => {
   });
 
   return {
-    metadataBase: new URL("https://your-domain.com"),
+    metadataBase: new URL("https://building.lineup.in.ua"),
     title: t("title"),
     description: t("description"),
     openGraph: {
