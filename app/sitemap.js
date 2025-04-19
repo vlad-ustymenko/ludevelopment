@@ -1,7 +1,7 @@
 export const revalidate = 3600;
 
 const locales = ["uk", "en"];
-const baseUrl = "https://lineup.dev";
+const baseUrl = "https://building.lineup.in.ua";
 
 export default async function sitemap() {
   const lastModified = new Date().toISOString();
